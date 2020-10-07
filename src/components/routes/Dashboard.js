@@ -1,0 +1,84 @@
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import cage from "../../images/cage.jpg";
+import { Rating } from "semantic-ui-react";
+
+
+//CSS
+import "../../css/master.css";
+
+class Dashboard extends React.Component {
+  renderCardsList() {
+    const cardList = this.props.cardDetails.map((cardDetail) => {
+      return (
+        // --------------------------- C A R D S ---------------------------------------
+        <div className="card">
+          <div className="content">
+            <div className="ui grid ">
+              <div className="six wide column image">
+                <img className="right floated medium ui image" alt={cardDetail.title} src={cage}></img>
+              </div>
+              <div className="ten wide column">
+                <div className="">
+                  <h3>{cardDetail.title.toUpperCase()}</h3>
+                </div>
+                <div className="meta">{cardDetail.quantity}</div>
+                <div className="description">{cardDetail.description}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="extra ">
+            <Rating icon="star" defaultRating={3} maxRating={4} />
+            <div
+              className="ui heart rating"
+              data-rating="1"
+              data-max-rating="3"
+            ></div>
+
+            <span className="right floated ">
+              <Link to="/MenuSidebar/create/">
+                {cardDetail.expired === true ? (<i className="close icon red "></i>) : (<i className="check circle icon blue"></i>)}
+              </Link>
+              
+            </span>
+          </div>
+        </div>
+        //---------------------------------------------------------------------------
+      );
+    });
+    return cardList;
+  }
+  render() {
+    // console.log(this.props.cardDetails);
+    return (
+      <div className="dashboard ui grid">
+        <div className="row">
+          <div className="sixteen wide computer zero wide tablet column">
+            <div className="ui segment container row">
+              <p>
+                <strong>food facts</strong>
+                shishye is sad even though senpai made so much efforts to make
+                her happy and she is also not eating..... i wonder why she is
+                like that sometimes although i was thinking about owning a
+                skeleton and now i have one....
+                <br />
+              </p>
+            </div>
+            <div className="ui cards two stackable doubling container ">
+              {this.renderCardsList()}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+const mapStateToProp = (state) => {
+  return {
+    cardDetails: state.cardDetails,
+  };
+};
+
+export default connect(mapStateToProp)(Dashboard);

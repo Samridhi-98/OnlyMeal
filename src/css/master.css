@@ -1,0 +1,86 @@
+html,
+body {
+    /* background-color: darkseagreen; */
+    height: 100%;
+}
+/* ----------------------------------------- Main ------------------------------------------ */
+.main .parent {
+    padding-bottom: 0% !important;
+    /* background-color: darkseagreen; */
+}
+
+.main .root {
+    /* background-color: darkseagreen; */
+    height: 0% !important;
+    opacity: 1;
+    /* z-index: -1; */
+}
+
+.main .inner-root {
+    margin-top: 10%;
+    /* margin-bottom: auto; */
+
+    /* z-index: 1; */
+}
+
+.main .right {
+    float: right;
+}
+
+.main .ui.grid {
+    min-height: 100%;
+}
+
+.main .image {
+    width: 20%;
+}
+/* .signin{
+    color: #FE9A76;
+} */
+
+/* ----------------------------------------- Dashboard --------------------------------------- */
+/* to maintain the height of the card image */
+.dashboard{
+    margin-top: 2% !important;
+}
+.dashboard .image{ 
+    min-height: 100%;
+}
+.dashboard .container{
+    /* margin-bottom: 0; */
+}
+/* ------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------Menu Sidebar -------------------------------------- */
+.menusidebar{
+    margin:0!important;
+    will-change: auto!important;
+}
+.menusidebar .gridSidebar1{
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    padding-bottom: 0!important;
+}
+.menusidebar .gridSidebar2{
+    padding: 0%!important;
+    margin: 0!important;
+    
+}
+.menusidebar .gridSidebar2 .sidebar{
+    margin-left:0!important;
+}
+.menusidebar .navbar{
+    
+    border-radius: 0!important;
+}
+.menusidebar .gridSidebar2 .sidebar-item{
+    will-change: auto!important;
+    padding-top: 2.5%;
+}
+
+/* ---------------------------------------- Create Avail -------------------------------------- */
+.createAvail .segment{
+    margin-top: 5% !important;
+    margin-bottom: 0%;
+    /* padding-top: 2.5% !important; */
+}
