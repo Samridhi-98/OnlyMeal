@@ -1,11 +1,22 @@
-import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Form,Message } from 'semantic-ui-react';
 
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other' },
+import "../../css/master.css";
+
+const type = [
+  { key: 'v', text: 'Veg', value: 'veg' },
+  { key: 'nv', text: 'Non Veg', value: 'nonveg' }
 ]
+const category = [
+  { key: 'rw', text: 'Raw', value: 'raw' },
+  { key: 'ck', text: 'Cooked', value: 'cooked' }
+]
+const state = [
+  { key: 'dy', text: 'Dry', value: 'dry' },
+  { key: 'wt', text: 'Wet', value: 'wet' }
+]
+
+
 
 class CreateAvail extends Component {
   state = {}
@@ -15,42 +26,42 @@ class CreateAvail extends Component {
   render() {
     const { value } = this.state
     return (
-      <Form>
-        <Form.Group widths='equal'>
-          <Form.Input fluid label='First name' placeholder='First name' />
-          <Form.Input fluid label='Last name' placeholder='Last name' />
-          <Form.Select
-            fluid
-            label='Gender'
-            options={options}
-            placeholder='Gender'
-          />
-        </Form.Group>
-        <Form.Group inline>
-          <label>Size</label>
-          <Form.Radio
-            label='Small'
-            value='sm'
-            checked={value === 'sm'}
-            onChange={this.handleChange}
-          />
-          <Form.Radio
-            label='Medium'
-            value='md'
-            checked={value === 'md'}
-            onChange={this.handleChange}
-          />
-          <Form.Radio
-            label='Large'
-            value='lg'
-            checked={value === 'lg'}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.TextArea label='About' placeholder='Tell us more about you...' />
-        <Form.Checkbox label='I agree to the Terms and Conditions' />
-        <Form.Button>Submit</Form.Button>
-      </Form>
+      <div className="ui segment container createAvail">
+        <Message
+          warning
+          header='Please fill all the details carefully'
+        />
+        <Form>
+          <Form.Input required fluid label='Title' placeholder='Ex.Rajma Rice'/>
+          <h4 class="ui dividing header">Food Description</h4>
+
+          {/* -------------------------------- FOOD DESCRIPTION ---------------------------- */}
+          <Form.Group widths='equal'>
+            <Form.Select required fluid label='Type' options={type} placeholder='' />
+            <Form.Select required fluid label='Category'options={category} placeholder='' />
+            <Form.Select required fluid label='State' options={state} placeholder=''/>
+          </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Input required fluid label='Date' type="date"  />
+            <Form.Input required fluid label='Quantity' type='number' placeholder='in KG'/>
+            <Form.Input required fluid label='Other' type='text' placeholder='other details'/>
+          </Form.Group>
+          <Form.Input label='Image' type='file' placeholder='other details'/>
+          
+          <h4 class="ui dividing header">Contact Details</h4>
+          <Form.Group widths='equal'>
+            <Form.Input required fluid label='Phone No.' type="text"  />
+            <Form.Input required fluid label='Email' type='email' placeholder='something with @'/>
+          </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Input required fluid label='City' type="text" placeholder="Ex.Delhi" />
+            <Form.Input required fluid label='PIN Code' type='text' placeholder='Ex.110031'/>
+          </Form.Group>
+          <Form.TextArea required label='Address' placeholder='Enter full address' value="" />
+          <Form.Checkbox required label='I agree to the Terms and Conditions' />
+          <Form.Button>Submit</Form.Button>
+        </Form>
+      </div>
     )
   }
 }

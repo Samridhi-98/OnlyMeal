@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
           <div className="content">
             <div className="ui grid ">
               <div className="six wide column image">
-                <img className="right floated medium ui image" alt={cardDetail.title} src={cage}></img>
+                <img className="right floated large ui image" alt={cardDetail.title} src={cage}></img>
               </div>
               <div className="ten wide column">
                 <div className="">
@@ -53,12 +53,13 @@ class Dashboard extends React.Component {
   render() {
     // console.log(this.props.cardDetails);
     return (
-      <div className="dashboard ui grid">
+      <div className="dashboard ui grid container">
         <div className="row">
-          <div className="sixteen wide computer zero wide tablet column">
-            <div className="ui segment container row">
+          <div className="sixteen wide column content">
+            <div className="ui segment row facts">
+              <h1>food facts</h1>
               <p>
-                <strong>food facts</strong>
+                
                 shishye is sad even though senpai made so much efforts to make
                 her happy and she is also not eating..... i wonder why she is
                 like that sometimes although i was thinking about owning a

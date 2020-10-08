@@ -41,17 +41,30 @@ body {
 /* ----------------------------------------- Dashboard --------------------------------------- */
 /* to maintain the height of the card image */
 .dashboard{
-    margin-top: 2% !important;
+    /* margin-top: 5vh !important;
+    margin-left: 0vw!important; */
 }
 .dashboard .image{ 
     min-height: 100%;
+    
 }
 .dashboard .container{
+    /* min-height:60vh !important; */
+    min-width:50vh !important;
     /* margin-bottom: 0; */
+}
+.dashboard .facts{
+    margin-top: 10vh !important;
+    margin-bottom: 5vh !important;
+
+}
+.dashboard .content{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 /* ------------------------------------------------------------------------------------------- */
 
-/* ----------------------------------------Menu Sidebar -------------------------------------- */
+/* ----------------------------------------Menu Sidebar NOT-IN-USE -------------------------------------- */
 .menusidebar{
     margin:0!important;
     will-change: auto!important;
@@ -79,8 +92,19 @@ body {
 }
 
 /* ---------------------------------------- Create Avail -------------------------------------- */
-.createAvail .segment{
-    margin-top: 5% !important;
-    margin-bottom: 0%;
-    /* padding-top: 2.5% !important; */
+.createAvail{
+    /* margin-top: 5% !important; */
+    
+    margin-top: 15vh !important;
+    margin-bottom: 15vh !important;
+   
+
+    
+}
+/* ---------------------------------------- navbar-content -------------------------------------- */
+.navbar-content{
+    margin: 0!important;
+}
+.navbar-content .top-nav{
+    margin-bottom: 5%!important;
 }
