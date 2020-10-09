@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
               <Link to="/MenuSidebar/create/">
                 {cardDetail.expired === true ? (<i className="close icon red "></i>) : (<i className="check circle icon blue"></i>)}
               </Link>
-              
+
             </span>
           </div>
         </div>
@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
             <div className="ui segment row facts">
               <h1>food facts</h1>
               <p>
-                
+
                 shishye is sad even though senpai made so much efforts to make
                 her happy and she is also not eating..... i wonder why she is
                 like that sometimes although i was thinking about owning a

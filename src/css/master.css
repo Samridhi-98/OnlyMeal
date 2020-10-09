@@ -3,7 +3,10 @@ body {
     /* background-color: darkseagreen; */
     height: 100%;
 }
+
+
 /* ----------------------------------------- Main ------------------------------------------ */
+
 .main .parent {
     padding-bottom: 0% !important;
     /* background-color: darkseagreen; */
@@ -19,7 +22,6 @@ body {
 .main .inner-root {
     margin-top: 10%;
     /* margin-bottom: auto; */
-
     /* z-index: 1; */
 }
 
@@ -34,77 +36,100 @@ body {
 .main .image {
     width: 20%;
 }
+
+
 /* .signin{
     color: #FE9A76;
 } */
 
+
 /* ----------------------------------------- Dashboard --------------------------------------- */
+
+
 /* to maintain the height of the card image */
-.dashboard{
+
+.dashboard {
     /* margin-top: 5vh !important;
     margin-left: 0vw!important; */
 }
-.dashboard .image{ 
+
+.dashboard .image {
     min-height: 100%;
-    
 }
-.dashboard .container{
+
+.dashboard .container {
     /* min-height:60vh !important; */
-    min-width:50vh !important;
+    min-width: 50vh !important;
     /* margin-bottom: 0; */
 }
-.dashboard .facts{
+
+.dashboard .facts {
     margin-top: 10vh !important;
     margin-bottom: 5vh !important;
-
 }
-.dashboard .content{
+
+.dashboard .content {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
+
+
 /* ------------------------------------------------------------------------------------------- */
 
+
 /* ----------------------------------------Menu Sidebar NOT-IN-USE -------------------------------------- */
-.menusidebar{
-    margin:0!important;
-    will-change: auto!important;
+
+.menusidebar {
+    margin: 0 !important;
+    will-change: auto !important;
 }
-.menusidebar .gridSidebar1{
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    padding-bottom: 0!important;
+
+.menusidebar .gridSidebar1 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
-.menusidebar .gridSidebar2{
-    padding: 0%!important;
-    margin: 0!important;
-    
+
+.menusidebar .gridSidebar2 {
+    padding: 0% !important;
+    margin: 0 !important;
 }
-.menusidebar .gridSidebar2 .sidebar{
-    margin-left:0!important;
+
+.menusidebar .gridSidebar2 .sidebar {
+    margin-left: 0 !important;
 }
-.menusidebar .navbar{
-    
-    border-radius: 0!important;
+
+.menusidebar .navbar {
+    border-radius: 0 !important;
 }
-.menusidebar .gridSidebar2 .sidebar-item{
-    will-change: auto!important;
+
+.menusidebar .gridSidebar2 .sidebar-item {
+    will-change: auto !important;
     padding-top: 2.5%;
 }
 
+
 /* ---------------------------------------- Create Avail -------------------------------------- */
-.createAvail{
+
+.createAvail {
     /* margin-top: 5% !important; */
-    
     margin-top: 15vh !important;
     margin-bottom: 15vh !important;
-   
+}
 
-    
-}
+
 /* ---------------------------------------- navbar-content -------------------------------------- */
-.navbar-content{
-    margin: 0!important;
+
+.navbar-content {
+    margin: 0 !important;
 }
-.navbar-content .top-nav{
-    margin-bottom: 5%!important;
+
+.navbar-content .top-nav {
+    margin-bottom: 5% !important;
+}
+
+.navbar-content .logo {
+    margin-right: 2% !important;
+    align-items: center;
+    display: flexbox;
 }
