@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import cage from "../../images/cage.jpg";
+import cardImg from "../../images/minion_card.svg";
 import { Rating } from "semantic-ui-react";
 
 
@@ -15,9 +15,9 @@ class Dashboard extends React.Component {
         // --------------------------- C A R D S ---------------------------------------
         <div className="card">
           <div className="content">
-            <div className="ui grid ">
+            <div className="ui grid stackable doubling">
               <div className="six wide column image">
-                <img className="right floated large ui image" alt={cardDetail.title} src={cage}></img>
+                <img className="right floated large ui image" alt={cardDetail.title} src={cardImg}></img>
               </div>
               <div className="ten wide column">
                 <div className="">
@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
                 <br />
               </p>
             </div>
-            <div className="ui cards two stackable doubling container ">
+            <div className="ui cards two stackable doubling">
               {this.renderCardsList()}
             </div>
           </div>

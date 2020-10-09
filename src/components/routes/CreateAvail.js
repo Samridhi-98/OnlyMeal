@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Message, Image, Header } from 'semantic-ui-react';
 // Image
-import cat from "../../images/cat-sip.png";
-
+import minion_card from "../../images/minion_card.svg";
+// CSS
 import "../../css/master.css";
 
 const type = [
@@ -31,8 +31,8 @@ class CreateAvail extends Component {
       <div className="createAvail">
         <div>
           <Header as='h2' icon textAlign='center'>
-            <Image circular src={cat} />
-            <Header.Content>Food Info.</Header.Content>
+            <Image className="headerImg" src={minion_card}/>
+            <Header.Content>Food Details</Header.Content>
           </Header>
         </div>
 
@@ -70,7 +70,7 @@ class CreateAvail extends Component {
             </Form.Group>
             <Form.TextArea required label='Address' placeholder='Enter full address' value="" />
             <Form.Checkbox required label='I agree to the Terms and Conditions' />
-            <Form.Button>Submit</Form.Button>
+            <Form.Button color="violet">Submit</Form.Button>
           </Form>
         </div>
       </div>

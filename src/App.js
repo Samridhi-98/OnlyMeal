@@ -10,15 +10,27 @@ import "./css/master.css";
 import Dashboard from "./components/routes/Dashboard";
 
 // Images
-import logo from "../src/images/giphy.webp";
+import logo from "../src/images/logo1.svg";
 const App = () => {
   return (
     // ------------------------------------------------------------------------
     <BrowserRouter>
       <div className="navbar-content">
-        <div className="ui top fixed menu top-nav">
+        <div className="ui top fixed menu top-nav computer only" >
           <div className="item">
-            <img src={logo} alt="giphyNoddle" />
+            <img className="ui tiny image" src={logo} alt="only meal" />
+          </div>
+          <Link className="item" to="/dashboard">Home</Link>
+          <Link className="item" to="/create">Create</Link>
+          <Link className="item" to="/">Sign-out</Link>
+          {/* <div className="right menu logo">
+            <h4>OnlyMeal</h4>
+          </div> */}
+        </div>
+        {/* Top for phone */}
+        {/* <div className="ui top fixed menu top-nav computer only">
+          <div className="item">
+            <img className="ui tiny image" src={logo} alt="only meal" />
           </div>
           <Link className="item" to="/dashboard">Home</Link>
           <Link className="item" to="/create">Create</Link>
@@ -27,8 +39,8 @@ const App = () => {
             <h4>OnlyMeal</h4>
           </div>
         </div>
-
-        {/* <div className="ui bottom fixed menu">
+        
+        <div className="ui bottom fixed menu tablet only">
           <div className="item">
             <img src={logo}/>
           </div>

@@ -18,9 +18,11 @@ body {
     opacity: 1;
     /* z-index: -1; */
 }
-
+.main .sideImg{
+    margin-top: 12vh !important;
+}
 .main .inner-root {
-    margin-top: 10%;
+    margin-top: 12vh;
     /* margin-bottom: auto; */
     /* z-index: 1; */
 }
@@ -29,28 +31,41 @@ body {
     float: right;
 }
 
-.main .ui.grid {
+.main .ui .grid {
+    
     min-height: 100%;
 }
-
+.main .grid .row .segment{
+    margin-top: 5vh !important;
+}
 .main .image {
     width: 20%;
 }
+.main .formTitle{
+    font-size: medium;
+    /* margin-left: 0.5vw !important;
+    margin-top: 0.0vh !important; */
+    /* background-color: #645CEA !important; */
+}
 
-
-/* .signin{
-    color: #FE9A76;
-} */
-
+.main .signin{
+    color: white;
+    background-color: #E0321C;
+}
+.main .signin :hover{
+    color: white !important;
+    background-color: #d62f18 !important;
+}
 
 /* ----------------------------------------- Dashboard --------------------------------------- */
 
 
 /* to maintain the height of the card image */
-
-.dashboard {
-    /* margin-top: 5vh !important;
-    margin-left: 0vw!important; */
+.dashboard .cards .specialRow{
+    float: right !important;
+    right: 0% !important;
+    
+    
 }
 
 .dashboard .image {
@@ -64,7 +79,7 @@ body {
 }
 
 .dashboard .facts {
-    margin-top: 10vh !important;
+    margin-top: 15vh !important;
     margin-bottom: 5vh !important;
 }
 
@@ -116,7 +131,9 @@ body {
     margin-top: 15vh !important;
     margin-bottom: 15vh !important;
 }
-
+.createAvail .headerImg{
+    font-size: 200%!important;
+}
 
 /* ---------------------------------------- navbar-content -------------------------------------- */
 
@@ -133,3 +150,9 @@ body {
     align-items: center;
     display: flexbox;
 }
+
+/* @media screen and (min-width: 480px) {
+    body {
+      background-color: rgb(221, 209, 255);
+    }
+  } */
