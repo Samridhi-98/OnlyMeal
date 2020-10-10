@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 // routes
 import CreateAvail from "./components/routes/CreateAvail";
 import Main from "./components/routes/Main";
+import FoodInfo from "./components/routes/FoodInfo";
 
 //CSS
 import "./css/master.css";
@@ -59,6 +60,9 @@ const App = () => {
         </div>
         <div>
           <Route path="/create" component={CreateAvail} />
+        </div>
+        <div>
+          <Route path="/foodinfo" component={FoodInfo} />
         </div>
       </div>
 

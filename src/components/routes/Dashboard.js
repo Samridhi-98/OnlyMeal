@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import cardImg from "../../images/minion_card.svg";
 import { Rating } from "semantic-ui-react";
 
+// Image
+import cardImg from "../../images/minion_card.svg";
 
 //CSS
 import "../../css/master.css";
+import FoodInfo from "./FoodInfo";
 
 class Dashboard extends React.Component {
   renderCardsList() {
@@ -37,8 +39,8 @@ class Dashboard extends React.Component {
               data-max-rating="3"
             ></div>
 
-            <span className="right floated ">
-              <Link to="/MenuSidebar/create/">
+            <span className="right floated " onClick={<FoodInfo/>}>
+              <Link to="/foodinfo"> 
                 {cardDetail.expired === true ? (<i className="close icon red "></i>) : (<i className="check circle icon blue"></i>)}
               </Link>
 

@@ -156,3 +156,24 @@ body {
       background-color: rgb(221, 209, 255);
     }
   } */
+
+  /* ---------------------------------------- food-info -------------------------------------- */
+.foodinfo{
+    margin-top: 20vh !important;
+}
+.foodinfo .header{
+    font-size: large !important;
+}
+.foodinfo .subheader{
+    font-size: medium !important;
+}
+.foodinfo .description{
+    font-size: medium !important;
+}
+.foodinfo .headerImg{
+    font-size: 150%!important;
+}
+.foodinfo .title{
+    /* padding-top: 2vh !important; */
+    font-size: x-large !important;
+}
