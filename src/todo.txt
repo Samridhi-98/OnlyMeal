@@ -2,7 +2,7 @@
 -> improve Navbar for phone view(top(for logos) bottom(navigation) navbar in phone)
     -> adding text logo(aka onlymeal)
 ->Dashboard
-    ->change cards to item
+    ->make food facts
 ->food info
     ->add button 
     ->popup box 
