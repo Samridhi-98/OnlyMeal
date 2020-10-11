@@ -58,10 +58,15 @@ body {
 }
 
 /* ----------------------------------------- Dashboard --------------------------------------- */
-
-
+.dashboard{
+    margin-top: 15vh;
+}
+.dashboard .details{
+    margin-bottom: 2% !important;
+    /* min-width: 50% !important; */
+}
 /* to maintain the height of the card image */
-.dashboard .cards .specialRow{
+/* .dashboard .cards .specialRow{
     float: right !important;
     right: 0% !important;
     
@@ -73,9 +78,9 @@ body {
 }
 
 .dashboard .container {
-    /* min-height:60vh !important; */
+    min-height:60vh !important; 
     min-width: 50vh !important;
-    /* margin-bottom: 0; */
+    margin-bottom: 0;
 }
 
 .dashboard .facts {
@@ -86,7 +91,7 @@ body {
 .dashboard .content {
     margin-left: 0 !important;
     margin-right: 0 !important;
-}
+} */
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -177,3 +182,4 @@ body {
     /* padding-top: 2vh !important; */
     font-size: x-large !important;
 }
+
