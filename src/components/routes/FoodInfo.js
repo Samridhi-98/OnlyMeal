@@ -1,22 +1,22 @@
 import React from "react";
-import { Container,Header, Item, Segment,TextArea, Form,Button,Portal,TransitionablePortal } from "semantic-ui-react";
+import { Container, Header, Item, Segment, TextArea, Form, Button, TransitionablePortal } from "semantic-ui-react";
 
 // Image
 import minion_luv from "../../images/cage.jpg";
-import minion_graph from "../../images/minion_graph.svg";
-import sip from "../../images/sip.svg";
+
+
 
 // CSS
 import "../../css/master.css";
 
 class FoodInfo extends React.Component {
-  state = { animation: "zoom", duration: 500,open: false }
+  state = { animation: "zoom", duration: 500, open: false }
 
   handleClose = () => this.setState({ open: false })
   handleOpen = () => this.setState({ open: true })
 
   render = () => {
-    const { open,animation,duration } = this.state
+    const { open, animation, duration } = this.state
     return (
       <Container className="foodinfo">
         <div>
@@ -31,12 +31,9 @@ class FoodInfo extends React.Component {
               <Item.Image size="medium" src={minion_luv} />
 
               <Item.Content>
-                {/* <Item.Header className="header">Rajma Rice</Item.Header>
-                <br/>
-                <br/> */}
                 <Item.Description className="description">
                   <h2 className="ui dividing header">Food Descriptions</h2>
-                  
+
                   <p className="">
                     <strong>Type: </strong> Veg. &nbsp; &nbsp;
                     <strong>Category: </strong> Cooked &nbsp; &nbsp;
@@ -53,9 +50,9 @@ class FoodInfo extends React.Component {
                   <h2 className="ui dividing header">Contact Details</h2>
                   <p>
                     <strong>Phone No: </strong> 1234567890 &nbsp; &nbsp;
-                    <br/>
+                    <br />
                     <strong>Email: </strong> abcdef@gmail.com &nbsp; &nbsp;
-                    <br/>
+                    <br />
                     <strong>City: </strong> New Delhi  &nbsp; &nbsp;
                     <strong>PIN Code: </strong> 110031  &nbsp; &nbsp;
                     <br />
@@ -70,10 +67,10 @@ class FoodInfo extends React.Component {
 
             <Item>
               <Item.Content>
-              
+
                 <Item.Description>
-                    <h2 className="ui dividing header">Address</h2>
-                    {/* <Input 
+                  <h2 className="ui dividing header">Address</h2>
+                  {/* <Input 
                         fluid
                         
                         label={{ icon: 'home' }}
@@ -83,32 +80,32 @@ class FoodInfo extends React.Component {
                         value="542-1 Maekaizukachō
                         Funabashi, Chiba 273-0042 "
                     /> */}
-                    <Form>
-                        <TextArea
-                            value="542-1 Maekaizukachō 
+                  <Form>
+                    <TextArea
+                      value="542-1 Maekaizukachō 
                             Funabashi, Chiba 273-0042 "
-                        />
-                    </Form>
-                    
+                    />
+                  </Form>
+
                 </Item.Description>
-                
+
               </Item.Content>
             </Item>
             <Item>
               <Item.Content>
 
                 <Button
-                  content='Open Portal'
+                  content='Open Request'
                   disabled={open}
                   positive
                   onClick={this.handleOpen}
                 />
 
                 <TransitionablePortal onClose={this.handleClose} open={open} transition={{ animation, duration }}>
-                  <Segment className="chithi"
+                  <Segment
                     style={{
-                      left:'40vw',
-                      
+                      left: '40vw',
+
 
                       position: 'fixed',
                       top: '50%',
@@ -116,9 +113,9 @@ class FoodInfo extends React.Component {
                     }}
                   >
                     <Header>Your Referal Code: <em>12345</em> </Header>
-                    
+
                     <Button
-                      content='Close Portal'
+                      content='Close Request'
                       negative
                       onClick={this.handleClose}
                     />
@@ -129,7 +126,7 @@ class FoodInfo extends React.Component {
               </Item.Content>
             </Item>
           </Item.Group>
-          
+
         </Segment>
       </Container>
     );

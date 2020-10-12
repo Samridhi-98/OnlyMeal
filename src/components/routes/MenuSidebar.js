@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 // Route
 import Dashboard from "./Dashboard";
 import CreateAvail from "./CreateAvail";
-import Main from "./Main";
+
 //CSS
 import "../../css/master.css";
 
@@ -20,7 +20,7 @@ const MenuSidebar = () => {
     <div>
       {/* -------------------------------- ALWAYS SHOWN ON SCREEN------------------------------ */}
       <BrowserRouter>
-        
+
         <Grid columns={1} className="menusidebar">
           <Grid.Column className="gridSidebar1">
             {/* ------------------------------------M E N U ------------------------------------ */}

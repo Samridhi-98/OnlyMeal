@@ -17,7 +17,7 @@ const App = () => {
     // ------------------------------------------------------------------------
     <BrowserRouter>
       <div className="navbar-content">
-        <div className="ui top fixed menu top-nav computer only" >
+        <div className="ui top fixed compact menu top-nav computer only" >
           <div className="item">
             <img className="ui tiny image" src={logo} alt="only meal" />
           </div>

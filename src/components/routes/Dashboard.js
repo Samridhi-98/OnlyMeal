@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 
 // Semantic-ui react
-import { Item, Label, Segment, Container, Grid, Rating } from "semantic-ui-react";
+import { Item, Segment, Container, Grid, Rating } from "semantic-ui-react";
 // Image
 import cardImg from "../../images/minion_card.svg";
 
 //CSS
 import "../../css/master.css";
-import FoodInfo from "./FoodInfo";
+
 
 class Dashboard extends React.Component {
- 
+
   render() {
 
     const cardList = this.props.cardDetails.map((cardDetail) => {
@@ -31,6 +31,10 @@ class Dashboard extends React.Component {
                       {cardDetail.description}
                     </p>
                   </Item.Description>
+                  <Item.Extra>
+                    <Link className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Link>
+                    <Rating className="rating-star" icon='star' defaultRating={3} maxRating={5} />
+                  </Item.Extra>
                 </Item.Content>
               </Item>
             </Item.Group>
@@ -43,14 +47,14 @@ class Dashboard extends React.Component {
         <Container className="dashboard ">
           <Grid columns={2}>
             <Grid.Row className="ui stackable doubling">
-                {cardList}
+              {cardList}
             </Grid.Row>
-            
+
           </Grid>
-          
+
         </Container>
       </div>
-      
+
     );
   }
 }

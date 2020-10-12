@@ -18,9 +18,11 @@ body {
     opacity: 1;
     /* z-index: -1; */
 }
-.main .sideImg{
+
+.main .sideImg {
     margin-top: 12vh !important;
 }
+
 .main .inner-root {
     margin-top: 12vh;
     /* margin-bottom: auto; */
@@ -32,40 +34,55 @@ body {
 }
 
 .main .ui .grid {
-    
     min-height: 100%;
 }
-.main .grid .row .segment{
+
+.main .grid .row .segment {
     margin-top: 5vh !important;
 }
+
 .main .image {
     width: 20%;
 }
-.main .formTitle{
+
+.main .formTitle {
     font-size: medium;
     /* margin-left: 0.5vw !important;
     margin-top: 0.0vh !important; */
     /* background-color: #645CEA !important; */
 }
 
-.main .signin{
+.main .signin {
     color: white;
     background-color: #E0321C;
 }
-.main .signin :hover{
+
+.main .signin :hover {
     color: white !important;
     background-color: #d62f18 !important;
 }
 
+
 /* ----------------------------------------- Dashboard --------------------------------------- */
-.dashboard{
+
+.dashboard {
     margin-top: 15vh;
 }
-.dashboard .details{
+
+.dashboard .details {
     margin-bottom: 2% !important;
     /* min-width: 50% !important; */
 }
+
+.dashboard .rating-star {
+    float: right !important;
+    padding-top: 2% !important;
+}
+
+
 /* to maintain the height of the card image */
+
+
 /* .dashboard .cards .specialRow{
     float: right !important;
     right: 0% !important;
@@ -136,9 +153,11 @@ body {
     margin-top: 15vh !important;
     margin-bottom: 15vh !important;
 }
-.createAvail .headerImg{
-    font-size: 200%!important;
+
+.createAvail .headerImg {
+    font-size: 200% !important;
 }
+
 
 /* ---------------------------------------- navbar-content -------------------------------------- */
 
@@ -156,30 +175,37 @@ body {
     display: flexbox;
 }
 
+
 /* @media screen and (min-width: 480px) {
     body {
       background-color: rgb(221, 209, 255);
     }
   } */
 
-  /* ---------------------------------------- food-info -------------------------------------- */
-.foodinfo{
+
+/* ---------------------------------------- food-info -------------------------------------- */
+
+.foodinfo {
     margin-top: 20vh !important;
 }
-.foodinfo .header{
+
+.foodinfo .header {
     font-size: large !important;
 }
-.foodinfo .subheader{
+
+.foodinfo .subheader {
     font-size: medium !important;
 }
-.foodinfo .description{
+
+.foodinfo .description {
     font-size: medium !important;
 }
-.foodinfo .headerImg{
-    font-size: 150%!important;
+
+.foodinfo .headerImg {
+    font-size: 150% !important;
 }
-.foodinfo .title{
+
+.foodinfo .title {
     /* padding-top: 2vh !important; */
     font-size: x-large !important;
 }
-
