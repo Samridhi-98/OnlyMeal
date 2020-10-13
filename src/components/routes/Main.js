@@ -13,6 +13,13 @@ const Main = () => {
     return (
         <div className=" main root ">
             <div className="ui grid container">
+                {/* <div className="tablet only row formargin">
+                    <div className="sixteen wide tablet only column"></div>
+                    
+                </div>
+                <div className="tablet only row formargin">
+                    <div className="sixteen wide tablet only column"></div> 
+                </div> */}
                 <div className="row stackable doubling inner-root">
                     <div className="ten wide computer only column">
                         <div className="sideImg">

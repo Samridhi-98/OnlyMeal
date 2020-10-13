@@ -4,8 +4,9 @@
 ->Dashboard
     ->make food facts
 ->food info
-    ->add button 
-    ->popup box 
-
+    ->add button    !DONE
+    ->popup box     !Done 
+->Main
+    ->fix phone view top alignment
 ======================================= Back End ====================================    
 --> Ruko zara sabar karo tham jao jaldi kya hai ...
