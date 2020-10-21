@@ -63,6 +63,19 @@ body {
 }
 
 
+/* ----------------------------------------- Carousel Card --------------------------------------- */
+
+.carousel-card {
+    margin-bottom: 5vh !important;
+}
+
+.carousel-card .image {
+    width: 20% !important;
+    height: 10% !important;
+    display: -webkit-inline-box !important;
+}
+
+
 /* ----------------------------------------- Dashboard --------------------------------------- */
 
 .dashboard {
@@ -77,6 +90,10 @@ body {
 .dashboard .rating-star {
     float: right !important;
     padding-top: 2% !important;
+}
+
+.dashboard .facts {
+    height: 20vh !important;
 }
 
 

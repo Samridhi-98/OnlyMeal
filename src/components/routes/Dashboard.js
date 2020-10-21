@@ -2,8 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Carousel from "../../CarouselCard";
 
 // Semantic-ui react
+// import Carousel from "semantic-ui-carousel-react";
 import { Item, Segment, Container, Grid, Rating } from "semantic-ui-react";
 // Image
 import cardImg from "../../images/minion_card.svg";
@@ -13,7 +15,6 @@ import "../../css/master.css";
 
 
 class Dashboard extends React.Component {
-
   render() {
 
     const cardList = this.props.cardDetails.map((cardDetail) => {
@@ -42,9 +43,13 @@ class Dashboard extends React.Component {
         </Grid.Column>
       );
     });
+
     return (
       <div >
         <Container className="dashboard ">
+          {/* <Segment> */}
+          <Carousel />
+          {/* </Segment> */}
           <Grid columns={2}>
             <Grid.Row className="ui stackable doubling">
               {cardList}
@@ -61,6 +66,7 @@ class Dashboard extends React.Component {
 const mapStateToProp = (state) => {
   return {
     cardDetails: state.cardDetails,
+    // carouselFact: state.carouselFact
   };
 };
 
