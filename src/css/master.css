@@ -83,6 +83,7 @@ body {
 
 .dashboard {
     margin-top: 15vh;
+    
 }
 
 .dashboard .details {
@@ -194,8 +195,42 @@ body {
     align-items: center;
     display: flexbox;
 }
-
-
+@media screen and (max-width: 992px) {
+    .navheading{
+        text-align: center !important;
+        padding-top: 1vh !important;
+        padding-bottom: 1vh !important;
+    }
+    .topnavbar{
+      display: none !important;
+    }
+    .dashboard {
+        margin-top: 8vh !important;
+        margin-bottom: 15vh !important;
+    }
+    .createAvail{
+        margin-top: 8vh !important;
+    }
+   .foodinfo{
+        margin-top: 5vh !important;
+        margin-bottom: 15vh !important;
+    }
+    .main{
+        margin-top: 5vh !important;
+        margin-bottom: 0vh !important;
+     
+    }
+    
+    .carousel-card{
+        margin-top: 0 !important;
+    }
+}
+@media screen and (min-width: 992px) {
+    .bottomnavbar{
+      display: none !important;
+    }
+    
+}
 /* @media screen and (min-width: 480px) {
     body {
       background-color: rgb(221, 209, 255);

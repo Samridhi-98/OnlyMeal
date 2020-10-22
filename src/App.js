@@ -17,7 +17,7 @@ const App = () => {
     // ------------------------------------------------------------------------
     <BrowserRouter>
       <div className="navbar-content">
-        <div className="ui top fixed compact menu top-nav computer only" >
+        <div className="ui top fixed compact menu top-nav topnavbar" >
           <div className="item">
             <img className="ui tiny image" src={logo} alt="only meal" />
           </div>
@@ -28,27 +28,21 @@ const App = () => {
             <h4>OnlyMeal</h4>
           </div> */}
         </div>
-        {/* Top for phone */}
-        {/* <div className="ui top fixed menu top-nav computer only">
-          <div className="item">
-            <img className="ui tiny image" src={logo} alt="only meal" />
-          </div>
-          <Link className="item" to="/dashboard">Home</Link>
-          <Link className="item" to="/create">Create</Link>
-          <Link className="item" to="/">Sign-out</Link>
-          <div className="right menu logo">
-            <h4>OnlyMeal</h4>
-          </div>
+        {/* Bottom for phone */}
+        <div className="ui top fixed compact menu top-nav fluid one item " >
+            <h3 className="navheading">Only Meal</h3>
         </div>
+        <div className="ui bottom fixed fluid three item menu bottomnavbar">
+          {/* <div className="item">
+            <img className="ui tiny image" src={logo} alt="only meal"/>
+          </div> */}
+          
+            <Link className="item active" to="/dashboard"><i className="home icon big"></i></Link>
+            <Link className="item" to="/create"><i className="edit icon big"></i></Link>
+            <Link className="item" to="/"><i className="sign-out icon big"></i></Link>  
         
-        <div className="ui bottom fixed menu tablet only">
-          <div className="item">
-            <img src={logo}/>
-          </div>
-          <Link className="item" to="/dashboard">Home</Link>
-          <Link className="item" to="/create">Create</Link>
-          <Link className="item" to="/">Sign-out</Link>
-        </div> */}
+          
+        </div>
 
         <div className="parent">
           <div className="">
