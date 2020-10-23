@@ -181,27 +181,17 @@ body {
 
 
 /* ---------------------------------------- navbar-content -------------------------------------- */
-
-.navbar-content {
-    margin: 0 !important;
+.navbar{
+    background-color: white !important;
+}
+.navbar-content{
+    padding-bottom: 4vh !important;
+    padding-top: 0 !important;
 }
 
-.navbar-content .top-nav {
-    margin-bottom: 5% !important;
-}
-
-.navbar-content .logo {
-    margin-right: 2% !important;
-    align-items: center;
-    display: flexbox;
-}
 @media screen and (max-width: 992px) {
-    .navheading{
-        text-align: center !important;
-        padding-top: 1vh !important;
-        padding-bottom: 1vh !important;
-    }
-    .topnavbar{
+    
+    .fordesktop{
       display: none !important;
     }
     .dashboard {
@@ -225,17 +215,19 @@ body {
         margin-top: 0 !important;
     }
 }
+
+/* ---------------------------------------- Navbar-Phone -------------------------------------- */
 @media screen and (min-width: 992px) {
-    .bottomnavbar{
+    .forphone{
       display: none !important;
     }
+       
+}
+.phone-top{
+    /* background-color: white !important; */
+    margin-top: 0 !important;
     
 }
-/* @media screen and (min-width: 480px) {
-    body {
-      background-color: rgb(221, 209, 255);
-    }
-  } */
 
 
 /* ---------------------------------------- food-info -------------------------------------- */
