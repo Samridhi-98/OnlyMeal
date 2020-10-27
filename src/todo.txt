@@ -1,12 +1,12 @@
 ======================================= Front End ====================================
--> improve Navbar for phone view(top(for logos) bottom(navigation) navbar in phone)
-    -> adding text logo(aka onlymeal)
+-> improve Navbar for phone view(top(for logos) bottom(navigation) navbar in phone)   !DONE
+    -> adding text logo(aka onlymeal) !DONE
 ->Dashboard
     ->make food facts
 ->food info
     ->add button    !DONE
     ->popup box     !Done 
 ->Main
-    ->fix phone view top alignment
+    ->fix phone view top alignment  !DONE
 ======================================= Back End ====================================    
 --> Ruko zara sabar karo tham jao jaldi kya hai ...

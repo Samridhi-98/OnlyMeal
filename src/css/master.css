@@ -256,3 +256,11 @@ body {
     /* padding-top: 2vh !important; */
     font-size: x-large !important;
 }
+
+/* ---------------------------------------- profile -------------------------------------- */
+.profile{
+    margin-top: 15vh;
+}
+.profile .segment{
+    text-align: center !important;
+}

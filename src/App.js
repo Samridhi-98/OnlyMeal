@@ -5,6 +5,9 @@ import { BrowserRouter, Route, Link} from "react-router-dom";
 import CreateAvail from "./components/routes/CreateAvail";
 import Main from "./components/routes/Main";
 import FoodInfo from "./components/routes/FoodInfo";
+import Profile from "./components/routes/Profile";
+
+import Totest from "./components/routes/Totest";
 
 // Semantic-UI
 import {Menu, Image, Header,Icon } from 'semantic-ui-react';
@@ -45,6 +48,16 @@ class App extends React.Component {
           >
             <Link className=" " to="/create"><Header>Create</Header></Link>
           </Menu.Item>
+
+          <Menu.Item
+            name="profile"
+            className="navbar-content"
+            active={activeItem === 'profile'}
+            onClick={this.handleItemClick}
+          >
+            <Link className=" " to="/profile"><Header>Profile</Header></Link>
+          </Menu.Item>
+
           <Menu.Item
             name="signout"
             className="navbar-content"
@@ -53,6 +66,7 @@ class App extends React.Component {
           >
             <Link className=" " to="/"><Header>Signout</Header></Link>
           </Menu.Item>
+          
         </Menu>
         {/* For Phone */}
         {/* TOP */}
@@ -88,30 +102,6 @@ class App extends React.Component {
         </Menu>
 
         <div >
-          {/* <div className="ui fixed compact menu pointing top-nav topnavbar " >
-            <div className="item">
-              <img className="ui tiny image" src={logo} alt="only meal" />
-            </div>
-            <Link className="item active" to="/dashboard">Home</Link>
-            <Link className="item" to="/create">Create</Link>
-            <Link className="item" to="/">Sign-out</Link>
-           
-          </div>
-          
-          <div className="ui top fixed compact menu top-nav fluid one item bottomnavbar" >
-              <h3 className="navheading">Only Meal</h3>
-          </div>
-       
-          <div className="ui bottom fixed fluid three item  menu bottomnavbar">
-            
-            
-              <Link className="item" to="/dashboard"><i className="home icon big"></i></Link>
-              <Link className="item" to="/create"><i className="edit icon big"></i></Link>
-              <Link className="item" to="/"><i className="sign-out icon big"></i></Link>  
-          
-            
-          </div> */}
-  
           <div className="parent">
             <div className="">
               <Route path="/" exact component={Main} />
@@ -125,6 +115,12 @@ class App extends React.Component {
           </div>
           <div>
             <Route path="/foodinfo" component={FoodInfo} />
+          </div>
+          <div>
+            <Route path="/profile" component={Profile} />
+          </div>
+          <div>
+            <Route path="/test" component={Totest} />
           </div>
         </div>
   
