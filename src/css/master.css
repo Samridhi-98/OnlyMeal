@@ -190,7 +190,10 @@ body {
 }
 
 @media screen and (max-width: 992px) {
-    
+    .profile{
+        margin-top: 8vh;
+        margin-bottom: 5vh;
+    }
     .fordesktop{
       display: none !important;
     }
@@ -218,6 +221,11 @@ body {
 
 /* ---------------------------------------- Navbar-Phone -------------------------------------- */
 @media screen and (min-width: 992px) {
+    .profile{
+        margin-top: 15vh;
+        margin-bottom: 5vh;
+    
+    }
     .forphone{
       display: none !important;
     }
@@ -258,9 +266,24 @@ body {
 }
 
 /* ---------------------------------------- profile -------------------------------------- */
-.profile{
-    margin-top: 15vh;
-}
-.profile .segment{
+
+.profile .profile-top{
+    background-color:#f5f5fb ;
     text-align: center !important;
+}
+.profile .header-content{
+    margin-top: 1vh !important;
+}
+.profile .header-content .meta{
+    margin-top: 1vh !important;
+    word-spacing: 2px !important;
+}
+.profile .profile-top .icons{
+    /* height: 7vh !important;
+    width: 7vw !important; */
+    padding-right: 1vh !important;
+  
+}
+.profile .mid-grid{
+    margin-top: 1vh !important;
 }

@@ -16,6 +16,17 @@ const cardDetailsReaducer = () => {
     )
 }
 
+// const userDetails = () =>{
+//     return(
+//         [
+//             {name:"alex",email:"a@mail.com",password:"abcd",phoneno:"9876543210"},
+//             {name:"blex",email:"b@mail.com",password:"abcd",phoneno:"9876543210"},
+//             {name:"clex",email:"c@mail.com",password:"abcd",phoneno:"9876543210"},
+//             {name:"dlex",email:"d@mail.com",password:"abcd",phoneno:"9876543210"},
+//         ]
+//     )
+// }
+
 // const carouselReducer = () => {
 //     return (
 //         [

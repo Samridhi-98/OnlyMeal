@@ -61,7 +61,7 @@ const CarouselCard = () => {
             <Carousel
                 elements={elements}
                 duration={3000}
-                animation="zoom"    //try othereffects like scale,bounce,glow,flash,jiggle,swipe,slide,flip
+                animation="scale"    //try othereffects like scale,bounce,glow,flash,jiggle,swipe,slide,flip
             />
         </div>
     );
