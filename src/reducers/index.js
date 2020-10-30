@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import {reducer as formReducer} from 'redux-form';
+// import { createUser } from "../actions";
 
 const cardDetailsReaducer = () => {
     return (
@@ -16,27 +18,21 @@ const cardDetailsReaducer = () => {
     )
 }
 
-// const userDetails = () =>{
-//     return(
-//         [
-//             {name:"alex",email:"a@mail.com",password:"abcd",phoneno:"9876543210"},
-//             {name:"blex",email:"b@mail.com",password:"abcd",phoneno:"9876543210"},
-//             {name:"clex",email:"c@mail.com",password:"abcd",phoneno:"9876543210"},
-//             {name:"dlex",email:"d@mail.com",password:"abcd",phoneno:"9876543210"},
-//         ]
-//     )
-// }
+const userDetailsReducer = (state={},action)=>{
+    if(action.type==="CREATE_USER"){
+        console.log(action.payload);
+        return action.payload;
+    }
+    else{
+        return state;
+    }
+}
 
-// const carouselReducer = () => {
-//     return (
-//         [
-//             { title: "dal and rice", quantity: "2kg", expired: false, rating: "3", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," },
-//             { title: "fries", quantity: "2kg", expired: false, rating: "3", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," },
-//         ]
-//     )
-// }
 
 export default combineReducers({
+    form:formReducer,
     cardDetails: cardDetailsReaducer,
+    userDetails: userDetailsReducer
     // carouselFact: carouselReducer
 });
+

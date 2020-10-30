@@ -1,17 +1,12 @@
 import React from "react";
 import Carousel from "semantic-ui-carousel-react";
-import { Image,Header } from "semantic-ui-react";
+import { Header } from "semantic-ui-react";
 
 //CSS
 import './css/master.css';
 
 //Image
-import minion_luv from "./images/minion_luv.svg";
-import minion_gane from "./images/minion_gane.svg";
-import minion_graph from "./images/minion_graph.svg";
-import minion_join from "./images/minion_join.svg";
-import minion_work from "./images/minion_work.svg";
-import food1 from "./images/food1.jpg";
+
 
 const CarouselCard = () => {
     let elements = [
