@@ -6,9 +6,9 @@ import Carousel from "../../CarouselCard";
 
 // Semantic-ui react
 // import Carousel from "semantic-ui-carousel-react";
-import { Item, Segment, Container, Grid, Rating } from "semantic-ui-react";
+import { Item, Segment, Container, Grid, Rating, Label } from "semantic-ui-react";
 // Image
-import cardImg from "../../images/minion_card.svg";
+import cardImg from "../../images/food1.jpg";
 
 //CSS
 import "../../css/master.css";
@@ -23,13 +23,27 @@ class Dashboard extends React.Component {
           <Segment className="details">
             <Item.Group divided>
               <Item >
-                <Item.Image size="small" src={cardImg} />
+                <Item.Image size="small" src={cardImg}/>
+
                 <Item.Content>
-                  <Item.Header >{cardDetail.title}</Item.Header>
-                  <Item.Meta>{cardDetail.quantity}</Item.Meta>
+                  <Item.Header>{cardDetail.title}
+                    <Label color={(cardDetail.type==="veg") ? "green" : "red"} attached="top right">{cardDetail.type}
+                    </Label>
+                  </Item.Header>
                   <Item.Description>
+                    <Label.Group>
+                      <Label className="labelcolor">{cardDetail.quantity}KG</Label>
+                      <Label>{cardDetail.category}</Label>
+                      <Label>{cardDetail.state}</Label>
+                    </Label.Group>
+                  </Item.Description>
+                  
+                  {/* <Item.Meta>{cardDetail.date}</Item.Meta> */}
+                  {/* <Item.Meta>{cardDetail.quantity}</Item.Meta> */}
+                  <Item.Description>
+                    
                     <p>
-                      {cardDetail.description}
+                      {cardDetail.other}
                     </p>
                   </Item.Description>
                   <Item.Extra>

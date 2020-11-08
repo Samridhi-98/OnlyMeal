@@ -99,7 +99,10 @@ body {
 .dashboard .facts {
     height: 20vh !important;
 }
-
+.dashboard .labelcolor{
+    background-color: darkgrey;
+    
+}
 
 /* to maintain the height of the card image */
 

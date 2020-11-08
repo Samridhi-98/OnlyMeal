@@ -6,3 +6,13 @@ export const createUser =(values)=> {
         }
     });
 }
+export const ADD_DETAILS="CREATE_CARD_DETAILS";
+export const createCard =(values)=> {
+    
+    return( {
+        type:ADD_DETAILS,
+        payload:{
+            values:values
+        }
+    });
+}

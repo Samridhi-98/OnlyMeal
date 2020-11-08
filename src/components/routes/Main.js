@@ -32,11 +32,8 @@ class Main extends React.Component {
         )
     }
     renderPasswordField(field){
-        return(
-            <div>
-                {field.meta.touched ? field.meta.error : ""}
-                <Form.Input fluid label="Password" type="password" placeholder="" {...field.input}/>
-            </div>
+        return(    
+            <Form.Input fluid label="Password" type="password" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null}/>
         )
     }
     renderPhonenoField(field){
