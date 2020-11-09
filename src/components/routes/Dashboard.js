@@ -1,13 +1,16 @@
 import React from "react";
+
+//REACT-REDUX 
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+//CAROUSEL
 import Carousel from "../../CarouselCard";
 
-// Semantic-ui react
-// import Carousel from "semantic-ui-carousel-react";
+//SEMANTIC-UI-REACT
 import { Item, Segment, Container, Grid, Rating, Label } from "semantic-ui-react";
-// Image
+
+// IMAGE
 import cardImg from "../../images/food1.jpg";
 
 //CSS
@@ -23,11 +26,11 @@ class Dashboard extends React.Component {
           <Segment className="details">
             <Item.Group divided>
               <Item >
-                <Item.Image size="small" src={cardImg}/>
+                <Item.Image size="small" src={cardImg} />
 
                 <Item.Content>
                   <Item.Header>{cardDetail.title}
-                    <Label color={(cardDetail.type==="veg") ? "green" : "red"} attached="top right">{cardDetail.type}
+                    <Label color={(cardDetail.type === "veg") ? "green" : "red"} attached="top right">{cardDetail.type}
                     </Label>
                   </Item.Header>
                   <Item.Description>
@@ -37,11 +40,11 @@ class Dashboard extends React.Component {
                       <Label>{cardDetail.state}</Label>
                     </Label.Group>
                   </Item.Description>
-                  
+
                   {/* <Item.Meta>{cardDetail.date}</Item.Meta> */}
                   {/* <Item.Meta>{cardDetail.quantity}</Item.Meta> */}
                   <Item.Description>
-                    
+
                     <p>
                       {cardDetail.other}
                     </p>
@@ -77,6 +80,8 @@ class Dashboard extends React.Component {
     );
   }
 }
+
+//GETTING DATA FROM REACT
 const mapStateToProp = (state) => {
   return {
     cardDetails: state.cardDetails,

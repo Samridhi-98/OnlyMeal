@@ -1,61 +1,68 @@
 import React from 'react';
-import {connect} from "react-redux";
-import {Field ,reduxForm} from "redux-form";
 
-import {createUser} from "../../actions/index.js";
+//IMPORT REACT-REDUX AND REDUX-FORM
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Field, reduxForm } from "redux-form";
 
-// Images
+//IMPORT ACTION-CREATOR
+import { createUser } from "../../actions/index.js";
+
+// IMAGES
 import donut from '../../images/minion_donut.svg';
 import logo from '../../images/logo.svg';
 
 //CSS
 import '../../css/master.css';
-import { Header, Form, Image, Button, Icon } from 'semantic-ui-react';
+import { Header, Form, Image } from 'semantic-ui-react';
 
 class Main extends React.Component {
-    renderNameField(field){
+
+    state = {}
+
+    handleChange = (e, { value }) => this.setState({ value })
+
+    renderNameField(field) {
         console.log("name chal paya");
-        return(
+        return (
             <div>
-                <Form.Input fluid  placeholder="Ex. Vinod" label="First Name" {...field.input}/>
-                {field.meta.touched ? field.meta.error : ""}
+                <Form.Input fluid placeholder="Ex. Vinod" label="Username" {...field.input} error={field.meta.touched ? field.meta.error : null} />
             </div>
         );
     }
-    renderEmailFieild(field){
-        return(
+    renderEmailFieild(field) {
+        return (
             <div>
-                {field.meta.touched ? field.meta.error : ""}
-                <Form.Input fluid label="Email ID" type="email" placeholder="" {...field.input}/>
+                <Form.Input fluid label="Email ID" type="email" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null} />
             </div>
-            
+
         )
     }
-    renderPasswordField(field){
-        return(    
-            <Form.Input fluid label="Password" type="password" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null}/>
+    renderPasswordField(field) {
+        return (
+            <Form.Input fluid label="Password" type="password" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null} />
         )
     }
-    renderPhonenoField(field){
-        return(
+    renderPhonenoField(field) {
+        return (
             <div>
-                <h4>{field.meta.touched ? field.meta.error : ""}</h4>
-                <Form.Input fluid label="Phone No." type="" placeholder="" {...field.input}/>
+                <Form.Input fluid label="Phone No." type="" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null} />
             </div>
         )
     }
-    onSubmit(values){
+    onSubmit(values) {
         //this===component
-        console.log("values are ",values);
-        //this.props.createUser(values);
-        
+        this.props.history.push("/dashboard");
+        console.log("values are ", values);
+        this.props.createUser(values);
+
     }
-    render(){
+    render() {
         // handlSubmit is provided by redux form to us
-        const {handleSubmit}=this.props;
+        const { handleSubmit } = this.props;
         return (
             <div className=" main root ">
-                <div className="ui grid container">                   
+                <div className="ui grid container">
                     <div className="row stackable doubling inner-root">
                         <div className="ten wide computer only column">
                             <div className="sideImg">
@@ -73,25 +80,22 @@ class Main extends React.Component {
                                             {/* <Header.Content>Severing Happiness</Header.Content> */}
                                             <p className="formTitle">Severing Happiness</p>
                                         </Header>
-                                        {/* First Name */}
+                                        {/* User Name */}
                                         <Field
-                                            name="firstname"
+                                            name="Username"
                                             component={this.renderNameField}
                                         />
-                                        {/* Last Name */}
-                                       
-                                        
                                         {/* <Form.Group widths="equal"> */}
-                                            {/* email */}
+                                        {/* email */}
                                         <Field
                                             name="email"
                                             component={this.renderEmailFieild}
                                         />
-                                            {/* password */}
+                                        {/* password */}
                                         <Field
                                             name="password"
                                             component={this.renderPasswordField}
-                                        /> 
+                                        />
                                         {/* </Form.Group> */}
 
                                         {/* PhoneNo */}
@@ -100,11 +104,12 @@ class Main extends React.Component {
                                             component={this.renderPhonenoField}
                                         />
 
-                                        <Form.Group >
+                                        <Form.Group className="formButton" >
                                             <Form.Button className="submitButton" color="violet" type="submit">SignUp</Form.Button>
-                                            <Button color='google plus'>
+                                            <Form.Button className="submitButton" color="violet" type="submit">SignIn</Form.Button>
+                                            {/* <Button color='google plus'>
                                                 <Icon name='google plus' /> Google
-                                            </Button>
+                                            </Button> */}
                                             {/* <Button className="submitButton" color="violet" >Google</Button>  */}
                                             {/* <Link className="signin ui button"><Icon name='google plus' /> Google Plus</Link> */}
                                         </Form.Group>
@@ -117,34 +122,39 @@ class Main extends React.Component {
             </div>
         );
     }
-    
+
 }
 
-function validate(values){ //values refer to the values user have enteredin the form
-    const errors={}
+function validate(values) { //values refer to the values user have enteredin the form
+    const errors = {}
     //console.log("values", values);
-    if(!values.firstname || values.firstname.length<3){
-        errors.firstname="Name must be atleast 3 characters long";
+    if (!values.Username || values.Username.length < 3) {
+        errors.Username = "Name must be atleast 3 characters long";
     }
-    if(!values.password || values.password.length<8){
-        errors.password="Please enter a password with 8 or more characters";
+    if (!values.password || values.password.length < 8) {
+        errors.password = "Please enter a password with 8 or more characters";
     }
-    if(!values.email){
-        errors.email="Please enter a valid email";
+    if (!values.email) {
+        errors.email = "Please enter a valid email";
     }
-    if(!values.phoneno || values.phoneno.length!==10){
-        errors.phoneno="Please enter a 10 digit valid phone number"
+    if (!values.phoneno || values.phoneno.length !== 10) {
+        errors.phoneno = "Please enter a 10 digit valid phone number"
     }
     //if errors is empty form is fine and is ready to submit
     // if errors has any property redux form assumes form is invalid
     return errors;
 }
 
+//PASSING DATA TO REDUCER THROUGH ACTION-CREATOR-BIND
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ createUser }, dispatch);
+}
+
 export default reduxForm({
-    validate:validate, //if key and value name are same just pass the name itself no need for  key:value
-    form:'PostsNewForm'
+    validate: validate, //if key and value name are same just pass the name itself no need for  key:value
+    form: 'PostsNewForm'
 })(
-    connect(null,{createUser})(Main)
+    connect(null, { createUser, mapDispatchToProps })(Main)
 );
 
 

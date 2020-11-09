@@ -1,22 +1,23 @@
 import React from "react";
+
+//REACT-ROUTER
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
-// routes
+//USER-DEFINED-ROUTER
 import CreateAvail from "./components/routes/CreateAvail";
 import Main from "./components/routes/Main";
+import Login from "./components/routes/Login";
 import FoodInfo from "./components/routes/FoodInfo";
 import Profile from "./components/routes/Profile";
 
-import Totest from "./components/routes/Totest";
-
-// Semantic-UI
+// SEMANTIC-UI
 import { Menu, Image, Header, Icon } from "semantic-ui-react";
 
 //CSS
 import "./css/master.css";
 import Dashboard from "./components/routes/Dashboard";
 
-// Images
+// IMAGES
 import logo from "../src/images/logo1.svg";
 
 class App extends React.Component {
@@ -72,6 +73,16 @@ class App extends React.Component {
             >
               <Link className=" " to="/">
                 <Header>Signout</Header>
+              </Link>
+            </Menu.Item>
+            <Menu.Item
+              name="SignIn"
+              className="navbar-content"
+              active={activeItem === "SignIn"}
+              onClick={this.handleItemClick}
+            >
+              <Link className=" " to="/login">
+                <Header>Signin</Header>
               </Link>
             </Menu.Item>
           </Menu>
@@ -139,7 +150,7 @@ class App extends React.Component {
               <Route path="/profile" component={Profile} />
             </div>
             <div>
-              <Route path="/test" component={Totest} />
+              <Route path="/login" component={Login} />
             </div>
           </div>
         </BrowserRouter>
