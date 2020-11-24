@@ -1,42 +1,49 @@
 const express = require('express');
-const cors = require('cors');
 const chalk = require('chalk');
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const bcrypt = require("bcryptjs");
-const session = require("express-session");
+const mongoose = require("mongoose");
+const morgan= require("morgan");
+const path=require('path');
+
+// const cors = require('cors'); //connect express to react
+
+// const cookieParser = require("cookie-parser");
+// const bodyParser = require("body-parser");
+// const bcrypt = require("bcryptjs");
+// const session = require("express-session");
 //----------------Passport----------------
-const passport = require('passport');
+// const passport = require('passport');
 // const GoogleStrategy = require("passport-google-oauth20").Strategy;
 //---------------------Database---------------------
-const mongoose = require("mongoose");
-const User = require("./models/user");
-const FoodData = require("./models/foodInfoData");
+
+// const User = require("./models/user");
+// const FoodData = require("./models/foodInfoData");
 //---------------------Other Files---------------------
-const keys = require("./config/index");
+// const keys = require("./config/index");
 
 const app = express();
 
 //---------Middleware--------------
 app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(cors({
-    origin: "http://localhost:3000", //location of react app to connect
-    credentials: true
-}));
-app.use(session({
-    secret: 'keyboard kitty',
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(cookieParser("KittyKat"));
-app.use(passport.initialize());
-app.use(passport.session())
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+// app.use(cors({
+//     origin: "http://localhost:3000", //location of react app to connect
+//     credentials: true
+// }));
+// app.use(session({
+//     secret: 'keyboard kitty',
+//     resave: false,
+//     saveUninitialized: false
+// }));
+// app.use(cookieParser("KittyKat"));
+// app.use(passport.initialize());
+// app.use(passport.session())
 // require("./config/passportConfig")(passport);
 
+// HTTP request logger
+app.use(morgan('tiny'));
 
 //database added
 // Creating database connection
@@ -49,6 +56,22 @@ mongoose.connect("mongodb://localhost:27017/onlyMealDB", {
     } else {
         console.log(chalk.yellow("Connected to database"));
     }
+})
+
+app.get("/", (req, res) => {
+    const data={
+        "name":"chuimui",
+        "message":"hum"
+    }
+    // console.log(chalk.blue(req.body));
+    res.json(data);
+})
+
+app.post("/save",(req,res)=>{
+    console.log("body",req.body);
+    res.json({
+        msg:"Data recieved"
+    })
 })
 
 // passport.serializeUser((user, cb) => {
@@ -91,36 +114,33 @@ mongoose.connect("mongodb://localhost:27017/onlyMealDB", {
 //     res.redirect("/dashboard");
 // })
 
-app.post("/", (req, res) => {
-    User.findOne({ Username: req.body.Username }, async (err, checkUser) => {
-        if (err) throw err;
-        if (checkUser) {
-            res.send("user exists please login");
-            res.redirect("/login");
-        } else {
-            const hashedPassword = await bcrypt.hash(req.body.password, 5);
+// app.post("/", (req, res) => {
+//     User.findOne({ Username: req.body.Username }, async (err, checkUser) => {
+//         if (err) throw err;
+//         if (checkUser) {
+//             res.send("user exists please login");
+//             res.redirect("/login");
+//         } else {
+//             const hashedPassword = await bcrypt.hash(req.body.password, 5);
 
-            const newUser = new User({
-                Username: req.body.username,
-                email: req.body.email,
-                password: hashedPassword,
-                phoneno: req.body.phoneno,
-            });
-            await newUser.save(() => {
-                console.log(chalk.yellow("User has been registered!"));
-                res.redirect("/dashboard")
-            });
-        }
-    });
-});
+//             const newUser = new User({
+//                 Username: req.body.username,
+//                 email: req.body.email,
+//                 password: hashedPassword,
+//                 phoneno: req.body.phoneno,
+//             });
+//             await newUser.save(() => {
+//                 console.log(chalk.yellow("User has been registered!"));
+//                 res.redirect("/dashboard")
+//             });
+//         }
+//     });
+// });
 
-app.get("/", (req, res) => {
-    console.log(chalk.blue(req.body));
-    res.send("helloooooooooo people!!");
-})
+
 
 
 //------------Server Site---------------    
 app.listen(5000, () => {
-    console.log(chalk.green("Server running on port 3000!!"));
+    console.log(chalk.green("Server running on port 5000!!"));
 });

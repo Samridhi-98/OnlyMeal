@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+//import axios from "axios";
 //SEMANTIC-UI-REACT
 import { Form, Message, Image, Header } from 'semantic-ui-react';
 
@@ -129,6 +129,7 @@ class CreateAvail extends Component {
     // console.log("called submit with values: ",values);
     this.props.history.push("/dashboard");
     console.log("onsubmit", values);
+    
     this.props.createCard(values);
   }
   render() {
