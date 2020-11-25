@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 const morgan= require("morgan");
 const path=require('path');
 
+//---------------------Database---------------------
+// const User = require("./models/user");
+const FoodData = require("./models/foodInfoData");
+
 // const cors = require('cors'); //connect express to react
 
 // const cookieParser = require("cookie-parser");
@@ -13,14 +17,15 @@ const path=require('path');
 //----------------Passport----------------
 // const passport = require('passport');
 // const GoogleStrategy = require("passport-google-oauth20").Strategy;
-//---------------------Database---------------------
 
-// const User = require("./models/user");
-// const FoodData = require("./models/foodInfoData");
 //---------------------Other Files---------------------
 // const keys = require("./config/index");
 
 const app = express();
+
+// data parsing
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 
 //---------Middleware--------------
 app.use(express.static('public'));
@@ -69,9 +74,23 @@ app.get("/", (req, res) => {
 
 app.post("/save",(req,res)=>{
     console.log("body",req.body);
-    res.json({
-        msg:"Data recieved"
+    const data=req.body;
+    // create instance of database model
+    const newFoodData=new FoodData(data);
+    // save data to database
+    newFoodData.save((error)=>{
+        if(error){
+            console.log(chalk.red("internal server datavase error"));
+            res.status(500).json({msg:"sorry! database error"});
+            return;
+        }
+        
+        return res.json({
+            msg:"Data recieved"
+        })
+        
     })
+   
 })
 
 // passport.serializeUser((user, cb) => {

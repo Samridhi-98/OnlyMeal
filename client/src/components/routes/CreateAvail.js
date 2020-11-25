@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import axios from "axios";
+// import axios from "axios";
 //SEMANTIC-UI-REACT
 import { Form, Message, Image, Header } from 'semantic-ui-react';
 
@@ -127,9 +127,17 @@ class CreateAvail extends Component {
 
   onSubmit(values) {
     // console.log("called submit with values: ",values);
-    this.props.history.push("/dashboard");
+    // this.props.history.push("/dashboard");
     console.log("onsubmit", values);
-    
+    // axios({
+    //   url:"/save",
+    //   method:"POST",
+    //   data: values
+    //   }).then(()=>{
+    //     console.log("data has been set to the server");
+    //   }).catch(()=>{
+    //     console.log("error occured on the client side");
+    // })
     this.props.createCard(values);
   }
   render() {
