@@ -3,10 +3,9 @@ const chalk = require('chalk');
 const mongoose = require("mongoose");
 const morgan= require("morgan");
 const path=require('path');
+// --------------------Routes-----------------------
+const routes=require('./routes/api');
 
-//---------------------Database---------------------
-// const User = require("./models/user");
-const FoodData = require("./models/foodInfoData");
 
 // const cors = require('cors'); //connect express to react
 
@@ -63,35 +62,9 @@ mongoose.connect("mongodb://localhost:27017/onlyMealDB", {
     }
 })
 
-app.get("/", (req, res) => {
-    const data={
-        "name":"chuimui",
-        "message":"hum"
-    }
-    // console.log(chalk.blue(req.body));
-    res.json(data);
-})
+app.use("/api",routes);
 
-app.post("/save",(req,res)=>{
-    console.log("body",req.body);
-    const data=req.body;
-    // create instance of database model
-    const newFoodData=new FoodData(data);
-    // save data to database
-    newFoodData.save((error)=>{
-        if(error){
-            console.log(chalk.red("internal server datavase error"));
-            res.status(500).json({msg:"sorry! database error"});
-            return;
-        }
-        
-        return res.json({
-            msg:"Data recieved"
-        })
-        
-    })
-   
-})
+
 
 // passport.serializeUser((user, cb) => {
 //     cb(null, user);

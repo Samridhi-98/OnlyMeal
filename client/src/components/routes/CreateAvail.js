@@ -127,7 +127,7 @@ class CreateAvail extends Component {
 
   onSubmit(values) {
     // console.log("called submit with values: ",values);
-    // this.props.history.push("/dashboard");
+    this.props.history.push("/dashboard");
     console.log("onsubmit", values);
     // axios({
     //   url:"/save",

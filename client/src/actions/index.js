@@ -45,3 +45,13 @@ export const createCard = (values) => {
         }
     });
 }
+
+//Initialize cards in dashboard
+export const FILL_DASHBOARD = "FILL_DASHBOARD";
+export const fillDashboard = (values)=>{
+    return({
+        type:FILL_DASHBOARD,
+        payload:values
+        
+    })
+}

@@ -12,7 +12,7 @@ let foodInfoData = new mongoose.Schema({
     },
     quantity: Number,
     others: String,
-    phone_no: Number,
+    phoneno: Number,
     email: String,
     city: String,
     pincode: String,

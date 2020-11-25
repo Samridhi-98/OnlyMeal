@@ -1,8 +1,10 @@
 import React from "react";
-
+// axios
+import Axios from "axios";
 //REACT-REDUX 
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
 
 //CAROUSEL
 import Carousel from "../../CarouselCard";
@@ -16,10 +18,25 @@ import cardImg from "../../images/food1.jpg";
 //CSS
 import "../../css/master.css";
 
+//ACTION-CREATOR
+import { fillDashboard } from "../../actions/index";
 
 class Dashboard extends React.Component {
-  render() {
 
+  componentDidMount(){
+    Axios.get('/api')
+        .then((response)=>{
+          const data=response.data;
+          this.props.fillDashboard(data);
+          console.log("data has been delivered to client side");
+        })
+        .catch((error)=>{
+          console.log("bhag bdk");
+        })
+  }
+
+  render() {
+    console.log("in dashboard",this.props.cardDetails);
     const cardList = this.props.cardDetails.map((cardDetail) => {
       return (
         <Grid.Column>
@@ -80,7 +97,10 @@ class Dashboard extends React.Component {
     );
   }
 }
-
+// Passing data to our state
+const mapDispatchToProps = (dispatch)=>{
+  return bindActionCreators({fillDashboard},dispatch);
+}
 //GETTING DATA FROM REACT
 const mapStateToProp = (state) => {
   return {
@@ -89,4 +109,4 @@ const mapStateToProp = (state) => {
   };
 };
 
-export default connect(mapStateToProp)(Dashboard);
+export default connect(mapStateToProp,mapDispatchToProps)(Dashboard);
