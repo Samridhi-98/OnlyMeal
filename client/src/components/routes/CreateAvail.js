@@ -16,7 +16,7 @@ import minion_card from "../../images/minion_card.svg";
 
 // CSS
 import "../../css/master.css";
-
+//changes
 // const type = [
 //   { key: 'v', text: 'Veg', value: 'veg' },
 //   { key: 'nv', text: 'Non Veg', value: 'nonveg' }
