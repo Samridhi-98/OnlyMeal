@@ -7,6 +7,7 @@ const path=require('path');
 const routes=require('./routes/api');
 
 
+
 const app = express();
 
 // data parsing
@@ -20,8 +21,13 @@ app.use(express.static('public'));
 app.use(morgan('tiny'));
 
 //database added
+
+//cluster user name: ritik
+const password= 'masala_dosa'
+const MONGODB_URI = 'mongodb+srv://ritik:masala_dosa@onlymeal.wkqyo.mongodb.net/<dbname>?retryWrites=true&w=majority'
+
 // Creating database connection
-mongoose.connect("mongodb://localhost:27017/onlyMealDB", {
+mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/onlyMealDB", {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }, (err) => {

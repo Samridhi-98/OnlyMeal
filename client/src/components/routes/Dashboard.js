@@ -22,7 +22,7 @@ import "../../css/master.css";
 import { fillDashboard } from "../../actions/index";
 
 class Dashboard extends React.Component {
-
+  //only rum for the first time 
   componentDidMount(){
     Axios.get('/api')
         .then((response)=>{
@@ -31,6 +31,7 @@ class Dashboard extends React.Component {
           console.log("data has been delivered to client side");
         })
         .catch((error)=>{
+          //not a good approach . did this just for fun
           console.log("bhag bdk");
         })
   }
