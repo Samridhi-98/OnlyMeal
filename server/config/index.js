@@ -1,6 +1,4 @@
-const GOOGLE = {
-    clientID: '1000745560401-o94pp15c6uenaecsdf22pe5u8sb8b7jf.apps.googleusercontent.com',
-    clientSecret: 'qNDDm4zsqRZFSYMpLJo4W4pv'
-}
+const mongoURI= 'mongodb+srv://ritik:masala_dosa@onlymeal.wkqyo.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const secretOrKey="masala_dosa"
 
-module.exports = { GOOGLE }
+module.exports = { mongoURI,secretOrKey }

@@ -3,6 +3,9 @@ const chalk = require('chalk');
 const mongoose = require("mongoose");
 const morgan= require("morgan"); //HTTP logger
 const path=require('path');
+const user = require("./routes/user");    //user
+const passport=require("passport"); //importing passport
+const bodyParser=require("body-parser");
 // --------------------Routes-----------------------
 const routes=require('./routes/api');
 
@@ -10,15 +13,31 @@ const routes=require('./routes/api');
 
 const app = express();
 
+
+// Bodyparser middleware
+app.use(
+    bodyParser.urlencoded({
+      extended: false
+    })
+  );
+app.use(bodyParser.json());
+
 // data parsing
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+
 //---------Middleware--------------
 app.use(express.static('public'));
+app.use(passport.initialize());
 
 // HTTP request logger
 app.use(morgan('tiny'));
+
+//passport config
+require("./config/passport")(passport);
+
+
 
 //database added
 
@@ -39,7 +58,9 @@ mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/onlyMealDB", {
 })
 
 app.use("/api",routes);
-
+//routes
+//STUPID MISTAKE : its "/user" not "./user"
+app.use("/user",user);
 
 //------------Server Site---------------    
 app.listen(5000, () => {
