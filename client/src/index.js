@@ -4,9 +4,11 @@ import App from './App';
 
 //react-redux
 import {Provider} from "react-redux";
-import {createStore} from "redux";
+//import {createStore} from "redux";
 //reducer
-import reducers from "./reducers/index";
+//import reducers from "./reducers/index";
+
+import store from  "./store";
 
 // const Index = () => {
 //     return ( < App / > );
@@ -14,7 +16,7 @@ import reducers from "./reducers/index";
 
 
 ReactDOM.render(
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
         <App/>
     </Provider>, 
     document.getElementById('root')

@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 
 //USER-DEFINED-ROUTER
 import CreateAvail from "./components/routes/CreateAvail";
-import Main from "./components/routes/Main";
+import Register from "./components/routes/Register";
 import Login from "./components/routes/Login";
 import FoodInfo from "./components/routes/FoodInfo";
 import Profile from "./components/routes/Profile";
@@ -75,7 +75,7 @@ class App extends React.Component {
                 <Header>Signout</Header>
               </Link>
             </Menu.Item>
-            <Menu.Item
+            {/* <Menu.Item
               name="SignIn"
               className="navbar-content"
               active={activeItem === "SignIn"}
@@ -84,7 +84,7 @@ class App extends React.Component {
               <Link className=" " to="/login">
                 <Header>Signin</Header>
               </Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
           {/* For Phone */}
           {/* TOP */}
@@ -134,7 +134,7 @@ class App extends React.Component {
           <div>
             <div className="parent">
               <div className="">
-                <Route path="/" exact component={Main} />
+                <Route path="/" exact component={Register} />
               </div>
             </div>
             <div>

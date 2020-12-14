@@ -2,18 +2,37 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
-import { createUser } from "../../actions/index.js";
+//IMPORT ACTION-CREATOR
+import { loginUser } from "../../actions/authAction";
+//import { createUser } from "../../actions/index.js";
 
 // Images
 import donut from '../../images/minion_donut.svg';
 import logo from '../../images/logo.svg';
-
+//import PropTypes from "prop-types";
 //CSS
 import '../../css/master.css';
 import { Header, Form, Image, Button, Icon } from 'semantic-ui-react';
 
 class Login extends React.Component {
+    componentDidMount(){
+        if(this.props.auth.isAuthenticated){
+            this.props.history.push("/dashboard");
+        }
+    }                                                               
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+          this.props.history.push("/dashboard");
+        }
+    
+        if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+      }
+    
     renderEmailFieild(field) {
         return (
             <div>
@@ -29,7 +48,10 @@ class Login extends React.Component {
     }
 
     onSubmit(values) {
+        // values.preventDefault();
         console.log("values are ", values);
+        this.props.loginUser(values);
+        //this.props.history.push("/dashboard");
     }
 
     render() {
@@ -90,12 +112,14 @@ function validate(values) {
     }
     return errors;
 }
-
+const mapStateToProps=(state)=>({
+    auth:state.authDetails
+})
 export default reduxForm({
     validate: validate,
     form: 'PostsNewForm'
 })(
-    connect(null, { createUser })(Login)
+    connect(mapStateToProps, { loginUser })(Login)
 );
 
 

@@ -2,15 +2,15 @@ const express=require("express");
 const router=express.Router();
 const bcrypt=require("bcryptjs");
 const jwt=require("jsonwebtoken");
-const keys=require("../config/index");
+const key=require("../config/index");
 
 // load user model
 const  User=require("../models/userSchema");
 const chalk = require("chalk");
 
-router.get("/",(req,res)=>{
-    console.log(chalk.magenta("get in here user"));
-})
+// router.get("/",(req,res)=>{
+//     console.log(chalk.magenta("get in here user"));
+// })
 router.post("/register",(req,res)=>{
 
     console.log(chalk.red("into register"));
@@ -21,7 +21,7 @@ router.post("/register",(req,res)=>{
         }
         else{
             const newUser=new User({
-                name:req.body.name,
+                name:req.body.username,
                 email: req.body.email,
                 password: req.body.password
             });
@@ -33,7 +33,7 @@ router.post("/register",(req,res)=>{
                         throw err;
                     }
                     newUser.password=hash;
-                    newUser.save().then(user=>res.json(user).catch(err=>console.log(err)));
+                    newUser.save().then(user=>res.json(user)).catch(err=>console.log(err));
                 })
             })
         }
@@ -43,17 +43,19 @@ router.post("/register",(req,res)=>{
 router.post("/login",(req,res)=>{
     const email=req.body.email;
     const password= req.body.password;
-
+    console.log(chalk.magenta(req.body));
     //find user by email
     User.findOne({email}).then(user=>{
         // check if user exists
         if(!user){
+            console.log(chalk.red("nahi mila yaar"));
             return res.status(404).json({emailnotfound:"Email not found"});
         }
 
         //check password
         bcrypt.compare(password,user.password).then(isMatch=>{
             if(isMatch){
+                console.log("=>>>>>>password sahi hai",user.name);
                 //User matched
                 //Create JWT Payload
                 const payload={

@@ -1,4 +1,8 @@
 //USER ACTIONCREATOR
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const USER_LOADING = "USER_LOADING";
+export const GET_ERRORS = "GET_ERRORS";
+
 export const ADD_USER = "CREATE_USER";
 export const createUser = (values) => {
     return ({
@@ -8,32 +12,7 @@ export const createUser = (values) => {
         }
     });
 }
-//------------------------------------------------------------------------------------------------------
-// import axios from "../axios/axios";
-// const _addUser = user => ({
-//     type: ADD_USER,
-//     user
-// })
 
-// export const addUser = (userData = {
-//     Username: "",
-//     email: "",
-//     password: "",
-//     phone: ""
-// }) => {
-//     return (dispatch) => {
-//         const user = {
-//             Username: userData.Username,
-//             email: userData.email,
-//             password: userData.password,
-//             phone: userData.phone
-//         };
-//         return axios.post('/dashboard', user).then(result => (dispatch(_addUser(result.data))));
-//     }
-// }
-
-
-//-------------------------------------------------------------------------------------------------------
 //CARD ACTION CREATOR
 export const ADD_DETAILS = "CREATE_CARD_DETAILS";
 export const createCard = (values) => {

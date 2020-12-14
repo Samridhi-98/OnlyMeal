@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 import { Field, reduxForm } from "redux-form";
 
 //IMPORT ACTION-CREATOR
-import { createUser } from "../../actions/index.js";
+import { registerUser } from "../../actions/authAction";
 
 // IMAGES
 import donut from '../../images/minion_donut.svg';
@@ -16,7 +16,7 @@ import logo from '../../images/logo.svg';
 import '../../css/master.css';
 import { Header, Form, Image } from 'semantic-ui-react';
 
-class Main extends React.Component {
+class Register extends React.Component {
 
     state = {}
 
@@ -26,7 +26,7 @@ class Main extends React.Component {
         console.log("name chal paya");
         return (
             <div>
-                <Form.Input fluid placeholder="Ex. Vinod" label="Username" {...field.input} error={field.meta.touched ? field.meta.error : null} />
+                <Form.Input fluid placeholder="Ex. Vinod" label="username" {...field.input} error={field.meta.touched ? field.meta.error : null} />
             </div>
         );
     }
@@ -43,18 +43,16 @@ class Main extends React.Component {
             <Form.Input fluid label="Password" type="password" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null} />
         )
     }
-    renderPhonenoField(field) {
+    renderConfirmPasswordField(field) {
         return (
-            <div>
-                <Form.Input fluid label="Phone No." type="" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null} />
-            </div>
+            <Form.Input fluid label="Confirm Password" type="password" placeholder="" {...field.input} error={field.meta.touched ? field.meta.error : null} />
         )
     }
     onSubmit(values) {
         //this===component
-        this.props.history.push("/dashboard");
         console.log("values are ", values);
-        this.props.createUser(values);
+        this.props.registerUser(values,this.props.history);
+        // this.props.history.push("/dashboard");  
 
     }
     render() {
@@ -82,7 +80,7 @@ class Main extends React.Component {
                                         </Header>
                                         {/* User Name */}
                                         <Field
-                                            name="Username"
+                                            name="username"
                                             component={this.renderNameField}
                                         />
                                         {/* <Form.Group widths="equal"> */}
@@ -100,8 +98,8 @@ class Main extends React.Component {
 
                                         {/* PhoneNo */}
                                         <Field
-                                            name="phoneno"
-                                            component={this.renderPhonenoField}
+                                            name="confirmpassword"
+                                            component={this.renderConfirmPasswordField}
                                         />
 
                                         <Form.Group className="formButton" >
@@ -128,8 +126,8 @@ class Main extends React.Component {
 function validate(values) { //values refer to the values user have enteredin the form
     const errors = {}
     //console.log("values", values);
-    if (!values.Username || values.Username.length < 3) {
-        errors.Username = "Name must be atleast 3 characters long";
+    if (!values.username || values.username.length < 3) {
+        errors.name = "Name must be atleast 3 characters long";
     }
     if (!values.password || values.password.length < 8) {
         errors.password = "Please enter a password with 8 or more characters";
@@ -137,9 +135,10 @@ function validate(values) { //values refer to the values user have enteredin the
     if (!values.email) {
         errors.email = "Please enter a valid email";
     }
-    if (!values.phoneno || values.phoneno.length !== 10) {
-        errors.phoneno = "Please enter a 10 digit valid phone number"
+    if (values.confirmpassword !== values.password) {
+        errors.password = "Password didnt match";
     }
+
     //if errors is empty form is fine and is ready to submit
     // if errors has any property redux form assumes form is invalid
     return errors;
@@ -147,14 +146,14 @@ function validate(values) { //values refer to the values user have enteredin the
 
 //PASSING DATA TO REDUCER THROUGH ACTION-CREATOR-BIND
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ createUser }, dispatch);
+    return bindActionCreators({ registerUser }, dispatch);
 }
 
 export default reduxForm({
     validate: validate, //if key and value name are same just pass the name itself no need for  key:value
     form: 'PostsNewForm'
 })(
-    connect(null, { createUser, mapDispatchToProps })(Main)
+    connect(null, { registerUser, mapDispatchToProps })(Register)
 );
 
 

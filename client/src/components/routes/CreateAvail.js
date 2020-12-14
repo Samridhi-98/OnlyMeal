@@ -16,20 +16,6 @@ import minion_card from "../../images/minion_card.svg";
 
 // CSS
 import "../../css/master.css";
-//changes
-// const type = [
-//   { key: 'v', text: 'Veg', value: 'veg' },
-//   { key: 'nv', text: 'Non Veg', value: 'nonveg' }
-// ]
-const category = [
-  { key: 'rw', text: 'Raw', value: 'raw' },
-  { key: 'ck', text: 'Cooked', value: 'cooked' }
-]
-// const state = [
-//   { key: 'dy', text: 'Dry', value: 'dry' },
-//   { key: 'wt', text: 'Wet', value: 'wet' }
-// ]
-
 
 
 class CreateAvail extends Component {
@@ -56,22 +42,12 @@ class CreateAvail extends Component {
     );
   }
   renderCategoryField(field) {
-    console.log("category's input: ", category);
     return (
       <select className="ui fluid dropdown"  {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value=""></option>
         <option key="raw" value="raw">Raw</option>
         <option key="cooked" value="cooked">Cooked</option>
       </select>
-      // <Form.Field 
-      //   control={Select} 
-      //   fluid 
-      //   label='Category' 
-      //   options={category} 
-      //   search 
-      //   {...field.searchInput} 
-      //   error={field.meta.touched ? field.meta.error : null}
-      // />
     );
   }
   renderStateField(field) {
@@ -127,18 +103,9 @@ class CreateAvail extends Component {
 
   onSubmit(values) {
     // console.log("called submit with values: ",values);
-    this.props.history.push("/dashboard");
     console.log("onsubmit", values);
-    // axios({
-    //   url:"/save",
-    //   method:"POST",
-    //   data: values
-    //   }).then(()=>{
-    //     console.log("data has been set to the server");
-    //   }).catch(()=>{
-    //     console.log("error occured on the client side");
-    // })
     this.props.createCard(values);
+    this.props.history.push("/dashboard");
   }
   render() {
     // const { value } = this.state
@@ -230,16 +197,7 @@ function validate(values) {
   if (!values.address) {
     error.address = "Please enter the address";
   }
-  // if(!values.type.options){
-  //   console.log(values.type);
-  //   error.type="Please select a valid food type";
-  // }
-  // if(!values.category.options){
-  //   error.category="Please select a valid food category";
-  // }
-  // if(!values.state.options){
-  //   error.state="Please enter a valid food state";
-  // }
+  
   return error;
 }
 
