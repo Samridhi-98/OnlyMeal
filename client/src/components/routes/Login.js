@@ -74,12 +74,12 @@ class Login extends React.Component {
     this.props.loginUser(values);
     //this.props.history.push("/dashboard");
     console.log("AUTH: ", this.props.auth);
-    if (!this.props.auth.isAuthenticated) {
-      console.log("INVALID USER");
-      // err = "Invalid credentials,Please try again";
-      this.setState({ loginErr: "Invalid credentials,Please try again" });
-      console.log("inside: ", this.state.loginErr);
-    }
+    // if (!this.props.auth.isAuthenticated) {
+    //   console.log("INVALID USER");
+    //   // err = "Invalid credentials,Please try again";
+    //   this.setState({ loginErr: "Invalid credentials,Please try again" });
+    //   console.log("inside: ", this.state.loginErr);
+    // }
   }
 
   render() {
@@ -95,11 +95,21 @@ class Login extends React.Component {
               </div>
             </div>
             <div className="sixteen wide tablet six wide computer column ">
-              {this.state.loginErr ? (
+              {console.log("login error",this.props.errorDetails)}
+              
+              {this.props.errorDetails.emailnotfound ? (
                 <Message negative>
-                  <Message.Header>{this.state.loginErr}</Message.Header>
+                  <Message.Header>{this.props.errorDetails.emailnotfound}</Message.Header>
                 </Message>
               ) : (
+                ""
+              )}
+
+              {this.props.errorDetails.passwordincorrect ? (
+                <Message negative>
+                  <Message.Header>{this.props.errorDetails.passwordincorrect}</Message.Header>
+                </Message>
+                ) : (
                 ""
               )}
               <div className="ui segment">
@@ -131,7 +141,6 @@ class Login extends React.Component {
                         <Icon name="google plus" /> Google
                       </Button>
                     </Form.Group>
-                    {console.log(this.state.loginErr)}
                   </Form>
                 </div>
               </div>
@@ -155,6 +164,7 @@ function validate(values) {
 }
 const mapStateToProps = (state) => ({
   auth: state.authDetails,
+  errorDetails:state.errorDetails
 });
 export default reduxForm({
   validate: validate,
