@@ -17,7 +17,7 @@ router.post("/register",(req,res)=>{
     console.log(req.body);
     User.findOne({email:req.body.email}).then(user=>{
         if(user){
-            console.log("USER EXIST");
+            console.log(chalk.red("USER EXIST"));
             return res.status(400).json({email:"Email already exist"});
         }
         else{

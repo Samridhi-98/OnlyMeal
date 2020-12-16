@@ -15,7 +15,7 @@ import logo from "../../images/logo.svg";
 
 //CSS
 import "../../css/master.css";
-import { Header, Form, Image } from "semantic-ui-react";
+import { Header, Form, Image,Message } from "semantic-ui-react";
 
 class Register extends React.Component {
   state = {};
@@ -79,10 +79,8 @@ class Register extends React.Component {
     console.log("values are ", values);
     this.props.registerUser(values, this.props.history);
     // this.props.history.push("/dashboard");
-    console.log("REGISETRED : ", this.props.registerUser);
-    if (!this.props.registerUser) {
-      console.log("User Exist");
-    }
+    //console.log("REGISETRED : ", this.props.registerUser);
+    //console.log("register error!! ",this.props.errorDetails)
   }
   render() {
     // handlSubmit is provided by redux form to us
@@ -97,14 +95,15 @@ class Register extends React.Component {
               </div>
             </div>
             <div className="sixteen wide tablet six wide computer column ">
-                {/* Error message */}
-              {/* {this.state.loginErr ? (
+              {/* Error message */}
+              {console.log("registeration error: ",this.props.errorDetails)}
+              {this.props.errorDetails.email ? (
                 <Message negative>
-                  <Message.Header>{this.state.loginErr}</Message.Header>
+                  <Message.Header>{this.props.errorDetails.email}</Message.Header>
                 </Message>
               ) : (
                 ""
-              )} */}
+              )}
               <div className="ui segment">
                 <div>
                   {/* here when we click the submit button the handleSumbit will run and perform redux side of things
@@ -190,8 +189,14 @@ function validate(values) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ registerUser }, dispatch);
 };
-
+//getting data from react
+const mapStateProps=(state)=>{
+  return {
+    errorDetails: state.errorDetails
+  }
+  
+}
 export default reduxForm({
   validate: validate, //if key and value name are same just pass the name itself no need for  key:value
   form: "PostsNewForm",
-})(connect(null, { registerUser, mapDispatchToProps })(Register));
+})(connect(mapStateProps, { registerUser, mapDispatchToProps })(Register));
