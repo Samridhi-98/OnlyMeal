@@ -12,6 +12,9 @@ import Carousel from "../../CarouselCard";
 //SEMANTIC-UI-REACT
 import { Item, Segment, Container, Grid, Rating, Label } from "semantic-ui-react";
 
+//NAVBAR
+import Navbar from "./Navbar";
+
 // IMAGE
 import cardImg from "../../images/food1.jpg";
 
@@ -81,6 +84,7 @@ class Dashboard extends React.Component {
 
     return (
       <div >
+        <div> <Navbar/> </div>
         <Container className="dashboard ">
           {/* <Segment> */}
           <Carousel />

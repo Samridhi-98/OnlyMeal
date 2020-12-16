@@ -19,10 +19,14 @@ import banned from "../../images/profile/tags/banned.svg";
 import consume from "../../images/profile/tags/consume.svg";
 import cardImg from "../../images/minion_card.svg";
 
+//NAVBAR
+import Navbar from "./Navbar";
+
 class Profile extends React.Component {
     render() {
         return (
             <div className="profile">
+                <div> <Navbar/> </div>
                 <Container>
                     <Segment className="profile-top">
                         <Header as="h1" icon textAlign="center">

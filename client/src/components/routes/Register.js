@@ -2,6 +2,7 @@ import React from 'react';
 
 //IMPORT REACT-REDUX AND REDUX-FORM
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Field, reduxForm } from "redux-form";
 
@@ -104,12 +105,12 @@ class Register extends React.Component {
 
                                         <Form.Group className="formButton" >
                                             <Form.Button className="submitButton" color="violet" type="submit">SignUp</Form.Button>
-                                            <Form.Button className="submitButton" color="violet" type="submit">SignIn</Form.Button>
+                                            {/* <Form.Button className="submitButton" color="violet" type="submit">SignIn</Form.Button> */}
                                             {/* <Button color='google plus'>
                                                 <Icon name='google plus' /> Google
                                             </Button> */}
                                             {/* <Button className="submitButton" color="violet" >Google</Button>  */}
-                                            {/* <Link className="signin ui button"><Icon name='google plus' /> Google Plus</Link> */}
+                                            <Link className="signin ui violet button" to="/login">SignIn</Link>
                                         </Form.Group>
                                     </Form>
                                 </div>

@@ -17,6 +17,8 @@ import minion_card from "../../images/minion_card.svg";
 // CSS
 import "../../css/master.css";
 
+//NAVBAR
+import Navbar from "./Navbar";
 
 class CreateAvail extends Component {
   state = {}
@@ -112,6 +114,7 @@ class CreateAvail extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="createAvail">
+      <div> <Navbar/> </div>
         <div>
           <Header as='h2' icon textAlign='center'>
             <Image className="headerImg" src={minion_card} />
