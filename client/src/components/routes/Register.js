@@ -27,7 +27,7 @@ class Register extends React.Component {
         console.log("name chal paya");
         return (
             <div>
-                <Form.Input fluid placeholder="Ex. Vinod" label="username" {...field.input} error={field.meta.touched ? field.meta.error : null} />
+                <Form.Input fluid placeholder="Ex. Vinod" label="Username" {...field.input} error={field.meta.touched ? field.meta.error : null} />
             </div>
         );
     }
@@ -53,8 +53,11 @@ class Register extends React.Component {
         //this===component
         console.log("values are ", values);
         this.props.registerUser(values,this.props.history);
-        // this.props.history.push("/dashboard");  
-
+        // this.props.history.push("/dashboard");
+        console.log("REGISETRED : ",this.props.registerUser);  
+        if(!this.props.registerUser){
+            console.log("User Exist");
+        }
     }
     render() {
         // handlSubmit is provided by redux form to us

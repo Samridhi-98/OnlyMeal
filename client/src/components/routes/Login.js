@@ -12,7 +12,7 @@ import logo from '../../images/logo.svg';
 //import PropTypes from "prop-types";
 //CSS
 import '../../css/master.css';
-import { Header, Form, Image, Button, Icon } from 'semantic-ui-react';
+import { Header, Form, Image, Button, Icon, Message} from 'semantic-ui-react';
 
 class Login extends React.Component {
     componentDidMount(){
@@ -26,10 +26,10 @@ class Login extends React.Component {
           this.props.history.push("/dashboard");
         }
     
-        if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors
-          });
+        if (nextProps.errors) {  
+            this.setState({
+                errors: nextProps.errors
+            });
         }
       }
     
@@ -47,11 +47,16 @@ class Login extends React.Component {
         )
     }
 
-    onSubmit(values) {
+    onSubmit(values,err) {
         // values.preventDefault();
         console.log("values are ", values);
         this.props.loginUser(values);
         //this.props.history.push("/dashboard");
+        console.log("AUTH: ",this.props.auth);
+        if(!this.props.auth.isAuthenticated){
+            console.log("INVALID USER");
+            err = "Invalid credentials,Please try again";
+        }
     }
 
     render() {
@@ -90,6 +95,7 @@ class Login extends React.Component {
                                                 <Icon name='google plus' /> Google
                                             </Button>
                                         </Form.Group>
+                                        <Message error header={this.props.err}/>
                                     </Form>
                                 </div>
                             </div>
