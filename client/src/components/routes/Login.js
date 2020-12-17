@@ -4,12 +4,11 @@ import { Field, reduxForm } from "redux-form";
 
 //IMPORT ACTION-CREATOR
 import { loginUser } from "../../actions/authAction";
-//import { createUser } from "../../actions/index.js";
 
 // Images
 import donut from "../../images/minion_donut.svg";
 import logo from "../../images/logo.svg";
-//import PropTypes from "prop-types";
+
 //CSS
 import "../../css/master.css";
 import { Header, Form, Image, Button, Icon, Message } from "semantic-ui-react";
@@ -68,18 +67,10 @@ class Login extends React.Component {
 
   onSubmit(values, err) {
     // values.preventDefault();
-    //console.log("login error: ",err);
-
     console.log("values are ", values);
     this.props.loginUser(values);
     //this.props.history.push("/dashboard");
     console.log("AUTH: ", this.props.auth);
-    // if (!this.props.auth.isAuthenticated) {
-    //   console.log("INVALID USER");
-    //   // err = "Invalid credentials,Please try again";
-    //   this.setState({ loginErr: "Invalid credentials,Please try again" });
-    //   console.log("inside: ", this.state.loginErr);
-    // }
   }
 
   render() {
@@ -95,8 +86,8 @@ class Login extends React.Component {
               </div>
             </div>
             <div className="sixteen wide tablet six wide computer column ">
-              {console.log("login error",this.props.errorDetails)}
-              
+              {/* Error Check */}
+              {/* {console.log("login error",this.props.errorDetails)} */}
               {this.props.errorDetails.emailnotfound ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.emailnotfound}</Message.Header>
@@ -104,7 +95,7 @@ class Login extends React.Component {
               ) : (
                 ""
               )}
-
+              {/* Password Check */}
               {this.props.errorDetails.passwordincorrect ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.passwordincorrect}</Message.Header>

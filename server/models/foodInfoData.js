@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// const passportLocalMongoose = require("passport-local-mongoose");
+const userData = require("./userSchema").schema;
 
 let foodInfoData = new mongoose.Schema({
     title: String,
@@ -17,7 +17,15 @@ let foodInfoData = new mongoose.Schema({
     city: String,
     pincode: String,
     address: String,
-})
+    userID:{
+        type:mongoose.Schema.Types.ObjectId,ref: 'userData'
+    }
+},{ toJSON: {
+    virtuals: true,
+  }},
+{
+    timestamps: true    
+});
 
 
 // foodInfoData.plugin(passportLocalMongoose);

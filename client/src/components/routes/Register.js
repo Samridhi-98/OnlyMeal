@@ -78,9 +78,6 @@ class Register extends React.Component {
     //this===component
     console.log("values are ", values);
     this.props.registerUser(values, this.props.history);
-    // this.props.history.push("/dashboard");
-    //console.log("REGISETRED : ", this.props.registerUser);
-    //console.log("register error!! ",this.props.errorDetails)
   }
   render() {
     // handlSubmit is provided by redux form to us

@@ -15,9 +15,10 @@ router.post("/register",(req,res)=>{
 
     console.log(chalk.red("into register"));
     console.log(req.body);
-    User.findOne({email:req.body.email}).then(user=>{
+    User.findOne({email:req.body.email}).populate("feed").then(user=>{
         if(user){
             console.log(chalk.red("USER EXIST"));
+            console.log(chalk.green("user data: ",res.json(user))); //changes
             return res.status(400).json({email:"Email already exist"});
         }
         else{
@@ -47,7 +48,7 @@ router.post("/login",(req,res)=>{
     const password= req.body.password;
     console.log(chalk.magenta(req.body));
     //find user by email
-    User.findOne({email}).then(user=>{
+    User.findOne({email}).populate("feed").then(user=>{
         // check if user exists
         if(!user){
             console.log(chalk.red("nahi mila yaar"));
