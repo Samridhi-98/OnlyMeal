@@ -32,10 +32,15 @@ class Login extends React.Component {
     }
 
     if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors,
-      });
+      this.setState({errors: nextProps.errors});
     }
+    // if (nextProps.errorDetails !== this.props.errorDetails) {
+    //   console.log("Inside error props",this.props.errorDetails);
+    //   // console.log("Inside error state",this.state.errorDetails);
+    //   // nextProps.errorDetails.passwordincorrect="";
+    //   // this.setState({ errorDetails: nextProps.errorDetails});
+    //   console.log("after setstate: ",nextProps.errorDetails.passwordincorrect);
+    // }
   }
 
   renderEmailFieild(field) {
@@ -91,14 +96,17 @@ class Login extends React.Component {
               {this.props.errorDetails.emailnotfound ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.emailnotfound}</Message.Header>
+                  {this.props.errorDetails.emailnotfound=""}
                 </Message>
               ) : (
                 ""
               )}
               {/* Password Check */}
+              {/* {console.log("errorDetails password: ",this.props.errorDetails.passwordincorrect)} */}
               {this.props.errorDetails.passwordincorrect ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.passwordincorrect}</Message.Header>
+                  {this.props.errorDetails.passwordincorrect=""}
                 </Message>
                 ) : (
                 ""

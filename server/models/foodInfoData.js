@@ -20,9 +20,7 @@ let foodInfoData = new mongoose.Schema({
     userID:{
         type:mongoose.Schema.Types.ObjectId,ref: 'userData'
     }
-},{ toJSON: {
-    virtuals: true,
-  }},
+},
 {
     timestamps: true    
 });

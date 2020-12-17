@@ -97,6 +97,7 @@ class Register extends React.Component {
               {this.props.errorDetails.email ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.email}</Message.Header>
+                  {this.props.errorDetails.email=""}
                 </Message>
               ) : (
                 ""

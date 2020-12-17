@@ -22,10 +22,6 @@ let userSchema = new mongoose.Schema({
         default:Date.now
     },
     feed: [foodInfoData],
-},{
-    toJSON: {
-        virtuals: true,
-    },
 },
 {
     timestamps: true
