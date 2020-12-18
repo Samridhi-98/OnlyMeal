@@ -4,7 +4,7 @@ const chalk = require('chalk');
 //---------------------Database---------------------
 // const User = require("./models/user");
 const FoodData = require("../models/foodInfoData");
-const UserData= require("../models/userSchema");
+const userData= require("../models/userSchema");
 router.get("/", (req, res) => {
     FoodData.find({ })
             .then((data)=>{
@@ -24,33 +24,41 @@ router.post("/save",(req,res)=>{
     // create instance of database model
     const newFoodData=new FoodData(data);
     // save data to database
-    newFoodData.save((error)=>{
-        if(error){
-            console.log(chalk.red("internal server database error",error));
-            res.status(500).json({msg:"sorry! database error"}); 
-            return;
-        }
-        
-        return res.json({
-            msg:"Data recieved"
+    newFoodData.save()
+    .then((result)=>{
+        console.log("result:",result)
+        // const id=req.body.userID
+        // console.log("user id :",id);
+        userData.findOne({email:req.body.email},(err,user)=>{
+            if(user){
+                user.feed.push(data);
+                user.save();
+                console.log(chalk.white("Data successfully fed"))
+                res.json({message:"food item dropped"});
+            }else{
+                console.log(chalk.white("Data error ",err))
+            }
         })
-        
     })
-    // .then(()=>{
-    //     userData.findOne({email:req.body.email},(err,user)=>{
-    //         if(user){
-                
-    //             user.feed.push(data);
-    //             user.save();
-    //             console.log(chalk.white("Data successfully fed"))
-    //             res.json({message:"food item dropped"});
-    //         }
-    //     })
-    // })
-    // .catch((error)=>{
-    //     console.log(chalk.red("Data wasent been fed"));
-    // })
+    .catch((error)=>{
+        console.log(chalk.red("Data wasent been fed",error));
+    })
    
 })
 // need to put "s" in export
 module.exports= router;
+
+
+
+// (error)=>{
+//     if(error){
+//         console.log(chalk.red("internal server database error",error));
+//         res.status(500).json({msg:"sorry! database error"}); 
+//         return;
+//     }
+    
+//     return res.json({
+//         msg:"Data recieved"
+//     })
+    
+// }

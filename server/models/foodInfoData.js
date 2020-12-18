@@ -17,9 +17,9 @@ let foodInfoData = new mongoose.Schema({
     city: String,
     pincode: String,
     address: String,
-    userID:{
+    userID:[{
         type:mongoose.Schema.Types.ObjectId,ref: 'userData'
-    }
+    }]
 },
 {
     timestamps: true    
