@@ -63,7 +63,8 @@ router.post("/login",(req,res)=>{
                 //Create JWT Payload
                 const payload={
                     id:user.id,
-                    name:user.name
+                    name:user.name,
+                    email:user.email
                 };
 
                 // sign token
@@ -71,7 +72,7 @@ router.post("/login",(req,res)=>{
                     payload,
                     key.secretOrKey,
                     {
-                        expiresIn: 31556926 //1 yr in seconds
+                        expiresIn: 31556926 //1 year in seconds
                     },
                     (err,token)=>{
                         res.json({

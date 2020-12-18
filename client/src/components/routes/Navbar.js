@@ -12,7 +12,6 @@ class Navbar extends React.Component {
   state = {};
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   onLogoutClick=(e)=>{
-    console.log("ye chala ???");
     e.preventDefault();
     this.props.logoutUser();
   }
@@ -66,7 +65,12 @@ class Navbar extends React.Component {
               <Header>Signout</Header>
             </Link>
           </Menu.Item>
-          
+          <Menu.Item
+            className="navbar-content"
+            position="right"
+          >
+            <Header>{this.props.authDetails.user.name}</Header>
+          </Menu.Item>
         </Menu>
         {/* For Phone */}
         {/* TOP */}
@@ -117,8 +121,11 @@ class Navbar extends React.Component {
   }
 }
 const mapStateToProps=(state)=>{
+    console.log("user=>",state.authDetails.user.name);
     return {
-        logoutUser:state.logoutUser
+        logoutUser:state.logoutUser,
+        authDetails:state.authDetails
+
     }
 }
 export default connect(mapStateToProps,{logoutUser})(Navbar);

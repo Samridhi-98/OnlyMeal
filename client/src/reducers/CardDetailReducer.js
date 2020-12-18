@@ -24,6 +24,7 @@ export default function (state = [], action) {
       state = action.payload;
       return state;
     default:
+      console.log("running",state);
       return state;
   }
 }

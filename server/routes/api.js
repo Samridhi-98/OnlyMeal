@@ -4,7 +4,7 @@ const chalk = require('chalk');
 //---------------------Database---------------------
 // const User = require("./models/user");
 const FoodData = require("../models/foodInfoData");
-
+const UserData= require("../models/userSchema");
 router.get("/", (req, res) => {
     FoodData.find({ })
             .then((data)=>{
@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 })
 
 router.post("/save",(req,res)=>{
-    console.log(req.body);
+    console.log("save=> ",req.body);
     const data=req.body;
     // create instance of database model
     const newFoodData=new FoodData(data);
@@ -27,7 +27,7 @@ router.post("/save",(req,res)=>{
     newFoodData.save((error)=>{
         if(error){
             console.log(chalk.red("internal server database error",error));
-            res.status(500).json({msg:"sorry! database error"});
+            res.status(500).json({msg:"sorry! database error"}); 
             return;
         }
         
@@ -36,6 +36,20 @@ router.post("/save",(req,res)=>{
         })
         
     })
+    // .then(()=>{
+    //     userData.findOne({email:req.body.email},(err,user)=>{
+    //         if(user){
+                
+    //             user.feed.push(data);
+    //             user.save();
+    //             console.log(chalk.white("Data successfully fed"))
+    //             res.json({message:"food item dropped"});
+    //         }
+    //     })
+    // })
+    // .catch((error)=>{
+    //     console.log(chalk.red("Data wasent been fed"));
+    // })
    
 })
 // need to put "s" in export

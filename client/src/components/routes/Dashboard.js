@@ -25,7 +25,7 @@ import "../../css/master.css";
 import { fillDashboard } from "../../actions/index";
 
 class Dashboard extends React.Component {
-  //only rum for the first time 
+  //only run for the first time 
   componentDidMount(){
     Axios.get('/api')
         .then((response)=>{
