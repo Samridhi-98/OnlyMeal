@@ -10,7 +10,7 @@ import { bindActionCreators } from "redux";
 import Carousel from "../../CarouselCard";
 
 //SEMANTIC-UI-REACT
-import { Item, Segment, Container, Grid, Rating, Label } from "semantic-ui-react";
+import { Item, Segment, Container, Grid, Rating, Label, Button } from "semantic-ui-react";
 
 //NAVBAR
 import Navbar from "./Navbar";
@@ -38,7 +38,26 @@ class Dashboard extends React.Component {
           console.log("bhag bdk");
         })
   }
-
+  //! Adding data to recieved section of CURRENT USER 
+  addDataToRecieved(cardData){
+    
+    console.log("availing data: ",cardData);
+    Axios({
+      url: "/api/recieve",
+      method: "POST",
+      //?  we can assign a key of object(key:val) to another object
+      data:{
+        cardData:cardData,
+        recieverId:this.props.authDetails.user.id
+      }
+    })
+    .then(()=>{
+      console.log("recieved data sent to server!!");
+    })
+    .catch((err)=>{
+      console.log("recieved data didnt send",err);
+    })
+  }
   render() {
     console.log("in dashboard",this.props.cardDetails);
     const cardList = this.props.cardDetails.map((cardDetail) => {
@@ -71,7 +90,13 @@ class Dashboard extends React.Component {
                     </p>
                   </Item.Description>
                   <Item.Extra>
-                    <Link className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Link>
+                    <Label className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Label>
+                    <Button 
+                      className="mini ui purple button"
+                      //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
+                      //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
+                      onClick={()=>{this.addDataToRecieved(cardDetail)}}
+                    >Avail</Button>
                     <Rating className="rating-star" icon='star' defaultRating={3} maxRating={5} />
                   </Item.Extra>
                 </Item.Content>
@@ -110,6 +135,7 @@ const mapDispatchToProps = (dispatch)=>{
 const mapStateToProp = (state) => {
   return {
     cardDetails: state.cardDetails,
+    authDetails:state.authDetails
     // carouselFact: state.carouselFact
   };
 };

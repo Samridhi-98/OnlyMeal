@@ -29,7 +29,7 @@ router.post("/save",(req,res)=>{
         console.log("result:",result)
         // const id=req.body.userID
         // console.log("user id :",id);
-        userData.findOne({email:req.body.email},(err,user)=>{
+        userData.findById(data.userid,(err,user)=>{
             if(user){
                 user.feed.push(data);
                 user.save();
@@ -45,20 +45,28 @@ router.post("/save",(req,res)=>{
     })
    
 })
+
+router.post("/recieve",(req,res)=>{
+    const data=req.body;
+    console.log(data);
+    userData.findById(data.recieverId,(err,user)=>{
+        if(user){
+            user.recieved.push(data.cardData);
+            console.log(chalk.white(user.recieved));
+            user.save();
+            console.log("user is: ",user);
+            res.json({message:"added to recieved array"});
+        }else{
+            console.log(chalk.red("recieved data didnt pushed into user array"));
+        }
+    })
+})
+router.get('/recieve',(req,res)=>{
+    console.log("recieve get: ",req);
+    res.json({data:"got it"});
+})
 // need to put "s" in export
 module.exports= router;
 
 
 
-// (error)=>{
-//     if(error){
-//         console.log(chalk.red("internal server database error",error));
-//         res.status(500).json({msg:"sorry! database error"}); 
-//         return;
-//     }
-    
-//     return res.json({
-//         msg:"Data recieved"
-//     })
-    
-// }

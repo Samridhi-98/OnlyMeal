@@ -22,6 +22,7 @@ let userSchema = new mongoose.Schema({
         default:Date.now
     },
     feed: [foodInfoData],
+    recieved: [foodInfoData],
 },
 {
     timestamps: true

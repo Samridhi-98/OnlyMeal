@@ -106,7 +106,25 @@ class CreateAvail extends Component {
   onSubmit(values) {
     // console.log("called submit with values: ",values);
     console.log("onsubmit", values);
-    this.props.createCard(values);
+    console.log("id => ",this.props.authDetails.user)
+    const foodInfo={
+      userid:this.props.authDetails.user.id,
+      title:values.title,
+      address:values.address,
+      type:values.type,
+      category:values.category,
+      state:values.state,
+      date:values.date,
+      other:values.other,
+      quantity:values.quantity,
+      phoneno:values.phoneno,
+      email:this.props.authDetails.user.email,
+      city:values.city,
+      pincode:values.pincode,
+
+    }
+    console.log("foodInfo ",foodInfo);
+    this.props.createCard(foodInfo);
     this.props.history.push("/dashboard");
   }
   render() {
@@ -208,9 +226,14 @@ function validate(values) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ createCard }, dispatch);
 }
+const mapStateToProps = (state) =>{
+  return {
+    authDetails:state.authDetails
+  }
+}
 export default reduxForm({
   validate: validate,
   form: "CreateCards"
 })(
-  connect(null, mapDispatchToProps)(CreateAvail)
+  connect(mapStateToProps, mapDispatchToProps)(CreateAvail)
 );

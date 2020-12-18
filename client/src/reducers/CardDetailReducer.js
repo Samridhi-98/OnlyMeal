@@ -18,7 +18,7 @@ export default function (state = [], action) {
         });
       console.log("to check ", state);
       return state;
-
+    
     case FILL_DASHBOARD:
       console.log("for dashboard", action.payload);
       state = action.payload;

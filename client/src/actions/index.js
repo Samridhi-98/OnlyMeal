@@ -34,3 +34,6 @@ export const fillDashboard = (values)=>{
         
     })
 }
+
+//Filling the recieved section 
+//export const FILL_PROFILE_RECIEVED = ""
