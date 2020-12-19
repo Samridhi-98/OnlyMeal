@@ -30,13 +30,15 @@ class Profile extends React.Component {
     Axios({
       url:"/api/recieve",
       method:"GET",
-      data:id
+      params:{
+        data:id
+      }
     })
     .then((response)=>{
       console.log("from profile: ",response.data);
     })
     .catch((err)=>{
-      console.log("error occured while recieving from profile");
+      console.log("error occured while recieving from profile",err);
     })
     // const renderCards=id.map((card) => {
     //   return (

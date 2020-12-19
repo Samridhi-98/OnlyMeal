@@ -11,7 +11,8 @@ let userSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true 
+        required:true,
+        unique:true 
     },
     password:{
         type:String,
@@ -21,8 +22,14 @@ let userSchema = new mongoose.Schema({
         type:Date,
         default:Date.now
     },
-    feed: [foodInfoData],
-    recieved: [foodInfoData],
+    feed: {
+        type:[foodInfoData],
+        unique: true
+    },
+    recieved: {
+        type:[foodInfoData],
+        unique:true,
+    },
 },
 {
     timestamps: true

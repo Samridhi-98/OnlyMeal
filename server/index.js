@@ -48,7 +48,9 @@ const MONGODB_URI = 'mongodb+srv://ritik:masala_dosa@onlymeal.wkqyo.mongodb.net/
 // Creating database connection
 mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/onlyMealDB", {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useCreateIndex: true,   //(node:63208) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead [duplicate]
+
 }, (err) => {
     if (err) {
         console.log(chalk.red(err));

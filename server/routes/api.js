@@ -48,21 +48,21 @@ router.post("/save",(req,res)=>{
 
 router.post("/recieve",(req,res)=>{
     const data=req.body;
-    console.log(data);
+    console.log("inside recieve: ",data);
     userData.findById(data.recieverId,(err,user)=>{
         if(user){
             user.recieved.push(data.cardData);
-            console.log(chalk.white(user.recieved));
+            console.log(chalk.white("user recieved: ",user.recieved));
             user.save();
             console.log("user is: ",user);
             res.json({message:"added to recieved array"});
         }else{
-            console.log(chalk.red("recieved data didnt pushed into user array"));
+            console.log(chalk.red("recieved data didnt pushed into user array",err));
         }
     })
 })
 router.get('/recieve',(req,res)=>{
-    console.log("recieve get: ",req);
+    console.log("recieve get: ",req.body);
     res.json({data:"got it"});
 })
 // need to put "s" in export

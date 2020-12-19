@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
         })
         .catch((error)=>{
           //not a good approach . did this just for fun
-          console.log("bhag bdk");
+          console.log("bhag bdk",error);
         })
   }
   //! Adding data to recieved section of CURRENT USER 
@@ -90,7 +90,7 @@ class Dashboard extends React.Component {
                     </p>
                   </Item.Description>
                   <Item.Extra>
-                    <Label className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Label>
+                    <Link className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Link>
                     <Button 
                       className="mini ui purple button"
                       //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.

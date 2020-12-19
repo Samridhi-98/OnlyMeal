@@ -11,10 +11,17 @@ let foodInfoData = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    quantity: Number,
+    quantity:{ 
+        type: Number,
+        min:0,
+        max:10
+    },
     others: String,
     phoneno: Number,
-    email: String,
+    email:{
+        type:String,
+        unique: true,
+    },
     city: String,
     pincode: String,
     address: String,
