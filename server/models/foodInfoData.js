@@ -16,7 +16,7 @@ let foodInfoData = new mongoose.Schema({
         min:0,
         max:10
     },
-    others: String,
+    other: String,
     phoneno: Number,
     email:{
         type:String,

@@ -25,55 +25,105 @@ import cardImg from "../../images/minion_card.svg";
 import Navbar from "./Navbar";
 
 class Profile extends React.Component {
-  cardDetails(id) {
-    console.log("profile client id: ",id);
-    Axios({
-      url:"/api/recieve",
-      method:"GET",
-      params:{
-        data:id
-      }
-    })
-    .then((response)=>{
-      console.log("from profile: ",response.data);
-    })
-    .catch((err)=>{
-      console.log("error occured while recieving from profile",err);
-    })
-    // const renderCards=id.map((card) => {
-    //   return (
-    //     <Grid.Column>
-    //       <Segment>
-    //         <Item.Group divided>
-    //           <Item>
-    //             <Item.Image size="small" src={cardImg} />
-    //             <Item.Content>
-    //               <Item.Header>{card.title}</Item.Header>
-    //               <Item.Meta>{card.quantity}KG</Item.Meta>
-    //               <Item.Description>
-    //                 <p>
-    //                   {card.other}
-    //                 </p>
-    //               </Item.Description>
-    //               <Item.Extra>
-    //                 <Rating
-    //                   className="rating-star"
-    //                   icon="star"
-    //                   defaultRating={3}
-    //                   maxRating={5}
-    //                 />
-    //               </Item.Extra>
-    //             </Item.Content>
-    //           </Item>
-    //         </Item.Group>
-    //       </Segment>
-    //     </Grid.Column>
-    //   );
-    // });
-    // return renderCards;
+  state={
+    recieveCards:[],
+    donateCards:[]
   }
-  render() {
   
+  componentDidMount(){
+    this.cardDetails(this.props.authDetails.user.id, "recieve");
+    this.cardDetails(this.props.authDetails.user.id, "donate");
+  }
+  
+  cardDetails(id, reqType) {
+    console.log("profile client id: ", id);
+    let renderCards;
+    //! sending data with GET is by appending it to the end
+    Axios({
+      url: "/api/" + reqType + "/" + id, //! <= here
+      method: "GET",
+    })
+      .then((response) => {
+        (reqType==="donate") ? this.setState({donateCards:response.data}) : this.setState({recieveCards:response.data})  
+      })
+      .catch((err) => {
+        console.log("error occured while recieving from profile", err);
+      });
+      return renderCards;
+  }
+
+  render() {
+    //---------------------------
+    //? Rendering  reciever cards
+    // --------------------------
+    const recieverCards = this.state.recieveCards.map((card) => {
+      return (
+        <Grid.Column>
+          <Segment>
+            <Item.Group divided>
+              <Item>
+                <Item.Image size="small" src={cardImg} />
+                <Item.Content>
+                  {console.log("title: ",card.title)}
+                  {console.log("quantity: ",card.quantity)}
+                  <Item.Header>{card.title}</Item.Header>
+                  <Item.Meta>{card.quantity}KG</Item.Meta>
+                  <Item.Description>
+                    {console.log("other: ",card.other)}
+                    <p>{card.other}</p>
+                  </Item.Description>
+                  <Item.Extra>
+                    <Rating
+                      className="rating-star"
+                      icon="star"
+                      defaultRating={3}
+                      maxRating={5}
+                    />
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+        </Grid.Column>
+      );
+    });
+
+    //---------------------------
+    //? Rendering donation cards
+    // --------------------------
+
+    const donationCards = this.state.donateCards.map((card) => {
+      return (
+        <Grid.Column>
+          <Segment>
+            <Item.Group divided>
+              <Item>
+                <Item.Image size="small" src={cardImg} />
+                <Item.Content>
+                  {console.log("title: ",card.title)}
+                  {console.log("quantity: ",card.quantity)}
+                  <Item.Header>{card.title}</Item.Header>
+                  <Item.Meta>{card.quantity}KG</Item.Meta>
+                  <Item.Description>
+                    {console.log("other: ",card.other)}
+                    <p>{card.other}</p>
+                  </Item.Description>
+                  <Item.Extra>
+                    <Rating
+                      className="rating-star"
+                      icon="star"
+                      defaultRating={3}
+                      maxRating={5}
+                    />
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+        </Grid.Column>
+      );
+    });
+
     return (
       <div className="profile">
         <div>
@@ -109,8 +159,9 @@ class Profile extends React.Component {
             </Label>
             <Grid className="mid-grid" columns={2}>
               <Grid.Row className="ui stackable doubling">
+
+                {donationCards}
                 
-                {this.cardDetails(this.props.authDetails.user.id)}
               </Grid.Row>
             </Grid>
           </Segment>
@@ -121,9 +172,9 @@ class Profile extends React.Component {
             </Label>
             <Grid className="mid-grid" columns={2}>
               <Grid.Row className="ui stackable doubling">
-                {/*  */}
-                {this.cardDetails(this.props.authDetails.user.id)}
-                {console.log("recieved data: ",this.props.authDetails.user.recieved)}
+                
+                {recieverCards}
+                
               </Grid.Row>
             </Grid>
           </Segment>
@@ -134,8 +185,7 @@ class Profile extends React.Component {
 }
 const mapStateToProp = (state) => {
   return {
-    authDetails: state.authDetails,
-    cardDetails: state.cardDetails,
+    authDetails: state.authDetails,  
   };
 };
 export default connect(mapStateToProp)(Profile);

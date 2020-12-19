@@ -5,6 +5,7 @@ const chalk = require('chalk');
 // const User = require("./models/user");
 const FoodData = require("../models/foodInfoData");
 const userData= require("../models/userSchema");
+const { route } = require('./user');
 router.get("/", (req, res) => {
     FoodData.find({ })
             .then((data)=>{
@@ -50,8 +51,8 @@ router.post("/recieve",(req,res)=>{
     const data=req.body;
     console.log("inside recieve: ",data);
     userData.findById(data.recieverId,(err,user)=>{
-        if(user){
-            user.recieved.push(data.cardData);
+        if(user && data.recieverId !== data.cardData.userid){
+            user.recieved.addToSet(data.cardData);
             console.log(chalk.white("user recieved: ",user.recieved));
             user.save();
             console.log("user is: ",user);
@@ -61,9 +62,27 @@ router.post("/recieve",(req,res)=>{
         }
     })
 })
-router.get('/recieve',(req,res)=>{
-    console.log("recieve get: ",req.body);
-    res.json({data:"got it"});
+router.get('/recieve/:userid',(req,res)=>{
+    const userid=req.params.userid;
+    
+    userData.findById(userid,(err,user)=>{
+        if(user){
+            res.json(user.recieved);
+        }else{
+            console.log(chalk.red("error occured while fetching recieved data for user"));
+        }
+    })
+})
+router.get('/donate/:userid',(req,res)=>{
+    const userid=req.params.userid;
+    
+    userData.findById(userid,(err,user)=>{
+        if(user){
+            res.json(user.feed);
+        }else{
+            console.log(chalk.red("error occured while fetching recieved data for user"));
+        }
+    })
 })
 // need to put "s" in export
 module.exports= router;
