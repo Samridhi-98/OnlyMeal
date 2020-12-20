@@ -8,6 +8,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
+import moment from "moment";
+
 //ACTION-CREATOR
 import { createCard } from "../../actions/index";
 
@@ -190,15 +192,25 @@ class CreateAvail extends Component {
 }
 function validate(values) {
   const error = {}
-  // console.log("values are : ",values);
+ 
+  const curDate = new Date(Date.now());
+  const userDate = new Date(values.date);
+  const checkDate=(curDate.getDate()>userDate.getDate())?(curDate.getDate()-userDate.getDate()):(userDate.getDate()-curDate.getDate());
+  console.log("curDate", checkDate);
+  console.log("previous:",moment().subtract(1, 'days').calendar()); //?YESTERDAY
+  console.log("future:",moment().add(1, 'days').calendar());  //?TOMORROW
+
   if (!values.title) {
     error.title = "Please enter a title";
   }
-  if (!values.date) {
-    error.date = "Please enter a date";
+  if (!values.date||curDate.getMonth()!==userDate.getMonth()||curDate.getFullYear()!==userDate.getFullYear()){
+    error.date = "Please enter valid date";
   }
-  if (!values.quantity) {
-    error.quantity = "Please enter quantity";
+  if(checkDate>3 || checkDate<1){
+    error.date = "Invalid request expired item"
+  }
+  if (!values.quantity || (values.quantity.length>10 && values.quantity.length<0)) {
+    error.quantity = "Please enter quantity in range 0-10 Kg";
   }
   if (!values.other || values.other.length > 30) {
     error.other = "Please enter food details under 30 words";
@@ -206,7 +218,7 @@ function validate(values) {
   if (!values.phoneno || values.phoneno.length !== 10) {
     error.phoneno = "Please enter a valid number";
   }
-  if (!values.email) {
+  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}$/i.test(values.email))) {
     error.email = "Please enter a valid email";
   }
   if (!values.city) {
@@ -216,7 +228,7 @@ function validate(values) {
     error.pincode = "Please enter a valid pincode";
   }
   if (!values.address) {
-    error.address = "Please enter the address";
+    error.address = "Please enter valid address";
   }
   
   return error;

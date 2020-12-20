@@ -10,7 +10,7 @@ import { bindActionCreators } from "redux";
 import Carousel from "../../CarouselCard";
 
 //SEMANTIC-UI-REACT
-import { Item, Segment, Container, Grid, Rating, Label, Button } from "semantic-ui-react";
+import { Item, Segment, Container, Grid, Rating, Label } from "semantic-ui-react";
 
 //NAVBAR
 import Navbar from "./Navbar";
@@ -90,13 +90,15 @@ class Dashboard extends React.Component {
                     </p>
                   </Item.Description>
                   <Item.Extra>
+                    
                     <Link className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Link>
-                    <Button 
+                    <Link 
                       className="mini ui purple button"
+                      to="/foodinfo"
                       //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
                       //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
                       onClick={()=>{this.addDataToRecieved(cardDetail)}}
-                    >Avail</Button>
+                    >Claim</Link>
                     <Rating className="rating-star" icon='star' defaultRating={3} maxRating={5} />
                   </Item.Extra>
                 </Item.Content>

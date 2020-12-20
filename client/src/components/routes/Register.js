@@ -43,7 +43,7 @@ class Register extends React.Component {
           fluid
           label="Email ID"
           type="email"
-          placeholder=""
+          placeholder="something@.com"
           {...field.input}
           error={field.meta.touched ? field.meta.error : null}
         />
@@ -163,19 +163,19 @@ class Register extends React.Component {
 
 function validate(values) {
   //values refer to the values user have enteredin the form
-  const errors = {};
+  const errors = {}; 
   //console.log("values", values);
   if (!values.username || values.username.length < 3) {
-    errors.name = "Name must be atleast 3 characters long";
+    errors.username = "Name must be atleast 3 characters long";
+  }
+  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}$/i.test(values.email))) {
+    errors.email = "Please enter a valid email";
   }
   if (!values.password || values.password.length < 8) {
     errors.password = "Please enter a password with 8 or more characters";
   }
-  if (!values.email) {
-    errors.email = "Please enter a valid email";
-  }
   if (values.confirmpassword !== values.password) {
-    errors.password = "Password didnt match";
+    errors.confirmpassword = "Password did not match";
   }
 
   //if errors is empty form is fine and is ready to submit

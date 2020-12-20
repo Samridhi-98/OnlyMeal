@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const userData = require("./userSchema").schema;
+const validator = require('validator');
+
 
 let foodInfoData = new mongoose.Schema({
     userid:mongoose.Schema.Types.ObjectId,
@@ -21,6 +22,11 @@ let foodInfoData = new mongoose.Schema({
     email:{
         type:String,
         unique: true,
+        validate:{
+            validator: validator.isEmail,
+            message: '{VALUE} is not a valid email',
+            isAsync: false
+        },
     },
     city: String,
     pincode: String,

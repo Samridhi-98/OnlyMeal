@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
-
+const validator = require('validator');
 //Exporting module isn't Schemas, they are Models.When you do const foodInfoData = require('./foodIInfoData'); 
 //You are requiring the foodInfoData Model, not the foodInfoData Schema so use .schema to resolve the issue.
 const foodInfoData = require("./foodInfoData").schema;
+
+//?The validator dosn't play well with mongoose to get rid of the warning set isAsync to false
 
 let userSchema = new mongoose.Schema({
     name:{
@@ -12,7 +14,12 @@ let userSchema = new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:true 
+        unique:true,
+        validate:{
+            validator: validator.isEmail,
+            message: '{VALUE} is not a valid email',
+            isAsync: false
+        }
     },
     password:{
         type:String,

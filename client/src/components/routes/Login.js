@@ -153,11 +153,12 @@ class Login extends React.Component {
 
 function validate(values) {
   const errors = {};
+  
+  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}$/i.test(values.email))) {
+    errors.email = "Please enter a valid email";
+  }
   if (!values.password || values.password.length < 8) {
     errors.password = "Please enter a password with 8 or more characters";
-  }
-  if (!values.email) {
-    errors.email = "Please enter a valid email";
   }
   return errors;
 }
