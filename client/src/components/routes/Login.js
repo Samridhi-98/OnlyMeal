@@ -154,7 +154,7 @@ class Login extends React.Component {
 function validate(values) {
   const errors = {};
   
-  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}$/i.test(values.email))) {
+  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))) {
     errors.email = "Please enter a valid email";
   }
   if (!values.password || values.password.length < 8) {

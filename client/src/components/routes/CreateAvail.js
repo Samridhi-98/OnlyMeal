@@ -195,7 +195,7 @@ function validate(values) {
  
   const curDate = new Date(Date.now());
   const userDate = new Date(values.date);
-  const checkDate=(curDate.getDate()>userDate.getDate())?(curDate.getDate()-userDate.getDate()):(userDate.getDate()-curDate.getDate());
+  const checkDate=(curDate.getDate()>userDate.getDate()) ? (curDate.getDate()-userDate.getDate()):(userDate.getDate()-curDate.getDate());
   console.log("curDate", checkDate);
   console.log("previous:",moment().subtract(1, 'days').calendar()); //?YESTERDAY
   console.log("future:",moment().add(1, 'days').calendar());  //?TOMORROW
@@ -206,19 +206,19 @@ function validate(values) {
   if (!values.date||curDate.getMonth()!==userDate.getMonth()||curDate.getFullYear()!==userDate.getFullYear()){
     error.date = "Please enter valid date";
   }
-  if(checkDate>3 || checkDate<1){
+  if(checkDate>2){
     error.date = "Invalid request expired item"
   }
   if (!values.quantity || (values.quantity.length>10 && values.quantity.length<0)) {
     error.quantity = "Please enter quantity in range 0-10 Kg";
   }
-  if (!values.other || values.other.length > 30) {
+  if (!values.other || values.other.length > 50) {
     error.other = "Please enter food details under 30 words";
   }
   if (!values.phoneno || values.phoneno.length !== 10) {
     error.phoneno = "Please enter a valid number";
   }
-  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}$/i.test(values.email))) {
+  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))) {
     error.email = "Please enter a valid email";
   }
   if (!values.city) {

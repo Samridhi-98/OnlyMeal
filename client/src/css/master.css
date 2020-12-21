@@ -109,6 +109,10 @@ body {
     background-color: darkgrey;
 }
 
+.dashboard .freshcheck {
+    margin-left: 1em !important;
+}
+
 
 /* to maintain the height of the card image */
 
@@ -250,7 +254,7 @@ body {
 /* ---------------------------------------- food-info -------------------------------------- */
 
 .foodinfo {
-    margin-top: 20vh !important;
+    margin-top: 12vh !important;
 }
 
 .foodinfo .header {

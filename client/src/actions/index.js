@@ -36,4 +36,10 @@ export const fillDashboard = (values)=>{
 }
 
 //Filling the recieved section 
-//export const FILL_PROFILE_RECIEVED = ""
+export const DISPLAY_CARD = "DISPLAY_CARD";
+export const displayCard = (values)=>{
+    return ({
+        types:DISPLAY_CARD,
+        payload:values
+    })
+}

@@ -23,6 +23,12 @@ export default function (state = [], action) {
       console.log("for dashboard", action.payload);
       state = action.payload;
       return state;
+
+    // case DISPLAY_CARD:{
+    //   console.log("expand card details",action.payload);
+    //   state = action.payload;
+    //   return state;
+    // }    
     default:
       console.log("running",state);
       return state;

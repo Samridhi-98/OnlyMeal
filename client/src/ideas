@@ -10,4 +10,9 @@ RESOURCES
 ----------------------------------------------------------------------------------------
 -> For user auth
     ->  https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669
--> 
+
+
+-> For email validation
+    -> https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
+
+ -> moment = for using yesterday,tomorrow rather then dates   

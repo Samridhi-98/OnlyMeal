@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const FoodData = require("../models/foodInfoData");
 const userData= require("../models/userSchema");
 const { route } = require('./user');
+let currentCard;
 router.get("/", (req, res) => {
     FoodData.find({ })
             .then((data)=>{
@@ -49,6 +50,8 @@ router.post("/save",(req,res)=>{
 
 router.post("/recieve",(req,res)=>{
     const data=req.body;
+    currentCard=data;
+    console.log("Current CARD:",currentCard);
     console.log("inside recieve: ",data);
     userData.findById(data.recieverId,(err,user)=>{
         if(user && data.recieverId !== data.cardData.userid){
@@ -83,6 +86,11 @@ router.get('/donate/:userid',(req,res)=>{
             console.log(chalk.red("error occured while fetching recieved data for user"));
         }
     })
+})
+
+router.get('/foodinfo',(req,res)=>{
+    console.log("current card from server : ",currentCard);
+    res.json(currentCard);
 })
 // need to put "s" in export
 module.exports= router;

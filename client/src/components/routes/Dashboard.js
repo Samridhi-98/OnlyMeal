@@ -25,6 +25,10 @@ import "../../css/master.css";
 import { fillDashboard } from "../../actions/index";
 
 class Dashboard extends React.Component {
+
+  state= {
+    expired:""
+  }
   //only run for the first time 
   componentDidMount(){
     Axios.get('/api')
@@ -53,23 +57,45 @@ class Dashboard extends React.Component {
     })
     .then(()=>{
       console.log("recieved data sent to server!!");
+      this.props.history.push("/foodInfo");
+      console.log("foodInfo chala ya nhii!!");
     })
     .catch((err)=>{
       console.log("recieved data didnt send",err);
     })
   }
+  checkFood=(foodDate,category)=>{
+    const old= new Date(foodDate).getDate();
+    const curr=new Date().getDate();
+    let isFresh;
+    if(category==="cooked"){
+      isFresh = (curr-old<=1) ? true : false;
+    }
+    else{
+      isFresh = (curr-old<=7) ? true : false;
+    }
+    return isFresh;
+  }
+
   render() {
     console.log("in dashboard",this.props.cardDetails);
     const cardList = this.props.cardDetails.map((cardDetail) => {
+      // const isFresh=(new Date().getDate()-new Date(cardDetail.date).getDate())>2 ? false : true;
+      const isFresh=this.checkFood(cardDetail.date,cardDetail.category);
+      console.log("difference of date: ",isFresh);
       return (
         <Grid.Column>
           <Segment className="details">
+            {/* <Label color={isFresh ? "olive" : "red"} attached='bottom'>{isFresh ? "Available" : "Expired" }</Label> */}
             <Item.Group divided>
               <Item >
-                <Item.Image size="small" src={cardImg} />
-
+                <Item.Image 
+                  size="small" 
+                  src={cardImg} 
+                />
                 <Item.Content>
-                  <Item.Header>{cardDetail.title}
+                  <Item.Header>{cardDetail.title} 
+                    <Label className="freshcheck" basic size="small" color={isFresh ? "green" : "red"}>{isFresh ? "Available" : "Expired" }</Label>
                     <Label color={(cardDetail.type === "veg") ? "green" : "red"} attached="top right">{cardDetail.type}
                     </Label>
                   </Item.Header>
@@ -78,9 +104,11 @@ class Dashboard extends React.Component {
                       <Label className="labelcolor">{cardDetail.quantity}KG</Label>
                       <Label>{cardDetail.category}</Label>
                       <Label>{cardDetail.state}</Label>
+                      
+
+
                     </Label.Group>
                   </Item.Description>
-
                   {/* <Item.Meta>{cardDetail.date}</Item.Meta> */}
                   {/* <Item.Meta>{cardDetail.quantity}</Item.Meta> */}
                   <Item.Description>
@@ -90,14 +118,15 @@ class Dashboard extends React.Component {
                     </p>
                   </Item.Description>
                   <Item.Extra>
-                    
-                    <Link className={cardDetail.expired ? "mini ui red button" : "mini ui green button"} to={cardDetail.expired ? "/dashboard" : "/foodinfo"}>{cardDetail.expired ? 'Expired' : 'Available'}</Link>
+                  
+                    {/* <Label className={ isFresh ? "medium ui green label" : "medium ui red label" } >{isFresh ? 'Available' : 'Expired'}</Label> */}
                     <Link 
                       className="mini ui purple button"
-                      to="/foodinfo"
+                      onClick={()=>{this.addDataToRecieved(cardDetail)}}
+                      
                       //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
                       //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
-                      onClick={()=>{this.addDataToRecieved(cardDetail)}}
+                      
                     >Claim</Link>
                     <Rating className="rating-star" icon='star' defaultRating={3} maxRating={5} />
                   </Item.Extra>
