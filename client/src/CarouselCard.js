@@ -14,7 +14,7 @@ const CarouselCard = () => {
             render: () => {
                 return (
                     // <Image className="image" src={minion_luv} />
-                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</Header>
+                    <Header textAlign='center'>Bananas, cucumbers, kiwis are all classed as berries. Strawberries, blackberries and raspberries are not.</Header>
                 );
             }
         },
@@ -22,7 +22,7 @@ const CarouselCard = () => {
             render: () => {
                 // return <Image className="image" src={minion_graph} />;
                 return(
-                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</Header>
+                    <Header textAlign='center'>A hard one to wrap your head around. Before 2011,beer and any alcoholic beverage under 10% ABV was classified as a soft drink.</Header>
                 );
             }
         },
@@ -30,7 +30,7 @@ const CarouselCard = () => {
             render: () => {
                 return (
                     // <Image className="image" src={food1} />
-                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</Header>
+                    <Header textAlign='center'>Around 4% of ALL the cheese made in the world gets stolen, There's even a black market of stolen cheeses,but we didn't tell you that.</Header>
                 );
             }
         },
@@ -38,7 +38,7 @@ const CarouselCard = () => {
             render: () => {
                 return (
                     // <Image className="image" src={minion_join} />
-                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</Header>
+                    <Header textAlign='center'>Lobsters are quite literally sea insects that were a hard sale back in the day and used to be chucked back in the sea or given to servants.</Header>
                 );
             }
         },
@@ -46,7 +46,7 @@ const CarouselCard = () => {
             render: () => {
                 return (
                     // <Image className="image" src={minion_work} />
-                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</Header>
+                    <Header textAlign='center'>Brussels sprouts may be the most hated vegetable, but it’s among the most nutritious veggies out there. It’s packed full of vitamins and minerals.</Header>
                 );
             }
         }

@@ -200,8 +200,15 @@ body {
 }
 
 .navbar-content {
-    padding-bottom: 4vh !important;
+    padding-bottom: 2vh !important;
     padding-top: 0 !important;
+}
+
+.user-profile {
+    border-radius: 2 !important;
+    align-items: center !important;
+    padding-bottom: 0 !important;
+    padding-top: 1vh !important;
 }
 
 @media screen and (max-width: 992px) {

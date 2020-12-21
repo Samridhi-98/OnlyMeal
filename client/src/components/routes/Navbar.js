@@ -7,6 +7,7 @@ import { Menu, Image, Header, Icon } from "semantic-ui-react";
 
 // IMAGES
 import logo from "../../images/logo1.svg";
+import profileAvatar from "../../images/profile/displaypic/user_profile.svg"
 
 class Navbar extends React.Component {
   state = {};
@@ -69,7 +70,10 @@ class Navbar extends React.Component {
             className="navbar-content"
             position="right"
           >
-            <Header>{this.props.authDetails.user.name}</Header>
+           <Image className="user-profile" size="mini" src={profileAvatar} avatar />
+            <Header>
+            {this.props.authDetails.user.name}
+            </Header>
           </Menu.Item>
         </Menu>
         {/* For Phone */}
