@@ -17,20 +17,31 @@ import {
 } from "semantic-ui-react";
 
 //IMAGES
-// import snow_cat from "../../images/profile/displaypic/cup.svg";
 import donate from "../../images/profile/tags/donate.svg";
 import banned from "../../images/profile/tags/banned.svg";
 import consume from "../../images/profile/tags/consume.svg";
-// import cardImg from "../../images/minion_card.svg";
+import donateFiller from "../../images/empty/donate.svg";
+import recieveFiller from "../../images/empty/recieve.svg";
 
 
 //NAVBAR
 import Navbar from "./Navbar";
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 const img=alphabet[Math.floor(Math.random() * alphabet.length)]
+
 //! LINK: https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
 const profileImage=require("../../images/profile/displaypic/"+img+".svg")
 
+const IMG=(imgName)=>{
+    return require(`../../images/cardimg/${imgName}`)
+};
+//? good wishes message for profile tag line
+const quotes = ["Good food is a good mood.",
+                "Coffee is a hug in a mug.",
+                "Joey doesn't share food, but you should.",
+                "Life is a combination of magic and pasta.",
+                "The belly rules the mind."
+              ];
 
 class Profile extends React.Component {
   state = {
@@ -64,6 +75,17 @@ class Profile extends React.Component {
     return renderCards;
   }
 
+  //? empty section place holder
+  filler(type){
+    console.log("filler called for"+type);
+    if(type === "donate"){
+      return(
+        <Image size="small" centered src={donateFiller}/>
+      )
+    }
+    return <Image size="small" centered src={recieveFiller}/>
+    
+  } 
   render() {
     if (this.state.loading) {
       return(
@@ -81,70 +103,91 @@ class Profile extends React.Component {
       const recieverCards = this.state.recieveCards.map((card) => {
         return (
           <Grid.Column>
-            <Segment>
-              <Item.Group divided>
-                <Item>
-                  {console.log("recieve image:",card.image)}
-                  <Item.Image size="small" src={card.image} />
-                  <Item.Content>
-                    {console.log("title: ", card.title)}
-                    {console.log("quantity: ", card.quantity)}
-                    <Item.Header>{card.title}</Item.Header>
-                    <Item.Meta>{card.quantity}KG</Item.Meta>
-                    <Item.Description>
-                      {console.log("other: ", card.other)}
-                      <p>{card.other}</p>
-                    </Item.Description>
-                    <Item.Extra>
+          <Segment className="details">
+            <Item.Group divided>
+              <Item >
+                <Item.Image 
+                  size="small" 
+                  src={require(`../../images/cardimg/${card.image}`)}
+                />
+                <Item.Content>
+                  <Item.Header>{(card.title).toUpperCase()} 
+                    <Label color={(card.type === "Veg") ? "green" : "red"} attached="top right">{card.type}
+                    </Label>
+                  </Item.Header>
+                  <Item.Description>
+                    <Label.Group>
+                      <Label className="labelcolor">{card.quantity}KG</Label>
+                      <Label>{card.category}</Label>
+                      <Label>{card.state}</Label>
+                    </Label.Group>
+                  </Item.Description>
+                  <Item.Description>
+                    <p>
+                    <Header className="meta">
+                      <em>{card.other}</em>
+                      </Header>
+                    </p>
+                  </Item.Description>
+                  <Item.Extra>
                       <Rating
                         className="rating-star"
                         icon="star"
                         defaultRating={3}
                         maxRating={5}
                       />
-                    </Item.Extra>
-                  </Item.Content>
-                </Item>
-              </Item.Group>
-            </Segment>
-          </Grid.Column>
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+        </Grid.Column>
         );
       });
 
       //---------------------------
       //? Rendering donation cards
       // --------------------------
-
+      //<Item.Image size="small" src={IMG(card.image)} />
       const donationCards = this.state.donateCards.map((card) => {
         return (
           <Grid.Column>
-            <Segment>
-              <Item.Group divided>
-                <Item>
-                  {console.log("donate image:",card.image)}
-                  <Item.Image size="small" src={card.image} />
-                  <Item.Content>
-                    {console.log("title: ", card.title)}
-                    {console.log("quantity: ", card.quantity)}
-                    <Item.Header>{card.title}</Item.Header>
-                    <Item.Meta>{card.quantity}KG</Item.Meta>
-                    <Item.Description>
-                      {console.log("other: ", card.other)}
-                      <p>{card.other}</p>
-                    </Item.Description>
-                    <Item.Extra>
+          <Segment className="details">
+            <Item.Group divided>
+              <Item >
+              <Item.Image size="small" src={IMG(card.image)} />
+                <Item.Content>
+                  <Item.Header>{(card.title).toUpperCase()} 
+                    <Label color={(card.type === "Veg") ? "green" : "red"} attached="top right">{card.type}
+                    </Label>
+                  </Item.Header>
+                  <Item.Description>
+                    <Label.Group>
+                      <Label className="labelcolor">{card.quantity}KG</Label>
+                      <Label>{card.category}</Label>
+                      <Label>{card.state}</Label>
+                    </Label.Group>
+                  </Item.Description>
+                  <Item.Description>
+                    <p>
+                    <Header className="meta">
+                      <em>{card.other}</em>
+                    </Header>
+                    </p>
+                  </Item.Description>
+                  <Item.Extra>
                       <Rating
                         className="rating-star"
                         icon="star"
                         defaultRating={3}
                         maxRating={5}
                       />
-                    </Item.Extra>
-                  </Item.Content>
-                </Item>
-              </Item.Group>
-            </Segment>
-          </Grid.Column>
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+        </Grid.Column>
         );
       });
 
@@ -158,9 +201,9 @@ class Profile extends React.Component {
               <Header as="h1" icon textAlign="center">
                 <Image className="" src={profileImage} />
                 <Header.Content className="header-content">
-                  {this.props.authDetails.user.name}
+                  {(this.props.authDetails.user.name).toUpperCase()}
                   <Header className="meta" as="h4" disabled>
-                    Good Morning People !! XD
+                    <em>{quotes[Math.floor(Math.random() * quotes.length)]}</em>
                   </Header>
                 </Header.Content>
               </Header>
@@ -184,6 +227,7 @@ class Profile extends React.Component {
               <Grid className="mid-grid" columns={2}>
                 <Grid.Row className="ui stackable doubling">
                   {donationCards}
+                  {(donationCards.length===0) ? this.filler("donate") : "" }   
                 </Grid.Row>
               </Grid>
             </Segment>
@@ -200,7 +244,9 @@ class Profile extends React.Component {
               </Label>
               <Grid className="mid-grid" columns={2}>
                 <Grid.Row className="ui stackable doubling">
+                  {console.log("---recieve cards length : ",recieverCards.length)}
                   {recieverCards}
+                  {(recieverCards.length===0) ? this.filler("recieve") : "" }
                 </Grid.Row>
               </Grid>
             </Segment>

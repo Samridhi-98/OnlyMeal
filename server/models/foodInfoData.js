@@ -24,7 +24,7 @@ let foodInfoData = new mongoose.Schema({
     phoneno: Number,
     email:{
         type:String,
-        unique: true,
+       
         validate:{
             validator: validator.isEmail,
             message: '{VALUE} is not a valid email',

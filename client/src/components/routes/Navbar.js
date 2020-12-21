@@ -9,6 +9,8 @@ import { Menu, Image, Header, Icon } from "semantic-ui-react";
 import logo from "../../images/logo1.svg";
 import profileAvatar from "../../images/profile/displaypic/user_profile.svg"
 
+import _ from 'lodash';
+
 // const alphabet = "abcdefghijklmnopqrstuvwxyz";
 // const img=alphabet[Math.floor(Math.random() * alphabet.length)]
 // //! LINK: https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
@@ -77,7 +79,7 @@ class Navbar extends React.Component {
           >
            <Image className="user-profile" size="mini" src={profileAvatar} avatar />
             <Header>
-            {this.props.authDetails.user.name}
+            { _.camelCase(this.props.authDetails.user.name)}
             </Header>
           </Menu.Item>
         </Menu>

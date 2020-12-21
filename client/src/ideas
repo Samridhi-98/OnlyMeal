@@ -19,3 +19,6 @@ RESOURCES
 
  -> to manage async calls
     -> https://stackoverflow.com/questions/43312223/asynchronous-call-in-componentwillmount-finishes-after-render-method
+
+-> showing local images in src 
+    -> https://dev.to/sirajrkhan/comment/jch4

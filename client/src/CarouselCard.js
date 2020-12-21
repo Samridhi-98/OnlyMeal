@@ -38,7 +38,7 @@ const CarouselCard = () => {
             render: () => {
                 return (
                     // <Image className="image" src={minion_join} />
-                    <Header textAlign='center'>Lobsters are quite literally sea insects that were a hard sale back in the day and used to be chucked back in the sea or given to servants.</Header>
+                    <Header textAlign='center'>Lobsters are quite literally sea insects that were a hard sale back in the day and used to be chucked back in the sea.</Header>
                 );
             }
         },
@@ -46,7 +46,7 @@ const CarouselCard = () => {
             render: () => {
                 return (
                     // <Image className="image" src={minion_work} />
-                    <Header textAlign='center'>Brussels sprouts may be the most hated vegetable, but it’s among the most nutritious veggies out there. It’s packed full of vitamins and minerals.</Header>
+                    <Header textAlign='center'>Brussels sprouts may be the most hated vegetable, but it’s among the most nutritious veggies. It’s packed full of vitamins and minerals.</Header>
                 );
             }
         }

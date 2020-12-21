@@ -311,3 +311,11 @@ body {
 .profile .mid-grid {
     margin-top: 1vh !important;
 }
+
+.profile .rating-star {
+    float: right !important;
+    padding-top: 2% !important;
+}
+.profile .details{
+    margin-bottom: 2vh !important
+}

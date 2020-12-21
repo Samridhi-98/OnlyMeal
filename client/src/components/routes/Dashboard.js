@@ -10,13 +10,10 @@ import { bindActionCreators } from "redux";
 import Carousel from "../../CarouselCard";
 
 //SEMANTIC-UI-REACT
-import { Item, Segment, Container, Grid, Rating, Label,Loader } from "semantic-ui-react";
+import { Item, Segment, Container, Grid, Rating, Label, Loader,Header} from "semantic-ui-react";
 
 //NAVBAR
 import Navbar from "./Navbar";
-
-// IMAGE
-import cardImg from "../../images/food1.jpg";
 
 //CSS
 import "../../css/master.css";
@@ -70,7 +67,7 @@ class Dashboard extends React.Component {
     const old= new Date(foodDate).getDate();
     const curr=new Date().getDate();
     let isFresh;
-    if(category==="cooked"){
+    if(category==="Cooked"){
       isFresh = (curr-old<=1) ? true : false;
     }
     else{
@@ -102,12 +99,12 @@ class Dashboard extends React.Component {
                 <Item >
                   <Item.Image 
                     size="small" 
-                    src={cardImg} 
+                    src={require(`../../images/cardimg/${cardDetail.image}`)}
                   />
                   <Item.Content>
-                    <Item.Header>{cardDetail.title} 
+                    <Item.Header>{(cardDetail.title).toUpperCase()} 
                       <Label className="freshcheck" basic size="small" color={isFresh ? "green" : "red"}>{isFresh ? "Available" : "Expired" }</Label>
-                      <Label color={(cardDetail.type === "veg") ? "green" : "red"} attached="top right">{cardDetail.type}
+                      <Label color={(cardDetail.type === "Veg") ? "green" : "red"} attached="top right">{cardDetail.type}
                       </Label>
                     </Item.Header>
                     <Item.Description>
@@ -125,7 +122,10 @@ class Dashboard extends React.Component {
                     <Item.Description>
   
                       <p>
-                        {cardDetail.other}
+                      <Header className="meta">
+                      <em>{cardDetail.other}</em>
+                      </Header>
+                      
                       </p>
                     </Item.Description>
                     <Item.Extra>
@@ -160,9 +160,7 @@ class Dashboard extends React.Component {
               <Grid.Row className="ui stackable doubling">
                 {cardList}
               </Grid.Row>
-  
             </Grid>
-  
           </Container>
         </div>
   

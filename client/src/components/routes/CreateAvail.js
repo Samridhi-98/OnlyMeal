@@ -39,8 +39,8 @@ class CreateAvail extends Component {
     return (
       <select className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value=""></option>
-        <option key="veg" value="veg">Veg.</option>
-        <option key="nonveg" value="nonveg">Non Veg.</option>
+        <option key="Veg" value="Veg">Veg.</option>
+        <option key="NonVeg" value="NonVeg">Non Veg.</option>
       </select>
       // <Form.Select fluid label='Type' options={type} placeholder='' {...field.select} error={field.meta.touched ? field.meta.error : null}/>
     );
@@ -49,8 +49,8 @@ class CreateAvail extends Component {
     return (
       <select className="ui fluid dropdown"  {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value=""></option>
-        <option key="raw" value="raw">Raw</option>
-        <option key="cooked" value="cooked">Cooked</option>
+        <option key="Raw" value="Raw">Raw</option>
+        <option key="Cooked" value="Cooked">Cooked</option>
       </select>
     );
   }
@@ -58,8 +58,8 @@ class CreateAvail extends Component {
     return (
       <select className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value=""></option>
-        <option key="dry" value="dry">Dry</option>
-        <option key="wet" value="wet">Wet</option>
+        <option key="Dry" value="Dry">Dry</option>
+        <option key="Wet" value="Wet">Wet</option>
       </select>
       // <Form.Select fluid label='State' options={state} placeholder='' {...field.input} error={field.meta.touched ? field.meta.error : null}/>
     );
@@ -105,20 +105,20 @@ class CreateAvail extends Component {
     );
   }
   findImageSrc(values){
-    const src="../../images/cardimg/";
-    if(values.state==="dry"){
-      if(values.category==="cooked"){
-        return src+"1.svg";
+    
+    if(values.state==="Dry"){
+      if(values.category==="Cooked"){
+        return "one.svg";
       }
       else{
-        return src+"2.svg";
+        return "two.svg";
       }
     }else{
-      if(values.category==="cooked"){
-        return src+"3.svg";
+      if(values.category==="Cooked"){
+        return "three.svg";
       }
       else{
-        return src+"4.svg";
+        return "four.svg";
       }
     }
   }

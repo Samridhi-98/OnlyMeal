@@ -1,15 +1,11 @@
 import React from "react";
 import Axios from "axios";
+
 //Semantic-UI
 import { Container, Header,Loader, Item, Segment, TextArea, Form, Button, TransitionablePortal } from "semantic-ui-react";
 
 //REACT-REDUX 
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
-
-
-// Image
-import minion_luv from "../../images/cage.jpg";
 
 //NAVBAR
 import Navbar from "./Navbar";
@@ -53,13 +49,13 @@ class FoodInfo extends React.Component {
           <Navbar/>  
           <div>
             <Header icon textAlign="center">
-              <Header.Content className="title">{this.state.card.title}</Header.Content>
+              <Header.Content className="title">{(this.state.card.title).toUpperCase()}</Header.Content>
             </Header>
           </div>
           <Segment className="details">
             <Item.Group>
               <Item>
-                <Item.Image size="medium" src={minion_luv} />
+                <Item.Image size="medium" src={require(`../../images/cardimg/${this.state.card.image}`)} />
   
                 <Item.Content>
                   <Item.Description className="description">
@@ -71,17 +67,14 @@ class FoodInfo extends React.Component {
                       <strong>State: </strong> {this.state.card.state} &nbsp; &nbsp;
                       <br />
                     </p>
-                    {/* <p className="">
-                      <strong>Type: </strong> Veg. &nbsp; &nbsp;
-                      <strong>Category: </strong> Cooked &nbsp; &nbsp;
-                      <strong>State: </strong> Wet &nbsp; &nbsp;
-                      <br />
-                      <br />
-                    </p> */}
+                    <p className="">
+                      <strong>Others: </strong>
+                      <em>{this.state.card.other}</em>
+                    </p>
                     <h2 className="ui dividing header">Contact Details</h2>
                     <p>
                       <strong>Phone No: </strong> {this.state.card.phoneno} &nbsp; &nbsp;
-                      <br />
+                      <br/>
                       <strong>Email: </strong> {this.state.card.email} &nbsp; &nbsp;
                       <br />
                       <strong>City: </strong> {this.state.card.city}  &nbsp; &nbsp;
