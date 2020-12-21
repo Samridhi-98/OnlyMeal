@@ -43,7 +43,7 @@ require("./config/passport")(passport);
 
 //cluster user name: ritik
 const password= 'masala_dosa'
-const MONGODB_URI = 'mongodb+srv://ritik:masala_dosa@onlymeal.wkqyo.mongodb.net/<dbname>?retryWrites=true&w=majority'
+const MONGODB_URI = 'mongodb+srv://ritik:masala_dosa@onlymeal1.wkqyo.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 // Creating database connection
 mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/onlyMealDB", {
