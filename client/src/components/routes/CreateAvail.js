@@ -105,16 +105,16 @@ class CreateAvail extends Component {
     );
   }
   findImageSrc(values){
-    const src="D:/projects/OnlyMealFinal/onlymeal/client/src/images/cardimg/";
+    const src="../../images/cardimg/";
     if(values.state==="dry"){
-      if(values.category=="cooked"){
+      if(values.category==="cooked"){
         return src+"1.svg";
       }
       else{
         return src+"2.svg";
       }
     }else{
-      if(values.category=="cooked"){
+      if(values.category==="cooked"){
         return src+"3.svg";
       }
       else{

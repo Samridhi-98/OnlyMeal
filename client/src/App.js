@@ -58,11 +58,11 @@ class App extends React.Component {
           <div>
             <div className="parent">
               <div className="">
-                <Route path="/" exact component={Register} />
+                <Route path="/" exact component={Login} />
               </div>
             </div>
             <div>
-              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
             </div>
           </div>
           <Switch>

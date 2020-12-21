@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 //Semantic-UI
-import { Container, Header,Loader,Image, Item, Segment, TextArea, Form, Button, TransitionablePortal } from "semantic-ui-react";
+import { Container, Header,Loader, Item, Segment, TextArea, Form, Button, TransitionablePortal } from "semantic-ui-react";
 
 //REACT-REDUX 
 import { connect } from "react-redux";

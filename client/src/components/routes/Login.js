@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 
 //IMPORT ACTION-CREATOR
@@ -11,7 +12,7 @@ import logo from "../../images/logo.svg";
 
 //CSS
 import "../../css/master.css";
-import { Header, Form, Image, Button, Icon, Message } from "semantic-ui-react";
+import { Header, Form, Image, Message} from "semantic-ui-react";
 
 class Login extends React.Component {
   constructor() {
@@ -34,13 +35,6 @@ class Login extends React.Component {
     if (nextProps.errors) {
       this.setState({errors: nextProps.errors});
     }
-    // if (nextProps.errorDetails !== this.props.errorDetails) {
-    //   console.log("Inside error props",this.props.errorDetails);
-    //   // console.log("Inside error state",this.state.errorDetails);
-    //   // nextProps.errorDetails.passwordincorrect="";
-    //   // this.setState({ errorDetails: nextProps.errorDetails});
-    //   console.log("after setstate: ",nextProps.errorDetails.passwordincorrect);
-    // }
   }
 
   renderEmailFieild(field) {
@@ -134,12 +128,16 @@ class Login extends React.Component {
                         color="violet"
                         type="submit"
                       >
-                        Login
+                        SignIn
                       </Form.Button>
-                      <Button color="google plus">
+                      <Link className="signin ui violet button" to="/register">
+                        SignUp
+                      </Link>
+                    {/* </Form.Group>
+                      {/* <Button color="google plus">
                         <Icon name="google plus" /> Google
-                      </Button>
-                    </Form.Group>
+                      </Button> */}
+                    </Form.Group> 
                   </Form>
                 </div>
               </div>

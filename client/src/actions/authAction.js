@@ -10,7 +10,7 @@ export const registerUser = (userData, history) => dispatch => {
     .post("/user/register/", userData)
     .then(res =>{
       console.log("redirecting");
-      history.push("/login")} ) // re-direct to login on successful register
+      history.push("/")} ) // re-direct to login on successful register
     .catch(err =>
       // console.log("this is error => ",err.response)
       dispatch({

@@ -146,7 +146,7 @@ class Register extends React.Component {
                                                 <Icon name='google plus' /> Google
                                             </Button> */}
                       {/* <Button className="submitButton" color="violet" >Google</Button>  */}
-                      <Link className="signin ui violet button" to="/login">
+                      <Link className="signin ui violet button" to="/">
                         SignIn
                       </Link>
                     </Form.Group>

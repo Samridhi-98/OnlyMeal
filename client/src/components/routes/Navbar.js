@@ -9,6 +9,11 @@ import { Menu, Image, Header, Icon } from "semantic-ui-react";
 import logo from "../../images/logo1.svg";
 import profileAvatar from "../../images/profile/displaypic/user_profile.svg"
 
+// const alphabet = "abcdefghijklmnopqrstuvwxyz";
+// const img=alphabet[Math.floor(Math.random() * alphabet.length)]
+// //! LINK: https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
+// const profileImage=require("../../images/profile/displaypic/"+img+".svg")
+
 class Navbar extends React.Component {
   state = {};
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -88,7 +93,7 @@ class Navbar extends React.Component {
           className="forphone "
           fixed="bottom"
           fluid
-          widths={3}
+          widths={4}
           icon
           pointing
         >
@@ -111,6 +116,15 @@ class Navbar extends React.Component {
             </Link>
           </Menu.Item>
           <Menu.Item
+            name="profile"
+            active={activeItem === "profile"}
+            onClick={this.handleItemClick}
+          >
+            <Link className=" " to="/profile">
+              <Icon color="black" size="large" name="user" />
+            </Link>
+          </Menu.Item>
+          <Menu.Item
             name="signout"
             active={activeItem === "signout"}
             onClick={this.onLogoutClick}
@@ -119,6 +133,7 @@ class Navbar extends React.Component {
               <Icon color="black" size="large" name="sign-out" />
             </Link>
           </Menu.Item>
+          
         </Menu>
       </div>
     );

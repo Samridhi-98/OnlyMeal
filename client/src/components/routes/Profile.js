@@ -17,11 +17,12 @@ import {
 } from "semantic-ui-react";
 
 //IMAGES
-import snow_cat from "../../images/profile/displaypic/cup.svg";
+// import snow_cat from "../../images/profile/displaypic/cup.svg";
 import donate from "../../images/profile/tags/donate.svg";
 import banned from "../../images/profile/tags/banned.svg";
 import consume from "../../images/profile/tags/consume.svg";
-import cardImg from "../../images/minion_card.svg";
+// import cardImg from "../../images/minion_card.svg";
+
 
 //NAVBAR
 import Navbar from "./Navbar";
@@ -83,6 +84,7 @@ class Profile extends React.Component {
             <Segment>
               <Item.Group divided>
                 <Item>
+                  {console.log("recieve image:",card.image)}
                   <Item.Image size="small" src={card.image} />
                   <Item.Content>
                     {console.log("title: ", card.title)}
@@ -119,6 +121,7 @@ class Profile extends React.Component {
             <Segment>
               <Item.Group divided>
                 <Item>
+                  {console.log("donate image:",card.image)}
                   <Item.Image size="small" src={card.image} />
                   <Item.Content>
                     {console.log("title: ", card.title)}
