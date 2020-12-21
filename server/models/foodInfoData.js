@@ -17,6 +17,9 @@ let foodInfoData = new mongoose.Schema({
         min:0,
         max:10
     },
+    image:{
+        type:String
+    },
     other: String,
     phoneno: Number,
     email:{

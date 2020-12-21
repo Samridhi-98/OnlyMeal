@@ -104,7 +104,24 @@ class CreateAvail extends Component {
       <Form.TextArea label='Address' placeholder='Enter full address' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-
+  findImageSrc(values){
+    const src="D:/projects/OnlyMealFinal/onlymeal/client/src/images/cardimg/";
+    if(values.state==="dry"){
+      if(values.category=="cooked"){
+        return src+"1.svg";
+      }
+      else{
+        return src+"2.svg";
+      }
+    }else{
+      if(values.category=="cooked"){
+        return src+"3.svg";
+      }
+      else{
+        return src+"4.svg";
+      }
+    }
+  }
   onSubmit(values) {
     // console.log("called submit with values: ",values);
     console.log("onsubmit", values);
@@ -112,6 +129,7 @@ class CreateAvail extends Component {
     const foodInfo={
       userid:this.props.authDetails.user.id,
       title:values.title,
+      image:this.findImageSrc(values),
       address:values.address,
       type:values.type,
       category:values.category,

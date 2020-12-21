@@ -16,3 +16,6 @@ RESOURCES
     -> https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
 
  -> moment = for using yesterday,tomorrow rather then dates   
+
+ -> to manage async calls
+    -> https://stackoverflow.com/questions/43312223/asynchronous-call-in-componentwillmount-finishes-after-render-method
