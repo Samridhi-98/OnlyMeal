@@ -77,8 +77,8 @@ if(process.env.NODE_ENV === 'production'){
 }
 //! STEP 4
 //? go inside package.son of server then paste the following inside script
-//? "build":"cd .. && cd client && npm run build", 
-//? "install-client":"cd .. && cd client && npm run build",
+//? "build": "cd client && npm run build",
+//? "install-client": "cd client && npm install",
 //? "heroku-postbuild": "npm run install-client && npm run build",
 //------------Server Site---------------    
 app.listen(PORT, () => {
