@@ -153,7 +153,7 @@ class CreateAvail extends Component {
     return (
       <div className="createAvail">
       <div> <Navbar/> </div>
-        <div>
+        <div className="heading">
           <Header as='h2' icon textAlign='center'>
             <Image className="headerImg" src={minion_card} />
             <Header.Content>Food Details</Header.Content>

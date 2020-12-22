@@ -10,7 +10,7 @@ import { Field, reduxForm } from "redux-form";
 import { registerUser } from "../../actions/authAction";
 
 // IMAGES
-import donut from "../../images/minion_donut.svg";
+import registerImg from "../../images/authImages/minion_donut.svg";
 import logo from "../../images/logo.svg";
 
 //CSS
@@ -83,12 +83,12 @@ class Register extends React.Component {
     // handlSubmit is provided by redux form to us
     const { handleSubmit } = this.props;
     return (
-      <div className=" main root ">
+      <div className=" main root " >
         <div className="ui grid container">
           <div className="row stackable doubling inner-root">
             <div className="ten wide computer only column">
               <div className="sideImg">
-                <Image src={donut} size="large" />
+                <Image src={registerImg} size="large" />
               </div>
             </div>
             <div className="sixteen wide tablet six wide computer column ">
