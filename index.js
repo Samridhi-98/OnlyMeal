@@ -82,5 +82,5 @@ if(process.env.NODE_ENV === 'production'){
 //? "heroku-postbuild": "npm run install-client && npm run build",
 //------------Server Site---------------    
 app.listen(PORT, () => {
-    console.log(chalk.green("Server running on port 5000!!"));
+    console.log(chalk.green("Server running on port ",PORT));
 });
