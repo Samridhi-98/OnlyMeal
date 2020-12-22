@@ -73,7 +73,7 @@ app.use("/user",user);
 //! STEP 3
 //? run "npm run build" to make build folder in client
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'));
+    app.use(express.static('../client/build'));
 }
 //! STEP 4
 //? go inside package.son of server then paste the following inside script
