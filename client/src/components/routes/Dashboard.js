@@ -139,7 +139,7 @@ class Dashboard extends React.Component {
                         //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
                         
                       >Claim</Link>
-                      <Rating className="rating-star" icon='star' defaultRating={3} maxRating={5} />
+                      <Rating className="rating-star" size="large" icon='star' defaultRating={3} maxRating={5} />
                     </Item.Extra>
                   </Item.Content>
                 </Item>

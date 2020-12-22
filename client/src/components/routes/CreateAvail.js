@@ -230,8 +230,8 @@ function validate(values) {
   if (!values.quantity || (values.quantity.length>10 && values.quantity.length<0)) {
     error.quantity = "Please enter quantity in range 0-10 Kg";
   }
-  if (!values.other || values.other.length > 50) {
-    error.other = "Please enter food details under 30 words";
+  if (!values.other || values.other.length > 80) {
+    error.other = "Please enter food details under 80 words";
   }
   if (!values.phoneno || values.phoneno.length !== 10) {
     error.phoneno = "Please enter a valid number";

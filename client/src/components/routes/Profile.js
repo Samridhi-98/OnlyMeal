@@ -13,7 +13,8 @@ import {
   Item,
   Rating,
   Grid,
-  Loader
+  Loader,
+  Popup
 } from "semantic-ui-react";
 
 //IMAGES
@@ -133,6 +134,7 @@ class Profile extends React.Component {
                       <Rating
                         className="rating-star"
                         icon="star"
+                        size="huge"
                         defaultRating={3}
                         maxRating={5}
                       />
@@ -179,6 +181,7 @@ class Profile extends React.Component {
                       <Rating
                         className="rating-star"
                         icon="star"
+                        size="huge"
                         defaultRating={3}
                         maxRating={5}
                       />
@@ -201,16 +204,16 @@ class Profile extends React.Component {
               <Header as="h1" icon textAlign="center">
                 <Image className="" src={profileImage} />
                 <Header.Content className="header-content">
-                  {(this.props.authDetails.user.name).toUpperCase()}
+                {(this.props.authDetails.user.name).toUpperCase()}
                   <Header className="meta" as="h4" disabled>
                     <em>{quotes[Math.floor(Math.random() * quotes.length)]}</em>
                   </Header>
                 </Header.Content>
               </Header>
               <Image.Group size="mini">
-                <Image className="icons" src={donate} />
-                <Image className="icons" src={consume} />
-                <Image className="icons" src={banned} />
+               <Popup content='Donate' position="bottom center" size="tiny"  trigger={<Image className="icons" src={donate} />} />
+               <Popup content='Consume'position="bottom center" size="tiny" trigger={<Image className="icons" src={consume} />} />
+               <Popup content='Banned' position="bottom center" size="tiny" trigger={ <Image className="icons" src={banned} />} />
               </Image.Group>
             </Segment>
             {/* Profile Middle */}

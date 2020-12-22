@@ -9,7 +9,7 @@ import { Menu, Image, Header, Icon } from "semantic-ui-react";
 import logo from "../../images/logo1.svg";
 import profileAvatar from "../../images/profile/displaypic/user_profile.svg"
 
-import _ from 'lodash';
+//import _ from 'lodash';
 
 // const alphabet = "abcdefghijklmnopqrstuvwxyz";
 // const img=alphabet[Math.floor(Math.random() * alphabet.length)]
@@ -23,13 +23,18 @@ class Navbar extends React.Component {
     e.preventDefault();
     this.props.logoutUser();
   }
+
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   render() {
     const { activeItem } = this.state;
     return (
       <div>
         <Menu className="navbar fordesktop" fixed="top" pointing secondary>
           <Menu.Item>
-            <Image src={logo} size="tiny" />
+            <Image className="logo" src={logo} size="tiny" style={{width: '5.2em'}}/>
           </Menu.Item>
           <Menu.Item
             name="home"
@@ -78,8 +83,8 @@ class Navbar extends React.Component {
             position="right"
           >
            <Image className="user-profile" size="mini" src={profileAvatar} avatar />
-            <Header>
-            { _.camelCase(this.props.authDetails.user.name)}
+            <Header className="username">
+            { this.capitalizeFirstLetter(this.props.authDetails.user.name)}
             </Header>
           </Menu.Item>
         </Menu>
