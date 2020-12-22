@@ -9,6 +9,9 @@ const bodyParser=require("body-parser");
 // --------------------Routes-----------------------
 const routes=require('./routes/api');
 
+//dotenv configuration
+require("dotenv").config();
+
 
 
 const app = express();
