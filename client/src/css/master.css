@@ -2,126 +2,120 @@
 
 html,
 body {
-    /* background-color: darkseagreen; */
-    height: 100%;
-    /* background-image: url("../images/authImages/newbg.svg"); */
+  /* background-color: darkseagreen; */
+  height: 100%;
+  /* background-image: url("../images/authImages/newbg.svg"); */
 }
-
 
 /* ----------------------------------------- Main ------------------------------------------ */
 
 .main .parent {
-    padding-bottom: 0% !important;
-    /* background-color: darkseagreen; */
+  padding-bottom: 0% !important;
+  /* background-color: darkseagreen; */
 }
 
 .main .container {
-    /* background-image:url("../images/authImages/register.svg"); */
+  /* background-image:url("../images/authImages/register.svg"); */
 }
 
 .main .root {
-    height: 0% !important;
-    opacity: 1;
-    /* z-index: -1; */
+  height: 0% !important;
+  opacity: 1;
+  /* z-index: -1; */
 }
 
 .main .sideImg {
-    margin-top: 2vh !important;
+  margin-top: 5vh !important;
 }
 
 .main .inner-root {
-    margin-top: 12vh !important;
-    /* margin-bottom: auto; */
-    /* z-index: 1; */
+  margin-top: 12vh !important;
+  /* margin-bottom: auto; */
+  /* z-index: 1; */
 }
-
 
 /* .main .formargin{
     margin-bottom: 200vh !important;
 } */
 
 .main .right {
-    float: right;
+  float: right;
 }
 
 .main .ui .grid {
-    min-height: 100%;
+  min-height: 100%;
 }
 
 .main .grid .row .segment {
-    margin-top: 5vh !important;
+  margin-top: 5vh !important;
 }
 
 .main .image {
-    width: 20%;
+  width: 20%;
 }
 
 .main .formTitle {
-    font-size: medium;
-    /* margin-left: 0.5vw !important;
+  font-size: medium;
+  /* margin-left: 0.5vw !important;
     margin-top: 0.0vh !important; */
-    /* background-color: #645CEA !important; */
+  /* background-color: #645CEA !important; */
 }
 
 .main .signin {
-    color: white;
-    background-color: #e0321c;
+  color: white;
+  background-color: #e0321c;
 }
 
 .main .signin :hover {
-    color: white !important;
-    background-color: #d62f18 !important;
+  color: white !important;
+  background-color: #d62f18 !important;
 }
 
 .main .formButton {
-    margin-top: 3% !important;
+  margin-top: 3% !important;
 }
-
 
 /* ----------------------------------------- Carousel Card --------------------------------------- */
 
 .carousel-card {
-    margin-bottom: 5vh !important;
+  margin-bottom: 5vh !important;
 }
 
 .carousel-card .image {
-    width: 20% !important;
-    height: 10% !important;
-    display: -webkit-inline-box !important;
+  width: 20% !important;
+  height: 10% !important;
+  display: -webkit-inline-box !important;
 }
-
 
 /* ----------------------------------------- Dashboard --------------------------------------- */
 
 .dashboard {
-    margin-top: 15vh;
+  margin-top: 15vh;
 }
 
 .dashboard .details {
-    margin-bottom: 2% !important;
-    /* min-width: 50% !important; */
+  margin-bottom: 2% !important;
+  /* min-width: 50% !important; */
 }
 
 .dashboard .rating-star {
-    float: right !important;
-    padding-top: 2% !important;
+  float: right !important;
+  padding-top: 2% !important;
 }
 
 .dashboard .facts {
-    height: 20vh !important;
+  height: 20vh !important;
 }
 
 .dashboard .labelcolor {
-    background-color: darkgrey;
+  background-color: darkgrey;
 }
 
 .dashboard .freshcheck {
-    margin-left: 1em !important;
+  margin-left: 1em !important;
 }
 
-
 /* to maintain the height of the card image */
-
 
 /* .dashboard .cards .specialRow{
     float: right !important;
@@ -150,182 +144,173 @@ body {
     margin-right: 0 !important;
 } */
 
-
 /* ------------------------------------------------------------------------------------------- */
-
 
 /* ----------------------------------------Menu Sidebar NOT-IN-USE -------------------------------------- */
 
 .menusidebar {
-    margin: 0 !important;
-    will-change: auto !important;
+  margin: 0 !important;
+  will-change: auto !important;
 }
 
 .menusidebar .gridSidebar1 {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .menusidebar .gridSidebar2 {
-    padding: 0% !important;
-    margin: 0 !important;
+  padding: 0% !important;
+  margin: 0 !important;
 }
 
 .menusidebar .gridSidebar2 .sidebar {
-    margin-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 .menusidebar .navbar {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
 .menusidebar .gridSidebar2 .sidebar-item {
-    will-change: auto !important;
-    padding-top: 2.5%;
+  will-change: auto !important;
+  padding-top: 2.5%;
 }
-
 
 /* ---------------------------------------- Create Avail -------------------------------------- */
 
 .createAvail {
-    /* margin-top: 5% !important; */
-    /* background-color: white !important; */
-    margin-top: 15vh !important;
-    margin-bottom: 15vh !important;
-    
+  /* margin-top: 5% !important; */
+  /* background-color: white !important; */
+  margin-top: 15vh !important;
+  margin-bottom: 15vh !important;
 }
 
 .createAvail .headerImg {
-    font-size: 200% !important;
+  font-size: 200% !important;
 }
- 
-
 
 /* ---------------------------------------- navbar-content -------------------------------------- */
 
 .navbar {
-    background-color: white !important;
+  background-color: white !important;
 }
 
 .navbar-content {
-    padding-bottom: 2vh !important;
-    padding-top: 0 !important;
+  padding-bottom: 2vh !important;
+  padding-top: 0 !important;
 }
 
 .user-profile {
-    border-radius: 2 !important;
-    align-items: center !important;
-    padding-bottom: 0 !important;
-    padding-top: 1vh !important;
+  border-radius: 2 !important;
+  align-items: center !important;
+  padding-bottom: 0 !important;
+  padding-top: 1vh !important;
 }
 
 @media screen and (max-width: 992px) {
-    .profile {
-        margin-top: 8vh;
-        margin-bottom: 5vh;
-    }
-    .fordesktop {
-        display: none !important;
-    }
-    .dashboard {
-        margin-top: 8vh !important;
-        margin-bottom: 15vh !important;
-    }
-    .createAvail {
-        margin-top: 8vh !important;
-    }
-    .foodinfo {
-        margin-top: 5vh !important;
-        margin-bottom: 15vh !important;
-    }
-    .main {
-        margin-top: 5vh !important;
-        margin-bottom: 0vh !important;
-    }
-    .carousel-card {
-        margin-top: 0 !important;
-    }
+  .profile {
+    margin-top: 8vh;
+    margin-bottom: 5vh;
+  }
+  .fordesktop {
+    display: none !important;
+  }
+  .dashboard {
+    margin-top: 8vh !important;
+    margin-bottom: 15vh !important;
+  }
+  .createAvail {
+    margin-top: 8vh !important;
+  }
+  .foodinfo {
+    margin-top: 5vh !important;
+    margin-bottom: 15vh !important;
+  }
+  .main {
+    margin-top: 5vh !important;
+    margin-bottom: 0vh !important;
+  }
+  .carousel-card {
+    margin-top: 0 !important;
+  }
 }
-
 
 /* ---------------------------------------- Navbar-Phone -------------------------------------- */
 
 @media screen and (min-width: 992px) {
-    .profile {
-        margin-top: 15vh;
-        margin-bottom: 5vh;
-    }
-    .forphone {
-        display: none !important;
-    }
+  .profile {
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+  }
+  .forphone {
+    display: none !important;
+  }
 }
 
 .phone-top {
-    /* background-color: white !important; */
-    margin-top: 0 !important;
+  /* background-color: white !important; */
+  margin-top: 0 !important;
 }
-
 
 /* ---------------------------------------- food-info -------------------------------------- */
 
 .foodinfo {
-    margin-top: 12vh !important;
+  margin-top: 12vh !important;
 }
 
 .foodinfo .header {
-    font-size: large !important;
+  font-size: large !important;
 }
 
 .foodinfo .subheader {
-    font-size: medium !important;
+  font-size: medium !important;
 }
 
 .foodinfo .description {
-    font-size: medium !important;
+  font-size: medium !important;
 }
 
 .foodinfo .headerImg {
-    font-size: 150% !important;
+  font-size: 150% !important;
 }
 
 .foodinfo .title {
-    /* padding-top: 2vh !important; */
-    font-size: x-large !important;
+  /* padding-top: 2vh !important; */
+  font-size: x-large !important;
 }
-
 
 /* ---------------------------------------- profile -------------------------------------- */
 
 .profile .profile-top {
-    background-color: #f5f5fb;
-    text-align: center !important;
+  background-color: #f5f5fb;
+  text-align: center !important;
 }
 
 .profile .header-content {
-    margin-top: 1vh !important;
+  margin-top: 1vh !important;
 }
 
 .profile .header-content .meta {
-    margin-top: 1vh !important;
-    word-spacing: 2px !important;
+  margin-top: 1vh !important;
+  word-spacing: 2px !important;
 }
 
 .profile .profile-top .icons {
-    /* height: 7vh !important;
+  /* height: 7vh !important;
     width: 7vw !important; */
-    padding-right: 1vh !important;
+  padding-right: 1vh !important;
 }
 
 .profile .mid-grid {
-    margin-top: 1vh !important;
+  margin-top: 1vh !important;
 }
 
 .profile .rating-star {
-    @rem float: right !important;
-    padding-top: 5% !important;
+  @rem float: right !important;
+  padding-top: 5% !important;
 }
 
 .profile .details {
-    margin-bottom: 2vh !important;
+  margin-bottom: 2vh !important;
 }
