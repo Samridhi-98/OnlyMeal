@@ -113,7 +113,7 @@ class Login extends React.Component {
                   >
                     <Header as="h2" icon textAlign="center">
                       <Image src={logo} />
-                      <p className="formTitle">Severing Happiness</p>
+                      <p className="formTitle">Serving Happiness</p>
                     </Header>
                     {/* email */}
                     <Field name="email" component={this.renderEmailFieild} />

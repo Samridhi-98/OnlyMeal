@@ -113,7 +113,7 @@ class Register extends React.Component {
                     <Header as="h2" icon textAlign="center">
                       <Image src={logo} />
                       {/* <Header.Content>Severing Happiness</Header.Content> */}
-                      <p className="formTitle">Severing Happiness</p>
+                      <p className="formTitle">Serving Happiness</p>
                     </Header>
                     {/* User Name */}
                     <Field name="username" component={this.renderNameField} />
