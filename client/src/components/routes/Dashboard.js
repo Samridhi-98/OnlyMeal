@@ -81,7 +81,7 @@ class Dashboard extends React.Component {
     if(this.state.loading === true){
       return(
         <div>
-          <Loader active size="large"><strong>Loading</strong></Loader>
+          <Loader active size="large"><strong>Loading </strong></Loader>
         </div>
       )
       

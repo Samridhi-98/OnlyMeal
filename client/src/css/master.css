@@ -96,7 +96,7 @@ body {
     .main {
         margin-top: 15vh;
         /* margin-bottom: 5vh; */
-        background-image: none !important;
+        /* /background-image: none !important; */
     }
 }
 
@@ -240,25 +240,26 @@ body {
     padding-bottom: 0 !important;
     padding-top: 1vh !important;
 }
-
+/* changes will occure in phone mode */
 @media screen and (max-width: 992px) {
     .profile {
         margin-top: 8vh;
-        margin-bottom: 5vh;
+        margin-bottom: 20vh;
     }
     .fordesktop {
         display: none !important;
     }
     .dashboard {
         margin-top: 8vh !important;
-        margin-bottom: 15vh !important;
+        margin-bottom: 20vh !important;
     }
     .createAvail {
         margin-top: 8vh !important;
+        margin-bottom: 10vh !important;
     }
     .foodinfo {
         margin-top: 5vh !important;
-        margin-bottom: 15vh !important;
+        margin-bottom: 20vh !important;
     }
     .main {
         margin-top: 5vh !important;

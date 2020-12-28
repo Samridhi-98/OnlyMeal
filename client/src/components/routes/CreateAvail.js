@@ -26,7 +26,14 @@ class CreateAvail extends Component {
   state = {}
 
   handleChange = (e, { value }) => this.setState({ value })
-
+  
+  displayError=(errmsg)=>{
+    return(
+      <Message negative>
+        <Message.Header>{errmsg}</Message.Header>
+      </Message>
+    );
+  }
   renderTitleField(field) {
     // console.log("title's input: ",field.input);
     return (
@@ -34,57 +41,64 @@ class CreateAvail extends Component {
       <Form.Input fluid label='Title' placeholder='Ex.Rajma Rice' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderTypeField(field) {
+  
+  renderTypeField=(field)=>{
     // console.log("type's input: ",field.select);
+    
+      
     return (
       <select className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
-        <option key="" value=""></option>
+        <option key="" value="" disabled="disabled">Type</option>
         <option key="Veg" value="Veg">Veg.</option>
         <option key="NonVeg" value="NonVeg">Non Veg.</option>
       </select>
       // <Form.Select fluid label='Type' options={type} placeholder='' {...field.select} error={field.meta.touched ? field.meta.error : null}/>
     );
   }
-  renderCategoryField(field) {
+  renderCategoryField=(field)=>{
+   
     return (
       <select className="ui fluid dropdown"  {...field.input} error={field.meta.touched ? field.meta.error : null}>
-        <option key="" value=""></option>
+        <option key="" value="" disabled="disabled">Category</option>
         <option key="Raw" value="Raw">Raw</option>
         <option key="Cooked" value="Cooked">Cooked</option>
       </select>
     );
   }
-  renderStateField(field) {
+  renderStateField=(field)=>{
+    
     return (
-      <select className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
-        <option key="" value=""></option>
+      <select required className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
+        <option key="" value="" disabled="disabled">State</option>
         <option key="Dry" value="Dry">Dry</option>
         <option key="Wet" value="Wet">Wet</option>
       </select>
+   
+      
       // <Form.Select fluid label='State' options={state} placeholder='' {...field.input} error={field.meta.touched ? field.meta.error : null}/>
     );
   }
-  renderDateField(field) {
+  renderDateField=(field)=> {
     return (
       <Form.Input fluid label='Date' type="date" {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderQuantityField(field) {
+  renderQuantityField=(field)=> {
     return (
       <Form.Input fluid label='Quantity' type='number' placeholder='in KG' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderOtherField(field) {
+  renderOtherField=(field)=> {
     return (
       <Form.Input fluid label='Other' type='text' placeholder='other details' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderPhonenoField(field) {
+  renderPhonenoField=(field)=> {
     return (
       <Form.Input fluid label='Phone No.' type="text" {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderEmailField(field) {
+  renderEmailField=(field)=> {
     return (
       <Form.Input fluid label='Email' type='email' placeholder='something with @' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
@@ -166,6 +180,7 @@ class CreateAvail extends Component {
             warning
             header='Please fill all the details carefully'
           />
+          
           <Form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field
               name="title"
@@ -174,16 +189,19 @@ class CreateAvail extends Component {
 
             {/* -------------------------------- FOOD DESCRIPTION ---------------------------- */}
             <h4 className="ui dividing header">Food Description</h4>
-            <Form.Group widths='equal'>
-
-              <Field name="type" component={this.renderTypeField} />
-
-              <Field name="category" component={this.renderCategoryField} />
-              <Field name="state" component={this.renderStateField} />
+            {console.log("erro messg: ",this.state.errmsg)}
+            
+            
+            <Form.Group  >
+              <Field required name="type" component={this.renderTypeField} />
+              
+              <Field required name="category" component={this.renderCategoryField} />
+              
+              <Field required name="state" component={this.renderStateField} />
             </Form.Group>
 
             {/* ---- */}
-            <Form.Group widths='equal'>
+            <Form.Group widths='equal' >
               <Field name="date" component={this.renderDateField} />
               <Field name="quantity" component={this.renderQuantityField} />
               <Field name="other" component={this.renderOtherField} />
@@ -213,7 +231,7 @@ function validate(values) {
  
   const curDate = new Date(Date.now());
   const userDate = new Date(values.date);
-  const checkDate=(curDate.getDate()>userDate.getDate()) ? (curDate.getDate()-userDate.getDate()):(userDate.getDate()-curDate.getDate());
+  const checkDate=curDate.getDate()-userDate.getDate();
   console.log("curDate", checkDate);
   console.log("previous:",moment().subtract(1, 'days').calendar()); //?YESTERDAY
   console.log("future:",moment().add(1, 'days').calendar());  //?TOMORROW
@@ -224,8 +242,8 @@ function validate(values) {
   if (!values.date||curDate.getMonth()!==userDate.getMonth()||curDate.getFullYear()!==userDate.getFullYear()){
     error.date = "Please enter valid date";
   }
-  if(checkDate>2){
-    error.date = "Invalid request expired item"
+  if(checkDate>2  || checkDate<0){
+    error.date = "Invalid Date"
   }
   if (!values.quantity || (values.quantity.length>10 && values.quantity.length<0)) {
     error.quantity = "Please enter quantity in range 0-10 Kg";
@@ -248,7 +266,15 @@ function validate(values) {
   if (!values.address) {
     error.address = "Please enter valid address";
   }
-  
+  if(!values.type){
+    error.type="Please choose the given fields with valid option";
+  }
+  if(!values.category){
+    error.category="Please choose the given fields with valid option";
+  }
+  if(!values.state){
+    error.state="Please choose the given fields with valid option";
+  }
   return error;
 }
 
