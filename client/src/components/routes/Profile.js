@@ -104,7 +104,7 @@ class Profile extends React.Component {
       const recieverCards = this.state.recieveCards.map((card) => {
         return (
           <Grid.Column>
-          <Segment className="details">
+          <Segment raised className="details">
             <Item.Group divided>
               <Item >
                 <Item.Image 
@@ -154,7 +154,7 @@ class Profile extends React.Component {
       const donationCards = this.state.donateCards.map((card) => {
         return (
           <Grid.Column>
-          <Segment className="details">
+          <Segment raised className="details">
             <Item.Group divided>
               <Item >
               <Item.Image size="small" src={IMG(card.image)} />
@@ -200,7 +200,7 @@ class Profile extends React.Component {
             <Navbar />
           </div>
           <Container>
-            <Segment className="profile-top">
+            <Segment raised className="profile-top">
               <Header as="h1" icon textAlign="center">
                 <Image className="" src={profileImage} />
                 <Header.Content className="header-content">
@@ -235,7 +235,7 @@ class Profile extends React.Component {
               </Grid>
             </Segment>
 
-            <Segment>
+            <Segment >
               <Label
                 className="mid-titile"
                 as="a"

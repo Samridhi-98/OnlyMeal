@@ -83,13 +83,13 @@ class Register extends React.Component {
     // handlSubmit is provided by redux form to us
     const { handleSubmit } = this.props;
     return (
-      <div className=" main root " >
+      <div className=" main">
         <div className="ui grid container">
           <div className="row stackable doubling inner-root">
-            <div className="ten wide computer only column">
-              <div className="sideImg">
+            <div className="five wide computer only column">
+              {/* <div className="sideImg">
                 <Image src={registerImg} size="large" />
-              </div>
+              </div> */}
             </div>
             <div className="sixteen wide tablet six wide computer column ">
               {/* Error message */}
@@ -102,7 +102,7 @@ class Register extends React.Component {
               ) : (
                 ""
               )}
-              <div className="ui segment">
+              <div className="ui raised segment">
                 <div>
                   {/* here when we click the submit button the handleSumbit will run and perform redux side of things
                                         and then calls out onSubmit() function that we have bind to it */}

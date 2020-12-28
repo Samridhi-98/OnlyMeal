@@ -93,7 +93,7 @@ class Dashboard extends React.Component {
         console.log("difference of date: ",isFresh);
         return (
           <Grid.Column>
-            <Segment className="details">
+            <Segment  raised className="details">
               {/* <Label color={isFresh ? "olive" : "red"} attached='bottom'>{isFresh ? "Available" : "Expired" }</Label> */}
               <Item.Group divided>
                 <Item >

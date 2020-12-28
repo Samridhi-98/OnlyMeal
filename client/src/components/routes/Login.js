@@ -76,13 +76,13 @@ class Login extends React.Component {
     // handlSubmit is provided by redux form to us
     const { handleSubmit } = this.props;
     return (
-      <div className=" main root " >
+      <div className="main">
         <div className="ui grid container">
-          <div className="row stackable doubling inner-root">
-            <div className="ten wide computer only column">
-              <div className="sideImg">
+          <div className="row stackable doubling inner-root-login">
+            <div className="five wide computer only column">
+              {/* <div className="sideImg">
                 <Image size="large" src={loginImg} />
-              </div>
+              </div> */}
             </div>
             <div className="sixteen wide tablet six wide computer column ">
               {/* Error Check */}
@@ -105,8 +105,8 @@ class Login extends React.Component {
                 ) : (
                 ""
               )}
-              <div className="ui segment">
-                <div>
+              <div className="login-form">
+                <div className="ui raised segment">
                   <Form
                     className="signupForm"
                     onSubmit={handleSubmit(this.onSubmit.bind(this))}
@@ -141,7 +141,7 @@ class Login extends React.Component {
                   </Form>
                 </div>
               </div>
-            </div>
+             </div> 
           </div>
         </div>
       </div>
