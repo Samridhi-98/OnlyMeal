@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
 const chalk = require('chalk');
@@ -6,7 +8,37 @@ const chalk = require('chalk');
 const FoodData = require("../models/foodInfoData");
 const userData= require("../models/userSchema");
 const { route } = require('./user');
+// ------nodemailer-----
+const nodemailer = require("nodemailer");
+
 let currentCard;
+// nodemailer transporter
+let transporter =nodemailer.createTransport({
+    service:"gmail",
+    auth:{
+        user:"onlymeal3024@gmail.com",
+        pass:"UgewARkhOReSOnRyPtiV"
+    }
+})
+
+sendConformationMail = (doner,claimer)=>{
+    let mailOptions = {
+        from:"onlymeal3024@gmail.com",
+        to:"ritikpr307@gmail.com",
+        subject:"Notification regarding donation from ONLY MEAL",
+        text:`Your food item has been requested\nBy: ${claimer.name}\nEmailID: ${claimer.email}\n\nThankyou\nRegards Team 1's&&0's `
+    }
+    
+    transporter.sendMail(mailOptions,(err,data)=>{
+        if(err){
+            console.log("Error Occures",err);
+        }
+        else{
+            console.log("Email sent!!!",data);
+        }
+    })
+}
+
 router.get("/", (req, res) => {
     FoodData.find({ })
             .then((data)=>{
@@ -51,7 +83,7 @@ router.post("/save",(req,res)=>{
 router.post("/recieve",(req,res)=>{
     const data=req.body;
     currentCard=data;
-    console.log("Current CARD:",currentCard);
+    //console.log("Current CARD:",currentCard);
     console.log("inside recieve: ",data);
     userData.findById(data.recieverId,(err,user)=>{
         if(user && data.recieverId !== data.cardData.userid){
@@ -60,6 +92,7 @@ router.post("/recieve",(req,res)=>{
             user.save();
             console.log("user is: ",user);
             res.json({message:"added to recieved array"});
+            sendConformationMail(data.cardData.email,user);
         }else{
             console.log(chalk.red("recieved data didnt pushed into user array",err));
         }
