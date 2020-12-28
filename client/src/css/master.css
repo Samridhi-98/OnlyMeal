@@ -96,7 +96,7 @@ body {
     .main {
         margin-top: 15vh;
         /* margin-bottom: 5vh; */
-        /* /background-image: none !important; */
+        background-image: none !important;
     }
 }
 
