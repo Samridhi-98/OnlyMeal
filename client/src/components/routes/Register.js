@@ -10,7 +10,7 @@ import { Field, reduxForm } from "redux-form";
 import { registerUser } from "../../actions/authAction";
 
 // IMAGES
-import registerImg from "../../images/authImages/minion_donut.svg";
+//import registerImg from "../../images/authImages/minion_donut.svg";
 import logo from "../../images/logo.svg";
 
 //CSS

@@ -142,6 +142,10 @@ body {
     margin-left: 1em !important;
 }
 
+.dashboard .disable-link {
+    pointer-events: none;
+}
+
 
 /* to maintain the height of the card image */
 
@@ -240,7 +244,10 @@ body {
     padding-bottom: 0 !important;
     padding-top: 1vh !important;
 }
+
+
 /* changes will occure in phone mode */
+
 @media screen and (max-width: 992px) {
     .profile {
         margin-top: 8vh;

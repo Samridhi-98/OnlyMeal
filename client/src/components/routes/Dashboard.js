@@ -132,7 +132,8 @@ class Dashboard extends React.Component {
                     
                       {/* <Label className={ isFresh ? "medium ui green label" : "medium ui red label" } >{isFresh ? 'Available' : 'Expired'}</Label> */}
                       <Link 
-                        className="mini ui purple button"
+                       //! Disable onclick: https://stackoverflow.com/questions/42755802/how-to-disable-a-link-in-reactjs?rq=1
+                        className={isFresh ? "mini ui purple button" : "mini ui purple button disable-link"}
                         onClick={()=>{this.addDataToRecieved(cardDetail)}}
                         
                         //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.

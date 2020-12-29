@@ -7,7 +7,7 @@ import { Field, reduxForm } from "redux-form";
 import { loginUser } from "../../actions/authAction";
 
 // Images
-import loginImg from "../../images/authImages/minion_donut.svg";
+//import loginImg from "../../images/authImages/minion_donut.svg";
 import logo from "../../images/logo.svg";
 
 //CSS
