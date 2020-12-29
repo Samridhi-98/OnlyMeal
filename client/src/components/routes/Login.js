@@ -130,7 +130,7 @@ class Login extends React.Component {
                       >
                         SignIn
                       </Form.Button>
-                      <Link className="signin ui violet button" to="/register">
+                      <Link className="signin ui inverted violet button" to="/register">
                         SignUp
                       </Link>
                     {/* </Form.Group>
