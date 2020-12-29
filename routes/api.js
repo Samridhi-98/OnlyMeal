@@ -24,7 +24,7 @@ let transporter =nodemailer.createTransport({
 sendConformationMail = (doner,claimer)=>{
     let mailOptions = {
         from:"onlymeal3024@gmail.com",
-        to:"ritikpr307@gmail.com",
+        to:doner.email,
         subject:"Notification regarding donation from ONLY MEAL",
         text:`Your food item has been requested\nBy: ${claimer.name}\nEmailID: ${claimer.email}\n\nThankyou\nRegards Team 1's&&0's `
     }
