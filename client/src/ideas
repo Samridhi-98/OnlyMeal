@@ -31,4 +31,7 @@ RESOURCES
 
 -> Hosting the app  
     ->STEP 1= https://www.youtube.com/watch?v=5PaUiPyBDJY&list=PLurIMwd6GdCj_VlnKVceR66Sxfcb37VU8&index=9
-    ->STEP 2= https://www.youtube.com/watch?v=imR9LlbG3pU&list=PLurIMwd6GdCj_VlnKVceR66Sxfcb37VU8&index=10            
+    ->STEP 2= https://www.youtube.com/watch?v=imR9LlbG3pU&list=PLurIMwd6GdCj_VlnKVceR66Sxfcb37VU8&index=10 
+
+-> Sending mails using Nodemailer
+    ->https://www.youtube.com/watch?v=Va9UKGs1bwI&t=627s
