@@ -31,3 +31,20 @@ https://onlymeal.herokuapp.com/
 <li>Semantic UI React
 <li>React.js
 </ul>
+
+<h2>Sample screenshots</h2>
+<p align="center">
+  <img src="https://github.com/Samridhi-98/OnlyMeal/blob/master/screenshots/registerFinal.PNG">
+</p>
+<p align="center">
+  <img src="https://github.com/Samridhi-98/OnlyMeal/blob/master/screenshots/loginFinal.PNG">
+</p>
+<p align="center">
+  <img src="https://github.com/Samridhi-98/OnlyMeal/blob/master/screenshots/dashboardFinal.PNG">
+</p>
+<p align="center">
+  <img src="https://github.com/Samridhi-98/OnlyMeal/blob/master/screenshots/profileFinal.PNG">
+</p>
+<p align="center">
+  <img src="https://github.com/Samridhi-98/OnlyMeal/blob/master/screenshots/requestFinal.PNG">
+</p>
