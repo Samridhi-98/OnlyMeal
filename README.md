@@ -1,5 +1,5 @@
 # OnlyMeal
-Serving Happiness
+Serving Happiness-To minimise the wastage of food by making it available among the deprived ones.
 
 <h2> Demo Link </h2>
 
@@ -27,7 +27,7 @@ https://onlymeal.herokuapp.com/
 <li>Heroku
 <li>REST API
 <li>Express.js
-<li>vMongoDB
+<li>MongoDB
 <li>Semantic UI React
 <li>React.js
 </ul>
