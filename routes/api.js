@@ -21,12 +21,14 @@ let transporter =nodemailer.createTransport({
     }
 })
 
-sendConformationMail = (doner,claimer)=>{
+sendConformationMail = (donermail,claimer)=>{
+    console.log("doner is --------",donermail);
     let mailOptions = {
         from:"onlymeal3024@gmail.com",
-        to:"ritikpr307@gmail.com",
+        to:donermail,
         subject:"Notification regarding donation from ONLY MEAL",
-        text:`Your food item has been requested\nBy: ${claimer.name}\nEmailID: ${claimer.email}\n\nThankyou\nRegards Team 1's&&0's `
+        text:"",
+        html:`<h2>Your food item has been requested</h2><br><strong>By:</strong> ${claimer.name}<br><strong>EmailID:</strong> ${claimer.email}<br><br><strong>Thankyou</strong><br>Regards Team <strong>1's&&0's </strong>`
     }
     
     transporter.sendMail(mailOptions,(err,data)=>{
