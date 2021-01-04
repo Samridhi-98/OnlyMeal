@@ -95,63 +95,74 @@ class Dashboard extends React.Component {
         // const isFresh=(new Date().getDate()-new Date(cardDetail.date).getDate())>2 ? false : true;
         const isFresh=this.checkFood(cardDetail.date,cardDetail.category);
         console.log("difference of date: ",isFresh);
-        return (
-          <Grid.Column>
-            <Segment  raised className="details">
-              {/* <Label color={isFresh ? "olive" : "red"} attached='bottom'>{isFresh ? "Available" : "Expired" }</Label> */}
-              <Item.Group divided>
-                <Item >
-                  <Item.Image 
-                    size="small" 
-                    src={require(`../../images/cardimg/${cardDetail.image}`)}
-                  />
-                  <Item.Content>
-                    <Item.Header>{(cardDetail.title).toUpperCase()} 
-                      <Label className="freshcheck" basic size="small" color={isFresh ? "green" : "red"}>{isFresh ? "Available" : "Expired" }</Label>
-                      <Label color={(cardDetail.type === "Veg") ? "green" : "red"} attached="top right">{cardDetail.type}
-                      </Label>
-                    </Item.Header>
-                    <Item.Description>
-                      <Label.Group>
-                        <Label className="labelcolor">{cardDetail.quantity}KG</Label>
-                        <Label>{cardDetail.category}</Label>
-                        <Label>{cardDetail.state}</Label>
+        // checking for date item older than 15 days will not be rendered
+        const date1=new Date(cardDetail.date).getTime();
+        const date2=new Date().getTime();
+        const timediff=Math.ceil((date2-date1)/(1000 * 3600 * 24));
+        //console.log("-------timediff: "+timediff+ " date2-date1: "+(date2-date1));
+        if(timediff>15){
+          return;
+        }
+        else{
+          return (
+            <Grid.Column>
+              <Segment  raised className="details">
+                {/* <Label color={isFresh ? "olive" : "red"} attached='bottom'>{isFresh ? "Available" : "Expired" }</Label> */}
+                <Item.Group divided>
+                  <Item >
+                    <Item.Image 
+                      size="small" 
+                      src={require(`../../images/cardimg/${cardDetail.image}`)}
+                    />
+                    <Item.Content>
+                      <Item.Header>{(cardDetail.title).toUpperCase()} 
+                        <Label className="freshcheck" basic size="small" color={isFresh ? "green" : "red"}>{isFresh ? "Available" : "Expired" }</Label>
+                        <Label color={(cardDetail.type === "Veg") ? "green" : "red"} attached="top right">{cardDetail.type}
+                        </Label>
+                      </Item.Header>
+                      <Item.Description>
+                        <Label.Group>
+                          <Label className="labelcolor">{cardDetail.quantity}KG</Label>
+                          <Label>{cardDetail.category}</Label>
+                          <Label>{cardDetail.state}</Label>
+                          
+    
+    
+                        </Label.Group>
+                      </Item.Description>
+                      {/* <Item.Meta>{cardDetail.date}</Item.Meta> */}
+                      {/* <Item.Meta>{cardDetail.quantity}</Item.Meta> */}
+                      <Item.Description>
+    
+                        <p>
+                        <Header className="meta">
+                        <em>{cardDetail.other}</em>
+                        </Header>
                         
-  
-  
-                      </Label.Group>
-                    </Item.Description>
-                    {/* <Item.Meta>{cardDetail.date}</Item.Meta> */}
-                    {/* <Item.Meta>{cardDetail.quantity}</Item.Meta> */}
-                    <Item.Description>
-  
-                      <p>
-                      <Header className="meta">
-                      <em>{cardDetail.other}</em>
-                      </Header>
+                        </p>
+                      </Item.Description>
+                      <Item.Extra>
                       
-                      </p>
-                    </Item.Description>
-                    <Item.Extra>
-                    
-                      {/* <Label className={ isFresh ? "medium ui green label" : "medium ui red label" } >{isFresh ? 'Available' : 'Expired'}</Label> */}
-                      <Link 
-                       //! Disable onclick: https://stackoverflow.com/questions/42755802/how-to-disable-a-link-in-reactjs?rq=1
-                        className={isFresh ? "mini ui purple button" : "mini ui grey button disable-link"}
-                        onClick={()=>{this.addDataToRecieved(cardDetail)}}
-                        
-                        //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
-                        //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
-                        
-                      >Claim</Link>
-                      <Rating className="rating-star" size="large" icon='star' defaultRating={3} maxRating={5} />
-                    </Item.Extra>
-                  </Item.Content>
-                </Item>
-              </Item.Group>
-            </Segment>
-          </Grid.Column>
-        );
+                        {/* <Label className={ isFresh ? "medium ui green label" : "medium ui red label" } >{isFresh ? 'Available' : 'Expired'}</Label> */}
+                        <Link 
+                         //! Disable onclick: https://stackoverflow.com/questions/42755802/how-to-disable-a-link-in-reactjs?rq=1
+                          className={isFresh ? "mini ui purple button" : "mini ui grey button disable-link"}
+                          onClick={()=>{this.addDataToRecieved(cardDetail)}}
+                          
+                          //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
+                          //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
+                          
+                        >Claim</Link>
+                        <Rating className="rating-star" size="large" icon='star' defaultRating={3} maxRating={5} />
+                      </Item.Extra>
+                    </Item.Content>
+                  </Item>
+                </Item.Group>
+              </Segment>
+            </Grid.Column>
+          );
+        }
+        
       });
   
       return (

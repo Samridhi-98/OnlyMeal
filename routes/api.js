@@ -42,6 +42,7 @@ sendConformationMail = (donermail,claimer)=>{
 }
 
 router.get("/", (req, res) => {
+    // db.fooddata.remove( { date : {"$lt" : new Date(Date.now() - 7*24*60*60 * 1000) } })
     FoodData.find({ })
             .then((data)=>{
                 console.log(chalk.magenta(data));
