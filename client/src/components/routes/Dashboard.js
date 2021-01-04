@@ -67,6 +67,10 @@ class Dashboard extends React.Component {
     const old= new Date(foodDate).getDate();
     const curr=new Date().getDate();
     let isFresh;
+    if(new Date(foodDate).getFullYear() !== new Date().getFullYear()){
+        isFresh=false;
+        return isFresh;
+    }
     if(category==="Cooked"){
       isFresh = (curr-old<=1) ? true : false;
     }
