@@ -65,21 +65,11 @@ mongoose.connect(process.env.MONGODB_URI ||MONGODB_URI , {
     }
 })
 
-// app.get("/*",(req,res)=>{
-//     console.log("-------------------------------------------------");
-// })
 app.use("/api",routes);
 //routes
 //STUPID MISTAKE : its "/user" not "./user"
 app.use("/user",user);
 
-app.get("/*",(req,res)=>{
-    res.sendFile(path.join(__dirname, './client/public/index.html'), function(err) {
-        if (err) {
-          res.status(500).send(err)
-        }
-      })
-})
 //! STEP 3
 //? run "npm run build" to make build folder in client
 if(process.env.NODE_ENV === 'production'){
