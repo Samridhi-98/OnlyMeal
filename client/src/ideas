@@ -35,3 +35,6 @@ RESOURCES
 
 -> Sending mails using Nodemailer
     ->https://www.youtube.com/watch?v=Va9UKGs1bwI&t=627s
+
+-> Cannot/GET error fix
+    -> https://github.com/fullstackreact/food-lookup-demo/issues/49    
