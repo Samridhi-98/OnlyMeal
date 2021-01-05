@@ -73,6 +73,9 @@ app.use("/api",routes);
 //STUPID MISTAKE : its "/user" not "./user"
 app.use("/user",user);
 
+app.get("/*",(req,res)=>{
+    res.redirect("/login");
+})
 //! STEP 3
 //? run "npm run build" to make build folder in client
 if(process.env.NODE_ENV === 'production'){
