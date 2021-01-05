@@ -65,6 +65,9 @@ mongoose.connect(process.env.MONGODB_URI ||MONGODB_URI , {
     }
 })
 
+// app.get("/*",(req,res)=>{
+//     console.log("-------------------------------------------------");
+// })
 app.use("/api",routes);
 //routes
 //STUPID MISTAKE : its "/user" not "./user"

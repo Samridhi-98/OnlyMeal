@@ -128,6 +128,7 @@ router.get('/foodinfo',(req,res)=>{
     console.log("current card from server : ",currentCard);
     res.json(currentCard);
 })
+
 // need to put "s" in export
 module.exports= router;
 

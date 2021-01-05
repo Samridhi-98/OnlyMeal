@@ -91,4 +91,8 @@ router.post("/login",(req,res)=>{
     })
 })
 
+router.get("/*",(req,res)=>{
+    res.redirect("/login");
+})
+
 module.exports= router;
