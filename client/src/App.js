@@ -54,7 +54,7 @@ class App extends React.Component {
     return (
       // ------------------------------------------------------------------------
       <div>
-        <BrowserRouter>
+        <BrowserRouter >
           <div>
             <div className="parent">
               <div className="">
