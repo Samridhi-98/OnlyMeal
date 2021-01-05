@@ -74,7 +74,11 @@ app.use("/api",routes);
 app.use("/user",user);
 
 app.get("/*",(req,res)=>{
-    res.redirect("/login");
+    res.sendFile(path.join(__dirname, './client/public/index.html'), function(err) {
+        if (err) {
+          res.status(500).send(err)
+        }
+      })
 })
 //! STEP 3
 //? run "npm run build" to make build folder in client
