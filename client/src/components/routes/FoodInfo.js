@@ -25,7 +25,9 @@ class FoodInfo extends React.Component {
       method: "GET",
     })
       .then((response) => {
+
         this.setState({card:response.data.cardData});
+        console.log(this.state.card);
         this.setState({loading:false})
       })
       .catch((err) => {
