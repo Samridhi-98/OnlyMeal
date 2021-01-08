@@ -56,7 +56,7 @@ class Dashboard extends React.Component {
     })
     .then(()=>{
       console.log("recieved data sent to server!!");
-      this.props.history.push("/foodInfo");
+      this.props.history.push("/foodinfo");
       console.log("foodInfo chala ya nhii!!");
     })
     .catch((err)=>{
