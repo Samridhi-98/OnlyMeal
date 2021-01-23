@@ -43,16 +43,11 @@ require("./config/passport")(passport);
 
 
 
-//database added
-
-//cluster user name: ritik
-const password= 'masala_dosa'
-const MONGODB_URI = 'mongodb+srv://ritik:masala_dosa@onlymeal.wkqyo.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 // Creating database connection
 //? for ref to run mongoDB on local machine => "mongodb://localhost:27017/onlyMealDB"  
 //! STEP 2
-mongoose.connect(process.env.MONGODB_URI ||MONGODB_URI , {
+mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,   //(node:63208) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead [duplicate]
