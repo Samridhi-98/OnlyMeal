@@ -76,7 +76,7 @@ class Register extends React.Component {
   }
   onSubmit(values) {
     //this===component
-    console.log("values are ", values);
+    //console.log("values are ", values);
     this.props.registerUser(values, this.props.history);
   }
   render() {
@@ -93,7 +93,7 @@ class Register extends React.Component {
             </div>
             <div className="sixteen wide tablet six wide computer column ">
               {/* Error message */}
-              {console.log("registeration error: ",this.props.errorDetails)}
+              
               {this.props.errorDetails.email ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.email}</Message.Header>

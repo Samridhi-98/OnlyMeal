@@ -55,12 +55,12 @@ class Dashboard extends React.Component {
       }
     })
     .then(()=>{
-      console.log("recieved data sent to server!!");
+      //console.log("recieved data sent to server!!");
       this.props.history.push("/foodinfo");
-      console.log("foodInfo chala ya nhii!!");
+      //console.log("foodInfo chala ya nhii!!");
     })
     .catch((err)=>{
-      console.log("recieved data didnt send",err);
+      //console.log("recieved data didnt send",err);
     })
   }
   checkFood=(foodDate,category)=>{
@@ -81,7 +81,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    console.log("in dashboard",this.props.cardDetails);
+    //console.log("in dashboard",this.props.cardDetails);
     if(this.state.loading === true){
       return(
         <div>

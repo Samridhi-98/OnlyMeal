@@ -66,10 +66,10 @@ class Login extends React.Component {
 
   onSubmit(values, err) {
     // values.preventDefault();
-    console.log("values are ", values);
+    //console.log("values are ", values);
     this.props.loginUser(values);
     //this.props.history.push("/dashboard");
-    console.log("AUTH: ", this.props.auth);
+    //console.log("AUTH: ", this.props.auth);
   }
 
   render() {

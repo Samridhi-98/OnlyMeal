@@ -138,8 +138,8 @@ class CreateAvail extends Component {
   }
   onSubmit(values) {
     // console.log("called submit with values: ",values);
-    console.log("onsubmit", values);
-    console.log("id => ",this.props.authDetails.user)
+    //console.log("onsubmit", values);
+    //console.log("id => ",this.props.authDetails.user)
     const foodInfo={
       userid:this.props.authDetails.user.id,
       title:values.title,
@@ -157,7 +157,7 @@ class CreateAvail extends Component {
       pincode:values.pincode,
 
     }
-    console.log("foodInfo ",foodInfo);
+    //console.log("foodInfo ",foodInfo);
     this.props.createCard(foodInfo);
     this.props.history.push("/dashboard");
   }
@@ -189,7 +189,7 @@ class CreateAvail extends Component {
 
             {/* -------------------------------- FOOD DESCRIPTION ---------------------------- */}
             <h4 className="ui dividing header">Food Description</h4>
-            {console.log("erro messg: ",this.state.errmsg)}
+            
             
             
             <Form.Group  >
@@ -232,9 +232,9 @@ function validate(values) {
   const curDate = new Date(Date.now());
   const userDate = new Date(values.date);
   const checkDate=curDate.getDate()-userDate.getDate();
-  console.log("curDate", checkDate);
-  console.log("previous:",moment().subtract(1, 'days').calendar()); //?YESTERDAY
-  console.log("future:",moment().add(1, 'days').calendar());  //?TOMORROW
+  //console.log("curDate", checkDate);
+  //console.log("previous:",moment().subtract(1, 'days').calendar()); //?YESTERDAY
+  //console.log("future:",moment().add(1, 'days').calendar());  //?TOMORROW
 
   if (!values.title) {
     error.title = "Please enter a title";

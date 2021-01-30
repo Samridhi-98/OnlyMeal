@@ -147,7 +147,7 @@ class Navbar extends React.Component {
   }
 }
 const mapStateToProps=(state)=>{
-    console.log("user=>",state.authDetails.user.name);
+    //console.log("user=>",state.authDetails.user.name);
     return {
         logoutUser:state.logoutUser,
         authDetails:state.authDetails
