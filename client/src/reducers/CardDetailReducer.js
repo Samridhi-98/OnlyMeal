@@ -19,7 +19,7 @@ export default function (state = [], action) {
         .catch(() => {
           console.log("error occured on the client side");
         });
-      console.log("to check ", state);
+      //console.log("to check ", state);
       
       //---------------------------streamr init begins--------------------------
       const StreamrClient = require('streamr-client')
@@ -40,7 +40,7 @@ export default function (state = [], action) {
       //joining data union
       client.joinDataUnion(DU_CONTRACT, SHARED_SECRET)
         .then((memberdetails)=>{
-          console.log("member details are: ",memberdetails);
+          //console.log("member details are: ",memberdetails);
           // client.getMemberStats(DU_CONTRACT, wallet.address)
           //   .then((memberStats)=>{
           //     console.log("member stats are: ",memberStats);
