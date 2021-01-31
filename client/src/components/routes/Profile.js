@@ -28,21 +28,21 @@ import recieveFiller from "../../images/empty/recieve.svg";
 //NAVBAR
 import Navbar from "./Navbar";
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
-const img=alphabet[Math.floor(Math.random() * alphabet.length)]
+const img = alphabet[Math.floor(Math.random() * alphabet.length)]
 
 //! LINK: https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
-const profileImage=require("../../images/profile/displaypic/"+img+".svg")
+const profileImage = require("../../images/profile/displaypic/" + img + ".svg")
 
-const IMG=(imgName)=>{
-    return require(`../../images/cardimg/${imgName}`)
+const IMG = (imgName) => {
+  return require(`../../images/cardimg/${imgName}`)
 };
 //? good wishes message for profile tag line
 const quotes = ["Good food is a good mood.",
-                "Coffee is a hug in a mug.",
-                "Joey doesn't share food, but you should.",
-                "Life is a combination of magic and pasta.",
-                "The belly rules the mind."
-              ];
+  "Coffee is a hug in a mug.",
+  "Joey doesn't share food, but you should.",
+  "Life is a combination of magic and pasta.",
+  "The belly rules the mind."
+];
 
 class Profile extends React.Component {
   state = {
@@ -57,7 +57,7 @@ class Profile extends React.Component {
   }
 
   cardDetails(id, reqType) {
-    console.log("profile client id: ", id);
+    // console.log("profile client id: ", id);
     let renderCards;
     //! sending data with GET is by appending it to the end
     Axios({
@@ -71,32 +71,32 @@ class Profile extends React.Component {
         if (reqType === "donate") this.setState({ loading: false });
       })
       .catch((err) => {
-        console.log("error occured while recieving from profile", err);
+        // console.log("error occured while recieving from profile", err);
       });
     return renderCards;
   }
 
   //? empty section place holder
-  filler(type){
-    console.log("filler called for"+type);
-    if(type === "donate"){
-      return(
-        <Image size="small" centered src={donateFiller}/>
+  filler(type) {
+    // console.log("filler called for"+type);
+    if (type === "donate") {
+      return (
+        <Image size="small" centered src={donateFiller} />
       )
     }
-    return <Image size="small" centered src={recieveFiller}/>
-    
-  } 
+    return <Image size="small" centered src={recieveFiller} />
+
+  }
   render() {
     if (this.state.loading) {
-      return(
+      return (
         <div>
           <Loader size="large" active>
             <strong> Loading</strong>
           </Loader>
         </div>
-      ) 
-    } 
+      )
+    }
     else {
       //---------------------------
       //? Rendering  reciever cards
@@ -104,33 +104,33 @@ class Profile extends React.Component {
       const recieverCards = this.state.recieveCards.map((card) => {
         return (
           <Grid.Column>
-          <Segment raised className="details">
-            <Item.Group divided>
-              <Item >
-                <Item.Image 
-                  size="small" 
-                  src={require(`../../images/cardimg/${card.image}`)}
-                />
-                <Item.Content>
-                  <Item.Header>{(card.title).toUpperCase()} 
-                    <Label color={(card.type === "Veg") ? "green" : "red"} attached="top right">{card.type}
-                    </Label>
-                  </Item.Header>
-                  <Item.Description>
-                    <Label.Group>
-                      <Label className="labelcolor">{card.quantity}KG</Label>
-                      <Label>{card.category}</Label>
-                      <Label>{card.state}</Label>
-                    </Label.Group>
-                  </Item.Description>
-                  <Item.Description>
-                    <p>
-                    <Header className="meta">
-                      <em>{card.other}</em>
-                      </Header>
-                    </p>
-                  </Item.Description>
-                  <Item.Extra>
+            <Segment raised className="details">
+              <Item.Group divided>
+                <Item >
+                  <Item.Image
+                    size="small"
+                    src={require(`../../images/cardimg/${card.image}`)}
+                  />
+                  <Item.Content>
+                    <Item.Header>{(card.title).toUpperCase()}
+                      <Label color={(card.type === "Veg") ? "green" : "red"} attached="top right">{card.type}
+                      </Label>
+                    </Item.Header>
+                    <Item.Description>
+                      <Label.Group>
+                        <Label className="labelcolor">{card.quantity}KG</Label>
+                        <Label>{card.category}</Label>
+                        <Label>{card.state}</Label>
+                      </Label.Group>
+                    </Item.Description>
+                    <Item.Description>
+                      <p>
+                        <Header className="meta">
+                          <em>{card.other}</em>
+                        </Header>
+                      </p>
+                    </Item.Description>
+                    <Item.Extra>
                       <Rating
                         className="rating-star"
                         icon="star"
@@ -138,12 +138,12 @@ class Profile extends React.Component {
                         defaultRating={3}
                         maxRating={5}
                       />
-                  </Item.Extra>
-                </Item.Content>
-              </Item>
-            </Item.Group>
-          </Segment>
-        </Grid.Column>
+                    </Item.Extra>
+                  </Item.Content>
+                </Item>
+              </Item.Group>
+            </Segment>
+          </Grid.Column>
         );
       });
 
@@ -154,30 +154,30 @@ class Profile extends React.Component {
       const donationCards = this.state.donateCards.map((card) => {
         return (
           <Grid.Column>
-          <Segment raised className="details">
-            <Item.Group divided>
-              <Item >
-              <Item.Image size="small" src={IMG(card.image)} />
-                <Item.Content>
-                  <Item.Header>{(card.title).toUpperCase()} 
-                    <Label color={(card.type === "Veg") ? "green" : "red"} attached="top right">{card.type}
-                    </Label>
-                  </Item.Header>
-                  <Item.Description>
-                    <Label.Group>
-                      <Label className="labelcolor">{card.quantity}KG</Label>
-                      <Label>{card.category}</Label>
-                      <Label>{card.state}</Label>
-                    </Label.Group>
-                  </Item.Description>
-                  <Item.Description>
-                    <p>
-                    <Header className="meta">
-                      <em>{card.other}</em>
-                    </Header>
-                    </p>
-                  </Item.Description>
-                  <Item.Extra>
+            <Segment raised className="details">
+              <Item.Group divided>
+                <Item >
+                  <Item.Image size="small" src={IMG(card.image)} />
+                  <Item.Content>
+                    <Item.Header>{(card.title).toUpperCase()}
+                      <Label color={(card.type === "Veg") ? "green" : "red"} attached="top right">{card.type}
+                      </Label>
+                    </Item.Header>
+                    <Item.Description>
+                      <Label.Group>
+                        <Label className="labelcolor">{card.quantity}KG</Label>
+                        <Label>{card.category}</Label>
+                        <Label>{card.state}</Label>
+                      </Label.Group>
+                    </Item.Description>
+                    <Item.Description>
+                      <p>
+                        <Header className="meta">
+                          <em>{card.other}</em>
+                        </Header>
+                      </p>
+                    </Item.Description>
+                    <Item.Extra>
                       <Rating
                         className="rating-star"
                         icon="star"
@@ -185,12 +185,12 @@ class Profile extends React.Component {
                         defaultRating={3}
                         maxRating={5}
                       />
-                  </Item.Extra>
-                </Item.Content>
-              </Item>
-            </Item.Group>
-          </Segment>
-        </Grid.Column>
+                    </Item.Extra>
+                  </Item.Content>
+                </Item>
+              </Item.Group>
+            </Segment>
+          </Grid.Column>
         );
       });
 
@@ -204,16 +204,16 @@ class Profile extends React.Component {
               <Header as="h1" icon textAlign="center">
                 <Image className="" src={profileImage} />
                 <Header.Content className="header-content">
-                {(this.props.authDetails.user.name).toUpperCase()}
+                  {(this.props.authDetails.user.name).toUpperCase()}
                   <Header className="meta" as="h4" disabled>
                     <em>{quotes[Math.floor(Math.random() * quotes.length)]}</em>
                   </Header>
                 </Header.Content>
               </Header>
               <Image.Group size="mini">
-               <Popup content='Donate' position="bottom center" size="tiny"  trigger={<Image className="icons" src={donate} />} />
-               <Popup content='Consume'position="bottom center" size="tiny" trigger={<Image className="icons" src={consume} />} />
-               <Popup content='Banned' position="bottom center" size="tiny" trigger={ <Image className="icons" src={banned} />} />
+                <Popup content='Donate' position="bottom center" size="tiny" trigger={<Image className="icons" src={donate} />} />
+                <Popup content='Consume' position="bottom center" size="tiny" trigger={<Image className="icons" src={consume} />} />
+                <Popup content='Banned' position="bottom center" size="tiny" trigger={<Image className="icons" src={banned} />} />
               </Image.Group>
             </Segment>
             {/* Profile Middle */}
@@ -230,7 +230,7 @@ class Profile extends React.Component {
               <Grid className="mid-grid" columns={2}>
                 <Grid.Row className="ui stackable doubling">
                   {donationCards}
-                  {(donationCards.length===0) ? this.filler("donate") : "" }   
+                  {(donationCards.length === 0) ? this.filler("donate") : ""}
                 </Grid.Row>
               </Grid>
             </Segment>
@@ -247,9 +247,9 @@ class Profile extends React.Component {
               </Label>
               <Grid className="mid-grid" columns={2}>
                 <Grid.Row className="ui stackable doubling">
-                  {console.log("---recieve cards length : ",recieverCards.length)}
+                  {/* {console.log("---recieve cards length : ",recieverCards.length)} */}
                   {recieverCards}
-                  {(recieverCards.length===0) ? this.filler("recieve") : "" }
+                  {(recieverCards.length === 0) ? this.filler("recieve") : ""}
                 </Grid.Row>
               </Grid>
             </Segment>

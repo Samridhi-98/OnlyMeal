@@ -8,7 +8,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 
-import moment from "moment";
+//import moment from "moment";
 
 //ACTION-CREATOR
 import { createCard } from "../../actions/index";
@@ -26,9 +26,9 @@ class CreateAvail extends Component {
   state = {}
 
   handleChange = (e, { value }) => this.setState({ value })
-  
-  displayError=(errmsg)=>{
-    return(
+
+  displayError = (errmsg) => {
+    return (
       <Message negative>
         <Message.Header>{errmsg}</Message.Header>
       </Message>
@@ -41,11 +41,11 @@ class CreateAvail extends Component {
       <Form.Input fluid label='Title' placeholder='Ex.Rajma Rice' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  
-  renderTypeField=(field)=>{
+
+  renderTypeField = (field) => {
     // console.log("type's input: ",field.select);
-    
-      
+
+
     return (
       <select className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value="" disabled="disabled">Type</option>
@@ -55,8 +55,8 @@ class CreateAvail extends Component {
       // <Form.Select fluid label='Type' options={type} placeholder='' {...field.select} error={field.meta.touched ? field.meta.error : null}/>
     );
   }
-  renderCategoryField=(field)=>{
-   
+  renderCategoryField = (field) => {
+
     return (
       <select className="ui fluid dropdown"  {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value="" disabled="disabled">Category</option>
@@ -65,40 +65,40 @@ class CreateAvail extends Component {
       </select>
     );
   }
-  renderStateField=(field)=>{
-    
+  renderStateField = (field) => {
+
     return (
       <select required className="ui fluid dropdown" {...field.input} error={field.meta.touched ? field.meta.error : null}>
         <option key="" value="" disabled="disabled">State</option>
         <option key="Dry" value="Dry">Dry</option>
         <option key="Wet" value="Wet">Wet</option>
       </select>
-   
-      
+
+
       // <Form.Select fluid label='State' options={state} placeholder='' {...field.input} error={field.meta.touched ? field.meta.error : null}/>
     );
   }
-  renderDateField=(field)=> {
+  renderDateField = (field) => {
     return (
       <Form.Input fluid label='Date' type="date" {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderQuantityField=(field)=> {
+  renderQuantityField = (field) => {
     return (
       <Form.Input fluid label='Quantity' type='number' placeholder='in KG' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderOtherField=(field)=> {
+  renderOtherField = (field) => {
     return (
       <Form.Input fluid label='Other' type='text' placeholder='other details' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderPhonenoField=(field)=> {
+  renderPhonenoField = (field) => {
     return (
       <Form.Input fluid label='Phone No.' type="text" {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  renderEmailField=(field)=> {
+  renderEmailField = (field) => {
     return (
       <Form.Input fluid label='Email' type='email' placeholder='something with @' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
@@ -118,20 +118,20 @@ class CreateAvail extends Component {
       <Form.TextArea label='Address' placeholder='Enter full address' {...field.input} error={field.meta.touched ? field.meta.error : null} />
     );
   }
-  findImageSrc(values){
-    
-    if(values.state==="Dry"){
-      if(values.category==="Cooked"){
+  findImageSrc(values) {
+
+    if (values.state === "Dry") {
+      if (values.category === "Cooked") {
         return "one.svg";
       }
-      else{
+      else {
         return "two.svg";
       }
-    }else{
-      if(values.category==="Cooked"){
+    } else {
+      if (values.category === "Cooked") {
         return "three.svg";
       }
-      else{
+      else {
         return "four.svg";
       }
     }
@@ -140,21 +140,21 @@ class CreateAvail extends Component {
     // console.log("called submit with values: ",values);
     //console.log("onsubmit", values);
     //console.log("id => ",this.props.authDetails.user)
-    const foodInfo={
-      userid:this.props.authDetails.user.id,
-      title:values.title,
-      image:this.findImageSrc(values),
-      address:values.address,
-      type:values.type,
-      category:values.category,
-      state:values.state,
-      date:values.date,
-      other:values.other,
-      quantity:values.quantity,
-      phoneno:values.phoneno,
-      email:this.props.authDetails.user.email,
-      city:values.city,
-      pincode:values.pincode,
+    const foodInfo = {
+      userid: this.props.authDetails.user.id,
+      title: values.title,
+      image: this.findImageSrc(values),
+      address: values.address,
+      type: values.type,
+      category: values.category,
+      state: values.state,
+      date: values.date,
+      other: values.other,
+      quantity: values.quantity,
+      phoneno: values.phoneno,
+      email: this.props.authDetails.user.email,
+      city: values.city,
+      pincode: values.pincode,
 
     }
     //console.log("foodInfo ",foodInfo);
@@ -166,7 +166,7 @@ class CreateAvail extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="createAvail">
-      <div> <Navbar/> </div>
+        <div> <Navbar /> </div>
         <div className="heading">
           <Header as='h2' icon textAlign='center'>
             <Image className="headerImg" src={minion_card} />
@@ -180,7 +180,7 @@ class CreateAvail extends Component {
             warning
             header='Please fill all the details carefully'
           />
-          
+
           <Form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field
               name="title"
@@ -189,14 +189,14 @@ class CreateAvail extends Component {
 
             {/* -------------------------------- FOOD DESCRIPTION ---------------------------- */}
             <h4 className="ui dividing header">Food Description</h4>
-            
-            
-            
+
+
+
             <Form.Group  >
               <Field required name="type" component={this.renderTypeField} />
-              
+
               <Field required name="category" component={this.renderCategoryField} />
-              
+
               <Field required name="state" component={this.renderStateField} />
             </Form.Group>
 
@@ -228,10 +228,10 @@ class CreateAvail extends Component {
 }
 function validate(values) {
   const error = {}
- 
+
   const curDate = new Date(Date.now());
   const userDate = new Date(values.date);
-  const checkDate=curDate.getDate()-userDate.getDate();
+  const checkDate = curDate.getDate() - userDate.getDate();
   //console.log("curDate", checkDate);
   //console.log("previous:",moment().subtract(1, 'days').calendar()); //?YESTERDAY
   //console.log("future:",moment().add(1, 'days').calendar());  //?TOMORROW
@@ -239,13 +239,13 @@ function validate(values) {
   if (!values.title) {
     error.title = "Please enter a title";
   }
-  if (!values.date||curDate.getMonth()!==userDate.getMonth()||curDate.getFullYear()!==userDate.getFullYear()){
+  if (!values.date || curDate.getMonth() !== userDate.getMonth() || curDate.getFullYear() !== userDate.getFullYear()) {
     error.date = "Please enter valid date";
   }
-  if(checkDate>2  || checkDate<0){
+  if (checkDate > 2 || checkDate < 0) {
     error.date = "Invalid Date"
   }
-  if (!values.quantity || (values.quantity.length>10 && values.quantity.length<0)) {
+  if (!values.quantity || (values.quantity.length > 10 && values.quantity.length < 0)) {
     error.quantity = "Please enter quantity in range 0-10 Kg";
   }
   if (!values.other || values.other.length > 80) {
@@ -266,14 +266,14 @@ function validate(values) {
   if (!values.address) {
     error.address = "Please enter valid address";
   }
-  if(!values.type){
-    error.type="Please choose the given fields with valid option";
+  if (!values.type) {
+    error.type = "Please choose the given fields with valid option";
   }
-  if(!values.category){
-    error.category="Please choose the given fields with valid option";
+  if (!values.category) {
+    error.category = "Please choose the given fields with valid option";
   }
-  if(!values.state){
-    error.state="Please choose the given fields with valid option";
+  if (!values.state) {
+    error.state = "Please choose the given fields with valid option";
   }
   return error;
 }
@@ -282,9 +282,9 @@ function validate(values) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ createCard }, dispatch);
 }
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state) => {
   return {
-    authDetails:state.authDetails
+    authDetails: state.authDetails
   }
 }
 export default reduxForm({

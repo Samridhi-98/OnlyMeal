@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
           const data=response.data;
           this.props.fillDashboard(data);
           this.setState({loading:false})
-          console.log("data has been delivered to client side");
+          //console.log("data has been delivered to client side");
         })
         .catch((error)=>{
           //not a good approach . did this just for fun
@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
   //! Adding data to recieved section of CURRENT USER 
   addDataToRecieved(cardData){
     
-    console.log("availing data: ",cardData);
+    //console.log("availing data: ",cardData);
     Axios({
       url: "/api/recieve",
       method: "POST",
@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
       //console.log("foodInfo chala ya nhii!!");
     })
     .catch((err)=>{
-      //console.log("recieved data didnt send",err);
+      console.log("recieved data didnt send",err);
     })
   }
   checkFood=(foodDate,category)=>{
@@ -94,7 +94,7 @@ class Dashboard extends React.Component {
       const cardList = this.props.cardDetails.map((cardDetail) => {
         // const isFresh=(new Date().getDate()-new Date(cardDetail.date).getDate())>2 ? false : true;
         const isFresh=this.checkFood(cardDetail.date,cardDetail.category);
-        console.log("difference of date: ",isFresh);
+        //console.log("difference of date: ",isFresh);
         // checking for date item older than 15 days will not be rendered
         const date1=new Date(cardDetail.date).getTime();
         const date2=new Date().getTime();

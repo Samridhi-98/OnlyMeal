@@ -15,7 +15,7 @@ import logo from "../../images/logo.svg";
 
 //CSS
 import "../../css/master.css";
-import { Header, Form, Image,Message } from "semantic-ui-react";
+import { Header, Form, Image, Message } from "semantic-ui-react";
 
 class Register extends React.Component {
   state = {};
@@ -23,7 +23,7 @@ class Register extends React.Component {
   handleChange = (e, { value }) => this.setState({ value });
 
   renderNameField(field) {
-    console.log("name chal paya");
+    // console.log("name chal paya");
     return (
       <div>
         <Form.Input
@@ -93,15 +93,15 @@ class Register extends React.Component {
             </div>
             <div className="sixteen wide tablet six wide computer column ">
               {/* Error message */}
-              
+
               {this.props.errorDetails.email ? (
                 <Message negative>
                   <Message.Header>{this.props.errorDetails.email}</Message.Header>
-                  {this.props.errorDetails.email=""}
+                  {this.props.errorDetails.email = ""}
                 </Message>
               ) : (
-                ""
-              )}
+                  ""
+                )}
               <div className="ui raised segment">
                 <div>
                   {/* here when we click the submit button the handleSumbit will run and perform redux side of things
@@ -163,12 +163,12 @@ class Register extends React.Component {
 
 function validate(values) {
   //values refer to the values user have enteredin the form
-  const errors = {}; 
+  const errors = {};
   //console.log("values", values);
   if (!values.username || values.username.length < 3) {
     errors.username = "Name must be atleast 3 characters long";
   }
-  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) ) {
+  if (!values.email || (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))) {
     errors.email = "Please enter a valid email";
   }
   if (!values.password || values.password.length < 8) {
@@ -188,11 +188,11 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ registerUser }, dispatch);
 };
 //getting data from react
-const mapStateProps=(state)=>{
+const mapStateProps = (state) => {
   return {
     errorDetails: state.errorDetails
   }
-  
+
 }
 export default reduxForm({
   validate: validate, //if key and value name are same just pass the name itself no need for  key:value
