@@ -22,7 +22,7 @@ body {
 }
 
 .main {
-    height: 0% !important;
+    height: 100% !important;
     opacity: 1;
     background-image: url("../images/bg2.svg") !important;
     background-size: 100vh !important;
@@ -34,15 +34,15 @@ body {
 }
 
 .main .inner-root-login {
-    margin-top: 12vh !important;
-    margin-bottom: 39.2vh !important;
+    margin-top: 25% !important;
+    margin-bottom: 38% !important;
     /* z-index: 1; */
     border-color: black !important;
 }
 
 .main .inner-root {
-    margin-top: 12vh !important;
-    margin-bottom: 20vh !important;
+    margin-top: 20% !important;
+    margin-bottom: 31% !important;
     /* z-index: 1; */
 }
 
