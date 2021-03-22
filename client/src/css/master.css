@@ -24,7 +24,7 @@ body {
 .main {
     height: 100% !important;
     opacity: 1;
-    background-image: url("../images/bg2.svg") !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 3)),url("../images/bg2.svg") !important;
     background-size: 100vh !important;
     /* z-index: -1; */
 }
@@ -34,15 +34,15 @@ body {
 }
 
 .main .inner-root-login {
-    margin-top: 25% !important;
-    margin-bottom: 38% !important;
+    margin-top: 12vh !important;
+    margin-bottom: 39vh !important;
     /* z-index: 1; */
     border-color: black !important;
 }
 
 .main .inner-root {
-    margin-top: 20% !important;
-    margin-bottom: 31% !important;
+    margin-top: 12vh !important;
+    margin-bottom: 20vh !important;
     /* z-index: 1; */
 }
 
