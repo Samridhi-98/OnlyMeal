@@ -26,7 +26,6 @@ body {
     opacity: 1;
     background-image: linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 3)),url("../images/bg2.svg") !important;
     background-size: 100vh !important;
-    /* z-index: -1; */
 }
 
 .main .sideImg {
