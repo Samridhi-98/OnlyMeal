@@ -22,11 +22,10 @@ body {
 }
 
 .main {
-    height: 0% !important;
+    height: 100% !important;
     opacity: 1;
-    background-image: url("../images/bg2.svg") !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 3)),url("../images/bg2.svg") !important;
     background-size: 100vh !important;
-    /* z-index: -1; */
 }
 
 .main .sideImg {
@@ -35,7 +34,7 @@ body {
 
 .main .inner-root-login {
     margin-top: 12vh !important;
-    margin-bottom: 39.2vh !important;
+    margin-bottom: 39vh !important;
     /* z-index: 1; */
     border-color: black !important;
 }

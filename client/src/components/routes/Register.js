@@ -100,8 +100,8 @@ class Register extends React.Component {
                   {this.props.errorDetails.email = ""}
                 </Message>
               ) : (
-                  ""
-                )}
+                ""
+              )}
               <div className="ui raised segment">
                 <div>
                   {/* here when we click the submit button the handleSumbit will run and perform redux side of things

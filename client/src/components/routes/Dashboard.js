@@ -10,7 +10,7 @@ import { bindActionCreators } from "redux";
 import Carousel from "../../CarouselCard";
 
 //SEMANTIC-UI-REACT
-import { Item, Segment, Container, Grid, Rating, Label, Loader,Header} from "semantic-ui-react";
+import { Item, Segment, Container, Grid, Rating, Label, Loader, Header } from "semantic-ui-react";
 
 //NAVBAR
 import Navbar from "./Navbar";
@@ -23,100 +23,101 @@ import { fillDashboard } from "../../actions/index";
 
 class Dashboard extends React.Component {
 
-  state= {
-    expired:"",
-    loading:true
+  state = {
+    expired: "",
+    loading: true
   }
+
   //only run for the first time 
-  componentDidMount(){
+  componentDidMount() {
     Axios.get('/api')
-        .then((response)=>{
-          const data=response.data;
-          this.props.fillDashboard(data);
-          this.setState({loading:false})
-          //console.log("data has been delivered to client side");
-        })
-        .catch((error)=>{
-          //not a good approach . did this just for fun
-          console.log("bhag bdk",error);
-        })
+      .then((response) => {
+        const data = response.data;
+        this.props.fillDashboard(data);
+        this.setState({ loading: false })
+        //console.log("data has been delivered to client side");
+      })
+      .catch((error) => {
+        //not a good approach . did this just for fun
+        console.log("bhag bdk", error);
+      })
   }
   //! Adding data to recieved section of CURRENT USER 
-  addDataToRecieved(cardData){
-    
+  addDataToRecieved(cardData) {
+
     //console.log("availing data: ",cardData);
     Axios({
       url: "/api/recieve",
       method: "POST",
       //?  we can assign a key of object(key:val) to another object
-      data:{
-        cardData:cardData,
-        recieverId:this.props.authDetails.user.id
+      data: {
+        cardData: cardData,
+        recieverId: this.props.authDetails.user.id
       }
     })
-    .then(()=>{
-      //console.log("recieved data sent to server!!");
-      this.props.history.push("/foodinfo");
-      //console.log("foodInfo chala ya nhii!!");
-    })
-    .catch((err)=>{
-      console.log("recieved data didnt send",err);
-    })
+      .then(() => {
+        //console.log("recieved data sent to server!!");
+        this.props.history.push("/foodinfo");
+        //console.log("foodInfo chala ya nhii!!");
+      })
+      .catch((err) => {
+        console.log("recieved data didnt send", err);
+      })
   }
-  checkFood=(foodDate,category)=>{
-    const old= new Date(foodDate).getDate();
-    const curr=new Date().getDate();
+  checkFood = (foodDate, category) => {
+    const old = new Date(foodDate).getDate();
+    const curr = new Date().getDate();
     let isFresh;
-    if(new Date(foodDate).getFullYear() !== new Date().getFullYear()){
-        isFresh=false;
-        return isFresh;
+    if (new Date(foodDate).getFullYear() !== new Date().getFullYear()) {
+      isFresh = false;
+      return isFresh;
     }
-    if(category==="Cooked"){
-      isFresh = (curr-old<=1) ? true : false;
+    if (category === "Cooked") {
+      isFresh = (curr - old <= 1) ? true : false;
     }
-    else{
-      isFresh = (curr-old<=7) ? true : false;
+    else {
+      isFresh = (curr - old <= 7) ? true : false;
     }
     return isFresh;
   }
 
   render() {
     //console.log("in dashboard",this.props.cardDetails);
-    if(this.state.loading === true){
-      return(
+    if (this.state.loading === true) {
+      return (
         <div>
           <Loader active size="large"><strong>Loading </strong></Loader>
         </div>
       )
-      
+
     }
-    else{
+    else {
       const cardList = this.props.cardDetails.map((cardDetail) => {
         // const isFresh=(new Date().getDate()-new Date(cardDetail.date).getDate())>2 ? false : true;
-        const isFresh=this.checkFood(cardDetail.date,cardDetail.category);
+        const isFresh = this.checkFood(cardDetail.date, cardDetail.category);
         //console.log("difference of date: ",isFresh);
         // checking for date item older than 15 days will not be rendered
-        const date1=new Date(cardDetail.date).getTime();
-        const date2=new Date().getTime();
-        const timediff=Math.ceil((date2-date1)/(1000 * 3600 * 24));
+        const date1 = new Date(cardDetail.date).getTime();
+        const date2 = new Date().getTime();
+        const timediff = Math.ceil((date2 - date1) / (1000 * 3600 * 24));
         //console.log("-------timediff: "+timediff+ " date2-date1: "+(date2-date1));
-        if(timediff>15){
+        if (timediff > 15) {
           return;
         }
-        else{
+        else {
           return (
             <Grid.Column>
-              <Segment  raised className="details">
+              <Segment raised className="details">
                 {/* <Label color={isFresh ? "olive" : "red"} attached='bottom'>{isFresh ? "Available" : "Expired" }</Label> */}
                 <Item.Group divided>
                   <Item >
-                    <Item.Image 
-                      size="small" 
+                    <Item.Image
+                      size="small"
                       src={require(`../../images/cardimg/${cardDetail.image}`)}
                     />
                     <Item.Content>
-                      <Item.Header>{(cardDetail.title).toUpperCase()} 
-                        <Label className="freshcheck" basic size="small" color={isFresh ? "green" : "red"}>{isFresh ? "Available" : "Expired" }</Label>
+                      <Item.Header>{(cardDetail.title).toUpperCase()}
+                        <Label className="freshcheck" basic size="small" color={isFresh ? "green" : "red"}>{isFresh ? "Available" : "Expired"}</Label>
                         <Label color={(cardDetail.type === "Veg") ? "green" : "red"} attached="top right">{cardDetail.type}
                         </Label>
                       </Item.Header>
@@ -125,33 +126,33 @@ class Dashboard extends React.Component {
                           <Label className="labelcolor">{cardDetail.quantity}KG</Label>
                           <Label>{cardDetail.category}</Label>
                           <Label>{cardDetail.state}</Label>
-                          
-    
-    
+
+
+
                         </Label.Group>
                       </Item.Description>
                       {/* <Item.Meta>{cardDetail.date}</Item.Meta> */}
                       {/* <Item.Meta>{cardDetail.quantity}</Item.Meta> */}
                       <Item.Description>
-    
+
                         <p>
-                        <Header className="meta">
-                        <em>{cardDetail.other}</em>
-                        </Header>
-                        
+                          <Header className="meta">
+                            <em>{cardDetail.other}</em>
+                          </Header>
+
                         </p>
                       </Item.Description>
                       <Item.Extra>
-                      
+
                         {/* <Label className={ isFresh ? "medium ui green label" : "medium ui red label" } >{isFresh ? 'Available' : 'Expired'}</Label> */}
-                        <Link 
-                         //! Disable onclick: https://stackoverflow.com/questions/42755802/how-to-disable-a-link-in-reactjs?rq=1
+                        <Link
+                          //! Disable onclick: https://stackoverflow.com/questions/42755802/how-to-disable-a-link-in-reactjs?rq=1
                           className={isFresh ? "mini ui purple button" : "mini ui grey button disable-link"}
-                          onClick={()=>{this.addDataToRecieved(cardDetail)}}
-                          
-                          //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
-                          //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
-                          
+                          onClick={() => { this.addDataToRecieved(cardDetail) }}
+
+                        //? we cannt use {this.addDataToRecieved(cardDetaiils)} directly here.
+                        //! LINK : https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method
+
                         >Claim</Link>
                         <Rating className="rating-star" size="large" icon='star' defaultRating={3} maxRating={5} />
                       </Item.Extra>
@@ -162,12 +163,12 @@ class Dashboard extends React.Component {
             </Grid.Column>
           );
         }
-        
+
       });
-  
+
       return (
         <div >
-          <div> <Navbar/> </div>
+          <div> <Navbar /> </div>
           <Container className="dashboard ">
             {/* <Segment> */}
             <Carousel />
@@ -179,23 +180,23 @@ class Dashboard extends React.Component {
             </Grid>
           </Container>
         </div>
-  
+
       );
     }
-    
+
   }
 }
 // Passing data to our state
-const mapDispatchToProps = (dispatch)=>{
-  return bindActionCreators({fillDashboard},dispatch);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ fillDashboard }, dispatch);
 }
 //GETTING DATA FROM REACT
 const mapStateToProp = (state) => {
   return {
     cardDetails: state.cardDetails,
-    authDetails:state.authDetails
+    authDetails: state.authDetails
     // carouselFact: state.carouselFact
   };
 };
 
-export default connect(mapStateToProp,mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProp, mapDispatchToProps)(Dashboard);
